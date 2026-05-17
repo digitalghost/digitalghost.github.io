@@ -1,0 +1,330 @@
+/* ─── 战斗弹出层 ─── */
+
+.combat-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.combat-overlay.open {
+  display: flex;
+}
+
+.combat-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 7, 10, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.combat-panel {
+  position: relative;
+  width: 92vw;
+  max-width: 680px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--panel-heavy);
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+/* ─── 头部 ─── */
+
+.combat-header {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+}
+
+.combat-header h2 {
+  margin: 0 0 6px;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.combat-header p {
+  margin: 0;
+  font-family: var(--font-prose);
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ─── 状态条 ─── */
+
+.combat-status {
+  padding: 12px 24px;
+  display: flex;
+  gap: 16px;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.combat-status-bar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.combat-status-bar .bar-label {
+  font-size: 0.75rem;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+.combat-status-bar .bar-track {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.combat-status-bar .bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.combat-status-bar.bar-player .bar-fill {
+  background: linear-gradient(90deg, var(--green), #7ecba1);
+}
+
+.combat-status-bar.bar-enemy .bar-fill {
+  background: linear-gradient(90deg, var(--red), #d4887c);
+}
+
+/* ─── 战斗日志 ─── */
+
+.combat-log {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 120px;
+}
+
+.combat-log-entry {
+  font-family: var(--font-prose);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  padding: 4px 0;
+  color: var(--text);
+}
+
+.combat-log-entry.tone-positive {
+  color: var(--green);
+}
+
+.combat-log-entry.tone-negative {
+  color: var(--red);
+}
+
+.combat-log-entry.tone-neutral {
+  color: var(--gold);
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+.combat-log-entry.tone-warning {
+  color: var(--hl-mechanic);
+}
+
+/* ─── 动作区域 ─── */
+
+.combat-actions {
+  padding: 16px 24px 20px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.combat-btn {
+  padding: 10px 20px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.combat-btn:hover {
+  background: rgba(215, 177, 90, 0.12);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.combat-btn:active {
+  transform: scale(0.97);
+}
+
+.combat-btn.btn-primary {
+  background: rgba(215, 177, 90, 0.15);
+  border-color: var(--gold);
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.combat-btn.btn-primary:hover {
+  background: rgba(215, 177, 90, 0.25);
+}
+
+.combat-btn.btn-danger {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.combat-btn.btn-danger:hover {
+  background: rgba(186, 101, 87, 0.15);
+}
+
+.combat-btn.btn-roll {
+  background: rgba(126, 200, 227, 0.1);
+  border-color: var(--hl-attr);
+  color: var(--hl-attr);
+}
+
+.combat-btn.btn-roll:hover {
+  background: rgba(126, 200, 227, 0.2);
+}
+
+.combat-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ─── 武器选择 ─── */
+
+.combat-weapon-select {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.combat-weapon-select .weapon-option {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.82rem;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.combat-weapon-select .weapon-option:hover {
+  border-color: var(--gold-soft);
+  color: var(--text);
+}
+
+.combat-weapon-select .weapon-option.selected {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(215, 177, 90, 0.08);
+}
+
+/* ─── 对抗检定信息 ─── */
+
+.combat-opposed-info {
+  padding: 12px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+.opposed-side {
+  text-align: center;
+}
+
+.opposed-side .side-label {
+  font-size: 0.72rem;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.opposed-side .side-value {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.opposed-vs {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--dim);
+  font-style: italic;
+}
+
+/* ─── 结果展示 ─── */
+
+.combat-result {
+  padding: 20px 24px;
+  text-align: center;
+}
+
+.combat-result .result-text {
+  font-family: var(--font-prose);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.combat-result .result-text.result-win {
+  color: var(--green);
+}
+
+.combat-result .result-text.result-lose {
+  color: var(--red);
+}
+
+/* ─── 滚动条 ─── */
+
+.combat-log::-webkit-scrollbar {
+  width: 4px;
+}
+
+.combat-log::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.combat-log::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 2px;
+}
+
+/* ─── 骰子层在战斗弹出层之上 ─── */
+
+.combat-overlay.open ~ #dice-box-container {
+  z-index: 80;
+}
+
+.combat-overlay.open ~ .dice-results-panel {
+  z-index: 85;
+}
