@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>电子书库</title>
+<link rel="stylesheet" href="enhance-htmlbook/assets/css/fonts.css">
+<style>
+  /* ===== Reset & Base ===== */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg-page: #f5f0e8;
+    --bg-card: #faf7f0;
+    --bg-card-hover: #fffdf8;
+    --bg-header: #e8e0d0;
+    --text-primary: #2c2418;
+    --text-secondary: #5a4e3c;
+    --text-muted: #8a7e6c;
+    --accent: #8b4513;
+    --accent-light: #a0622d;
+    --border: #d4c8b0;
+    --border-light: #e2dace;
+    --shadow: rgba(44, 36, 24, 0.08);
+    --shadow-hover: rgba(44, 36, 24, 0.15);
+    --paper-texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    --cover-bg: #e2dace;
+    --cover-border: #c4b8a4;
+    --tag-bg: #ede5d8;
+    --tag-text: #6b5d4a;
+    --btn-html-bg: #6b5d4a;
+    --btn-html-text: #faf7f0;
+    --btn-pdf-bg: #faf7f0;
+    --btn-pdf-text: #6b5d4a;
+    --btn-pdf-border: #d4c8b0;
+    --divider: #d4c8b0;
+    --ornament: #b8a890;
+    --scrollbar-track: #e8e0d0;
+    --scrollbar-thumb: #c4b8a4;
+    /* 细腻纸张纹理 */
+    --paper-grain: url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  }
+
+  [data-theme="dark"] {
+    --bg-page: #1a1814;
+    --bg-card: #242018;
+    --bg-card-hover: #2c2820;
+    --bg-header: #1e1b16;
+    --text-primary: #e0d8c8;
+    --text-secondary: #b0a898;
+    --text-muted: #807868;
+    --accent: #c8956c;
+    --accent-light: #d4a87c;
+    --border: #3a3428;
+    --border-light: #302c24;
+    --shadow: rgba(0, 0, 0, 0.2);
+    --shadow-hover: rgba(0, 0, 0, 0.35);
+    --cover-bg: #2c2820;
+    --cover-border: #3a3428;
+    --tag-bg: #302c24;
+    --tag-text: #b0a898;
+    --btn-html-bg: #c8956c;
+    --btn-html-text: #1a1814;
+    --btn-pdf-bg: #242018;
+    --btn-pdf-text: #c8956c;
+    --btn-pdf-border: #3a3428;
+    --divider: #3a3428;
+    --ornament: #5a5040;
+    --scrollbar-track: #1e1b16;
+    --scrollbar-thumb: #3a3428;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'LXGW WenKai', serif;
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    line-height: 1.8;
+    min-height: 100vh;
+    background-image: var(--paper-grain);
+    background-size: cover;
+    background-attachment: fixed;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+  ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+  /* ===== Header ===== */
+  .site-header {
+    background: var(--bg-header);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+  }
+
+  .header-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: opacity 0.4s ease;
+  }
+
+  [data-theme="light"] .header-image-dark,
+  [data-theme="dark"] .header-image-light {
+    display: none;
+  }
+
+  .header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%);
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  /* 烛光粒子效果 */
+  .candle-light {
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(ellipse at center, 
+      rgba(255,200,100,0.15) 0%, 
+      rgba(255,160,60,0.08) 30%, 
+      transparent 60%);
+    border-radius: 50%;
+    animation: flicker 4s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .candle-light::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 80px;
+    background: radial-gradient(ellipse at center,
+      rgba(255,220,150,0.4) 0%,
+      rgba(255,180,80,0.2) 40%,
+      transparent 70%);
+    border-radius: 50%;
+    animation: flame 2s ease-in-out infinite;
+  }
+
+  /* 飘浮的尘埃粒子 - 更大更明显 */
+  .dust-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, rgba(255,230,180,0.9) 0%, rgba(255,200,100,0.4) 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(255,200,100,0.5);
+    animation: float 10s linear infinite;
+  }
+
+  .dust-particle:nth-child(1) { left: 15%; top: 65%; animation-delay: 0s; }
+  .dust-particle:nth-child(2) { left: 30%; top: 45%; animation-delay: 1.5s; }
+  .dust-particle:nth-child(3) { left: 50%; top: 75%; animation-delay: 3s; }
+  .dust-particle:nth-child(4) { left: 65%; top: 55%; animation-delay: 4.5s; }
+  .dust-particle:nth-child(5) { left: 75%; top: 70%; animation-delay: 6s; }
+  .dust-particle:nth-child(6) { left: 22%; top: 80%; animation-delay: 7.5s; }
+  .dust-particle:nth-child(7) { left: 42%; top: 60%; animation-delay: 9s; }
+  .dust-particle:nth-child(8) { left: 58%; top: 50%; animation-delay: 2s; }
+
+  @keyframes flicker {
+    0%, 100% { opacity: 0.8; transform: translateX(-50%) scale(1); }
+    25% { opacity: 0.9; transform: translateX(-50%) scale(1.05); }
+    50% { opacity: 0.7; transform: translateX(-50%) scale(0.95); }
+    75% { opacity: 0.85; transform: translateX(-50%) scale(1.02); }
+  }
+
+  @keyframes flame {
+    0%, 100% { transform: translate(-50%, -50%) scale(1) rotate(-2deg); }
+    25% { transform: translate(-50%, -50%) scale(1.1) rotate(2deg); }
+    50% { transform: translate(-50%, -50%) scale(0.95) rotate(-1deg); }
+    75% { transform: translate(-50%, -50%) scale(1.05) rotate(1deg); }
+  }
+
+  @keyframes float {
+    0% { 
+      transform: translateY(0) translateX(0); 
+      opacity: 0;
+    }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.6; }
+    100% { 
+      transform: translateY(-80px) translateX(20px); 
+      opacity: 0;
+    }
+  }
+
+  .header-ornament {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.2rem;
+    letter-spacing: 0.5em;
+    margin-bottom: 0.6rem;
+    user-select: none;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+
+  .site-title {
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 0.2em;
+    margin-bottom: 0.4rem;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+  }
+
+  .site-subtitle {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.15em;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+  }
+
+  .theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #fff;
+    transition: all 0.3s ease;
+    z-index: 10;
+    backdrop-filter: blur(4px);
+  }
+
+  .theme-toggle:hover {
+    background: rgba(0,0,0,0.55);
+    border-color: rgba(255,255,255,0.6);
+    color: #fff;
+    transform: rotate(15deg);
+  }
+
+  .theme-toggle .icon-sun,
+  .theme-toggle .icon-moon {
+    position: absolute;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  [data-theme="light"] .theme-toggle .icon-moon { opacity: 0; transform: rotate(-90deg) scale(0.5); }
+  [data-theme="light"] .theme-toggle .icon-sun { opacity: 1; transform: rotate(0deg) scale(1); }
+  [data-theme="dark"] .theme-toggle .icon-sun { opacity: 0; transform: rotate(90deg) scale(0.5); }
+  [data-theme="dark"] .theme-toggle .icon-moon { opacity: 1; transform: rotate(0deg) scale(1); }
+
+  /* ===== Main Content ===== */
+  .main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  .section-label {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 2.5rem;
+    position: relative;
+    transition: color 0.4s ease;
+  }
+
+  .section-label::before,
+  .section-label::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 80px;
+    height: 1px;
+    background: var(--divider);
+    transition: background 0.4s ease;
+  }
+
+  .section-label::before { right: calc(50% + 8em); }
+  .section-label::after { left: calc(50% + 8em); }
+
+  /* ===== Book Grid ===== */
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(520px, 1fr));
+    gap: 2rem;
+  }
+
+  @media (max-width: 600px) {
+    .book-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ===== Book Card ===== */
+  .book-card {
+    display: flex;
+    gap: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    padding: 1.5rem;
+    position: relative;
+    transition: all 0.35s ease;
+    box-shadow: 
+      0 1px 3px var(--shadow),
+      /* 古籍卡片内阴影 */
+      inset 0 1px 0 rgba(255,255,255,0.5),
+      inset 0 -1px 0 rgba(0,0,0,0.03);
+    overflow: hidden;
+  }
+
+  .book-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: var(--paper-texture);
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  /* 卡片边缘装饰线 - 古籍边框感 */
+  .book-card::after {
+    content: '';
+    position: absolute;
+    top: 8px; left: 8px; right: 8px; bottom: 8px;
+    border: 1px solid rgba(139,69,19,0.08);
+    border-radius: 3px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+
+  .book-card:hover::after {
+    opacity: 1;
+  }
+
+  .book-card:hover {
+    background: var(--bg-card-hover);
+    box-shadow: 
+      0 4px 16px var(--shadow-hover),
+      inset 0 1px 0 rgba(255,255,255,0.6);
+    transform: translateY(-2px);
+    border-color: var(--border);
+  }
+
+  /* ===== Book Cover with Book Shell ===== */
+  .book-cover {
+    flex-shrink: 0;
+    width: 150px;
+    height: 200px;
+    position: relative;
+    perspective: 600px;
+    transition: all 0.35s ease;
+  }
+
+  .book-shell {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    border-radius: 3px 6px 6px 3px;
+    box-shadow: 
+      /* 书页厚度阴影 */
+      2px 2px 0 rgba(0,0,0,0.1),
+      4px 4px 0 rgba(0,0,0,0.08),
+      6px 6px 0 rgba(0,0,0,0.05),
+      /* 整体投影 */
+      4px 6px 12px rgba(0,0,0,0.2),
+      /* 内阴影模拟书脊 */
+      inset -3px 0 8px rgba(0,0,0,0.15);
+    transition: all 0.35s ease;
+  }
+
+  .book-card:hover .book-shell {
+    transform: rotateY(-8deg) translateX(-4px);
+    box-shadow: 
+      3px 3px 0 rgba(0,0,0,0.1),
+      6px 6px 0 rgba(0,0,0,0.08),
+      9px 9px 0 rgba(0,0,0,0.05),
+      8px 12px 20px rgba(0,0,0,0.25),
+      inset -3px 0 8px rgba(0,0,0,0.15);
+  }
+
+  /* 书脊 */
+  .book-shell::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 18px;
+    background: linear-gradient(to right, 
+      #3a2f1f 0%, 
+      #4a3f2f 15%, 
+      #3a2f1f 40%, 
+      #2a1f0f 100%);
+    border-radius: 3px 0 0 3px;
+    box-shadow: 
+      inset -2px 0 4px rgba(0,0,0,0.4),
+      2px 0 3px rgba(0,0,0,0.2);
+    z-index: 2;
+  }
+
+  /* 书脊装饰线 */
+  .book-shell::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 15%;
+    bottom: 15%;
+    width: 2px;
+    background: linear-gradient(to bottom,
+      transparent 0%,
+      rgba(200,180,140,0.3) 20%,
+      rgba(200,180,140,0.3) 80%,
+      transparent 100%);
+    z-index: 3;
+  }
+
+  /* 封面图片容器 */
+  .book-cover-inner {
+    position: absolute;
+    left: 18px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #2a1f15;
+    border-radius: 0 4px 4px 0;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.3);
+  }
+
+  /* 封面边框装饰 */
+  .book-cover-inner::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    border: 1px solid rgba(180,160,120,0.2);
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* 书页边缘 */
+  .book-pages {
+    position: absolute;
+    right: -3px;
+    top: 3px;
+    bottom: 3px;
+    width: 6px;
+    background: linear-gradient(to right,
+      #e8e0d0 0%,
+      #f5f0e8 30%,
+      #e8e0d0 60%,
+      #d4c8b0 100%);
+    border-radius: 0 2px 2px 0;
+    box-shadow: inset -1px 0 2px rgba(0,0,0,0.1);
+    z-index: 1;
+  }
+
+  /* 书页纹理 */
+  .book-pages::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 2px,
+      rgba(0,0,0,0.03) 2px,
+      rgba(0,0,0,0.03) 3px
+    );
+  }
+
+  .book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 0 3px 3px 0;
+    /* 轻微旧书质感：只比原来暗一点点 */
+    filter: sepia(8%) contrast(1.02) brightness(0.97);
+    opacity: 0.96;
+  }
+
+  /* 封面轻微纹理叠加 */
+  .book-cover-inner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* 很淡的纸张纹理 */
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 3;
+    border-radius: 0 3px 3px 0;
+  }
+
+  .book-cover-inner {
+    position: absolute;
+    left: 18px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #f5f0e8;
+    border-radius: 0 4px 4px 0;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.2);
+  }
+
+  .cover-icon {
+    font-size: 2rem;
+    color: var(--ornament);
+    margin-bottom: 0.5rem;
+    transition: color 0.35s ease;
+  }
+
+  .book-card:hover .cover-icon {
+    color: var(--accent);
+  }
+
+  .cover-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    transition: color 0.35s ease;
+  }
+
+  /* ===== Book Info ===== */
+  .book-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+  }
+
+  .book-title {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+    line-height: 1.5;
+    transition: color 0.4s ease;
+  }
+
+  .book-author {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.8rem;
+    transition: color 0.4s ease;
+  }
+
+  .book-desc {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.4s ease;
+  }
+
+  .book-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .book-tag {
+    font-size: 0.72rem;
+    padding: 0.15rem 0.6rem;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    border-radius: 3px;
+    letter-spacing: 0.03em;
+    transition: all 0.3s ease;
+  }
+
+  /* ===== Action Buttons ===== */
+  .book-actions {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: auto;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 1rem;
+    font-family: 'LXGW WenKai', serif;
+    font-size: 0.82rem;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: 1px solid transparent;
+    letter-spacing: 0.03em;
+  }
+
+  .btn-html {
+    background: var(--btn-html-bg);
+    color: var(--btn-html-text);
+    border-color: var(--btn-html-bg);
+  }
+
+  .btn-html:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+  }
+
+  .btn-pdf {
+    background: var(--btn-pdf-bg);
+    color: var(--btn-pdf-text);
+    border-color: var(--btn-pdf-border);
+  }
+
+  .btn-pdf:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  .btn-icon {
+    font-size: 0.9rem;
+    line-height: 1;
+  }
+
+  /* ===== Footer ===== */
+  .site-footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    transition: all 0.4s ease;
+  }
+
+  .footer-ornament {
+    color: var(--ornament);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    letter-spacing: 0.4em;
+    user-select: none;
+    transition: color 0.4s ease;
+  }
+
+  /* ===== Animations ===== */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .book-card {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+  }
+
+  .book-card:nth-child(1) { animation-delay: 0.05s; }
+  .book-card:nth-child(2) { animation-delay: 0.1s; }
+  .book-card:nth-child(3) { animation-delay: 0.15s; }
+  .book-card:nth-child(4) { animation-delay: 0.2s; }
+  .book-card:nth-child(5) { animation-delay: 0.25s; }
+  .book-card:nth-child(6) { animation-delay: 0.3s; }
+  .book-card:nth-child(7) { animation-delay: 0.35s; }
+  .book-card:nth-child(8) { animation-delay: 0.4s; }
+  .book-card:nth-child(9) { animation-delay: 0.45s; }
+  .book-card:nth-child(10) { animation-delay: 0.5s; }
+  .book-card:nth-child(11) { animation-delay: 0.55s; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 768px) {
+    .site-header { padding: 2rem 1.5rem 1.5rem; }
+    .site-title { font-size: 1.6rem; letter-spacing: 0.1em; }
+    .main-content { padding: 1.5rem 1rem 3rem; }
+    .book-grid { gap: 1.5rem; }
+    .book-card { flex-direction: column; align-items: center; text-align: center; padding: 1.2rem; }
+    .book-cover { width: 120px; height: 160px; }
+    .book-tags { justify-content: center; }
+    .book-actions { justify-content: center; }
+    .section-label::before, .section-label::after { width: 40px; }
+    .section-label::before { right: calc(50% + 5em); }
+    .section-label::after { left: calc(50% + 5em); }
+    .theme-toggle { top: 1rem; right: 1rem; width: 36px; height: 36px; font-size: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <img class="header-image header-image-light" src="enhance-htmlbook/assets/header-light.jpg" alt="藏书馆">
+  <img class="header-image header-image-dark" src="enhance-htmlbook/assets/header-dark.jpg" alt="藏书馆">
+  <div class="header-overlay">
+    <!-- 烛光效果 -->
+    <div class="candle-light"></div>
+    <!-- 飘浮尘埃粒子 -->
+    <div class="dust-particle"></div>
+    <div class="dust-particle"></div>
+    <div class="dust-particle"></div>
+    <div class="dust-particle"></div>
+    <div class="dust-particle"></div>
+    <div class="dust-particle"></div>
+    <div class="dust-particle"></div>
+    <div class="dust-particle"></div>
+    <!-- 标题 -->
+    <div class="header-ornament">✦ ✦ ✦</div>
+    <h1 class="site-title">电 子 书 库</h1>
+    <p class="site-subtitle">TRPG 桌面角色扮演游戏 · 电子书合集</p>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+    <span class="icon-sun">☀</span>
+    <span class="icon-moon">☾</span>
+  </button>
+</header>
+
+<main class="main-content">
+  <div class="section-label">— 全 部 藏 书 —</div>
+  <div class="book-grid">
+
+    <!-- 1. 独行冒险家工具箱 -->
+    <article class="book-card">
+      <div class="book-cover">
+        <div class="book-shell">
+          <div class="book-cover-inner">
+            <img src="enhance-htmlbook/assets/covers/独行冒险家工具箱_封面.jpg" alt="独行冒险家工具箱" loading="lazy">
+          </div>
+          <div class="book-pages"></div>
+        </div>
+      </div>
+      <div class="book-info">
+        <h2 class="book-title">独行冒险家工具箱</h2>
+        <p class="book-author">保罗·宾勒 (Paul Bimler)</p>
+        <p class="book-desc">一套完整的无DM单人游玩D&D第五版工具集。包含随机遭遇表、任务生成器、城镇与野外遭遇表、商人表、NPC生成器等海量资源，结合简化的问答机制，让玩家可以开启数小时的无DM游戏体验。全书共18章，涵盖从旅行露营到战斗战利品的完整体系。</p>
+        <div class="book-tags">
+          <span class="book-tag">D&D 5E</span>
+          <span class="book-tag">单人游玩</span>
+          <span class="book-tag">工具集</span>
+        </div>
+        <div class="book-actions">
+          <a class="btn btn-html" href="enhance-htmlbook/独行冒险家工具箱_enhanced.html" target="_blank">
+            <span class="btn-icon">◎</span> 在线阅读
+          </a>
+          <a class="btn btn-pdf" href="enhance-htmlbook/独行冒险家工具箱_enhanced.pdf" target="_blank">
+            <span class="btn-icon">⬇</span> PDF 下载
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2. 血月启示录 -->
+    <article class="book-card">
+      <div class="book-cover">
+        <div class="book-shell">
+          <div class="book-cover-inner">
+            <img src="enhance-htmlbook/assets/covers/血月启示录_封面.jpg" alt="血月启示录" loading="lazy">
+          </div>
+          <div class="book-pages"></div>
+        </div>
+      </div>
+      <div class="book-info">
+        <h2 class="book-title">血月启示录</h2>
+        <p class="book-author">Alex T. (Blackoath Entertainment)</p>
+        <p class="book-desc">一款生存探索游戏，背景设定在被超自然生物席卷的末世世界。血月降临，黑夜无限延长，恶魔占据人类躯体。玩家扮演幸存者，搜集资源、制作物品、建造基地以抵御感染者潮。核心机制为六面骰技能判定，角色拥有五项属性，可通过经验值购买特长来成长。</p>
+        <div class="book-tags">
+          <span class="book-tag">生存</span>
+          <span class="book-tag">末世</span>
+          <span class="book-tag">D6</span>
+        </div>
+        <div class="book-actions">
+          <a class="btn btn-html" href="enhance-htmlbook/血月启示录_enhanced.html" target="_blank">
+            <span class="btn-icon">◎</span> 在线阅读
+          </a>
+          <a class="btn btn-pdf" href="enhance-htmlbook/血月启示录_enhanced.pdf" target="_blank">
+            <span class="btn-icon">⬇</span> PDF 下载
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3. 洞穴与地下墓穴 -->
+    <article class="book-card">
+      <div class="book-cover">
+        <div class="book-shell">
+          <div class="book-cover-inner">
+            <img src="enhance-htmlbook/assets/covers/洞穴与地下墓穴_封面.jpg" alt="洞穴与地下墓穴" loading="lazy">
+          </div>
+          <div class="book-pages"></div>
+        </div>
+      </div>
+      <div class="book-info">
+        <h2 class="book-title">洞穴与地下墓穴</h2>
+        <p class="book-author">古斯塔沃·科埃略 (Gustavo Coelho)</p>
+        <p class="book-desc">一款单人地牢探索游戏，仅需纸笔和若干六面骰。背景设定在奇幻世界埃吉翁，包含七种职业，聚焦于地牢探索、敌人战斗与宝藏收集。无需游戏棋盘，核心设计初衷是让经典地牢探索变得便携且支持单人游玩。</p>
+        <div class="book-tags">
+          <span class="book-tag">地牢探索</span>
+          <span class="book-tag">单人</span>
+          <span class="book-tag">D6</span>
+        </div>
+        <div class="book-actions">
+          <a class="btn btn-html" href="enhance-htmlbook/洞穴与地下墓穴_enhanced.html" target="_blank">
+            <span class="btn-icon">◎</span> 在线阅读
+          </a>
+          <a class="btn btn-pdf" href="enhance-htmlbook/洞穴与地下墓穴_enhanced.pdf" target="_blank">
+            <span class="btn-icon">⬇</span> PDF 下载
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 4. 浩劫地牢 -->
+    <article class="book-card">
+      <div class="book-cover">
+        <div class="book-shell">
+          <div class="book-cover-inner">
+            <img src="enhance-htmlbook/assets/covers/浩劫地牢_封面.jpg" alt="浩劫地牢" loading="lazy">
+          </div>
+          <div class="book-pages"></div>
+        </div>
+      </div>
+      <div class="book-info">
+        <h2 class="book-title">浩劫地牢</h2>
+        <p class="book-author">Kristoffer A. Silver / Brett H. Bernstein</p>
+        <p class="book-desc">一款设定在乌托邦未来世界的RPG。人类需求得到满足却极度无聊，远古地牢被发现后直播探险节目爆红。玩家扮演冒险者被派入地牢进行直播探险，使用两个十面骰进行百分比检定，包含身体部位生命值系统、三类武器体系及示例地牢"烈火试炼"。</p>
+        <div class="book-tags">
+          <span class="book-tag">科幻</span>
+          <span class="book-tag">D100</span>
+          <span class="book-tag">地牢</span>
+        </div>
+        <div class="book-actions">
+          <a class="btn btn-html" href="enhance-htmlbook/浩劫地牢_enhanced.html" target="_blank">
+            <span class="btn-icon">◎</span> 在线阅读
+          </a>
+          <a class="btn btn-pdf" href="enhance-htmlbook/浩劫地牢_enhanced.pdf" target="_blank">
+            <span class="btn-icon">⬇</span> PDF 下载
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 5. 死亡地带 -->
+    <article class="book-card">
+      <div class="book-cover">
+        <div class="book-shell">
+          <div class="book-cover-inner">
+            <img src="enhance-htmlbook/assets/covers/死亡地带_封面.jpg" alt="死亡地带" loading="lazy">
+          </div>
+          <div class="book-pages"></div>
+        </div>
+      </div>
+      <div class="book-info">
+        <h2 class="book-title">死亡地带</h2>
+        <p class="book-author">德雷克兄弟 (A Couple of Drakes)</p>
+        <p class="book-desc">"太空牛仔专属角色扮演游戏"，设定在2420年的太空边境。玩家扮演拾荒者，驾驶飞船进入"死亡地带"拆解废弃飞船谋生。灵感来源于《硬核太空：拆船模拟器》，需面对外星生物、敌对拾荒者、失控AI等多种威胁。待拆飞船按1-4级分类，等级越高风险与收益越大。</p>
+        <div class="book-tags">
+          <span class="book-tag">太空</span>
+          <span class="book-tag">科幻</span>
+          <span class="book-tag">拾荒</span>
+        </div>
+        <div class="book-actions">
+          <a class="btn btn-html" href="enhance-htmlbook/死亡地带_enhanced.html" target="_blank">
+            <span class="btn-icon">◎</span> 在线阅读
+          </a>
+          <a class="btn btn-pdf" href="enhance-htmlbook/死亡地带_enhanced.pdf" target="_blank">
+            <span class="btn-icon">⬇</span> PDF 下载
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 6. 暗影之痕 -->
+    <article class="book-card">
+      <div class="book-cover">
+        <div class="book-shell">
+          <div class="book-cover-inner">
+            <img src="enhance-htmlbook/assets/covers/暗影之痕_封面.jpg" alt="暗影之痕" loading="lazy">
+          </div>
+          <div class="book-pages"></div>
+        </div>
+      </div>
+      <div class="book-info">
+        <h2 class="book-title">暗影之痕</h2>
+        <p class="book-author">冈纳·阿尔姆 (Gunner Almr)</p>
+        <p class="book-desc">一款18+单人RPG，设定在阴森黑暗的奇幻中世纪世界。玩家探索"黑暗荒野"——一片环绕暗影之痕镇的广袤死亡森林。镇民无法逃离，正遭受无尽寒冬的折磨。包含角色创建、任务系统、六边形巢穴探索、战斗系统、城镇管理、魔法与信仰等丰富内容。</p>
+        <div class="book-tags">
+          <span class="book-tag">黑暗奇幻</span>
+          <span class="book-tag">单人</span>
+          <span class="book-tag">生存</span>
+        </div>
+        <div class="book-actions">
+          <a class="btn btn-html" href="enhance-htmlbook/暗影之痕_enhanced.html" target="_blank">
+            <span class="btn-icon">◎</span> 在线阅读
+          </a>
+          <a class="btn btn-pdf" href="enhance-htmlbook/暗影之痕_enhanced.pdf" target="_blank">
+            <span class="btn-icon">⬇</span> PDF 下载
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 7. 独战废土 -->
+    <article class="book-card">
+      <div class="book-cover">
+        <div class="book-shell">
+          <div class="book-cover-inner">
+            <img src="enhance-htmlbook/assets/covers/独战废土_封面.jpg" alt="独战废土" loading="lazy">
+          </div>
+          <div class="book-pages"></div>
+        </div>
+      </div>
+      <div class="book-info">
+        <h2 class="book-title">独战废土</h2>
+        <p class="book-author">Alexey Aparin / Andrea Sfiligoi</p>
+        <p class="book-desc">一款单人生存冒险游戏，设定在破碎的隔离禁区，灵感源自东欧科幻作品。废土中万物会变形、会记忆，变异生物游荡，现实也会弯曲消失。玩家扮演独行特工，追寻"废土回响"以解锁最终任务。包含9个探索区域、6个回响任务及多种遭遇表。</p>
+        <div class="book-tags">
+          <span class="book-tag">废土</span>
+          <span class="book-tag">科幻</span>
+          <span class="book-tag">单人</span>
+        </div>
+        <div class="book-actions">
+          <a class="btn btn-html" href="enhance-htmlbook/独战废土_enhanced.html" target="_blank">
+            <span class="btn-icon">◎</span> 在线阅读
+          </a>
+          <a class="btn btn-pdf" href="enhance-htmlbook/独战废土_enhanced.pdf" target="_blank">
+            <span class="btn-icon">⬇</span> PDF 下载
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 8. 破碎海岸 -->
+    <article class="book-card">
+      <div class="book-cover">
+        <div class="book-shell">
+          <div class="book-cover-inner">
+            <img src="enhance-htmlbook/assets/covers/破碎海岸_封面.jpg" alt="破碎海岸" loading="lazy">
+          </div>
+          <div class="book-pages"></div>
+        </div>
+      </div>
+      <div class="book-info">
+        <h2 class="book-title">破碎海岸</h2>
+        <p class="book-author">亚历克斯·T. (Alex T.)</p>
+        <p class="book-desc">一款以D100为核心机制的黑暗奇幻RPG，设定在后末日世界泽弗罗斯——远古灾难后世界沦为汪洋地狱，淡水比血更珍贵。玩家扮演"漂泊者"，探索随机生成的海洋，从废弃船只与小岛中搜刮物资。支持1GM+1PC及单人模式，包含六边形地图探索、神核碎片争夺与危险巫术系统。</p>
+        <div class="book-tags">
+          <span class="book-tag">黑暗奇幻</span>
+          <span class="book-tag">D100</span>
+          <span class="book-tag">海洋</span>
+        </div>
+        <div class="book-actions">
+          <a class="btn btn-html" href="enhance-htmlbook/破碎海岸_enhanced.html" target="_blank">
+            <span class="btn-icon">◎</span> 在线阅读
+          </a>
+          <a class="btn btn-pdf" href="enhance-htmlbook/破碎海岸_enhanced.pdf" target="_blank">
+            <span class="btn-icon">⬇</span> PDF 下载
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 9. 穿越千亡世界 -->
+    <article class="book-card">
+      <div class="book-cover">
+        <div class="book-shell">
+          <div class="book-cover-inner">
+            <img src="enhance-htmlbook/assets/covers/穿越千亡世界_封面.jpg" alt="穿越千亡世界" loading="lazy">
+          </div>
+          <div class="book-pages"></div>
+        </div>
+      </div>
+      <div class="book-info">
+        <h2 class="book-title">穿越千亡世界</h2>
+        <p class="book-author">亚历克斯·T. (Alex T.)</p>
+        <p class="book-desc">一款科幻探险RPG，设定在2085年的卡鲁姆空间站。玩家扮演"深空潜水员"，登上神秘外星种族"阿尔赛德人"留下的飞船，探索浩瀚宇宙中无数死亡世界。使用D20系统，包含任务安排、探险地点随机生成、异种人类学文物收集、恐怖事件应对等核心玩法。</p>
+        <div class="book-tags">
+          <span class="book-tag">科幻</span>
+          <span class="book-tag">D20</span>
+          <span class="book-tag">探索</span>
+        </div>
+        <div class="book-actions">
+          <a class="btn btn-html" href="enhance-htmlbook/穿越千亡世界_enhanced.html" target="_blank">
+            <span class="btn-icon">◎</span> 在线阅读
+          </a>
+          <a class="btn btn-pdf" href="enhance-htmlbook/穿越千亡世界_enhanced.pdf" target="_blank">
+            <span class="btn-icon">⬇</span> PDF 下载
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 10. 失落之境编年史 -->
+    <article class="book-card">
+      <div class="book-cover">
+        <div class="book-shell">
+          <div class="book-cover-inner">
+            <img src="enhance-htmlbook/assets/covers/失落之境编年史_封面.jpg" alt="失落之境编年史" loading="lazy">
+          </div>
+          <div class="book-pages"></div>
+        </div>
+      </div>
+      <div class="book-info">
+        <h2 class="book-title">失落之境编年史</h2>
+        <p class="book-author">西蒙娜·阿格雷斯塔 (Simone Agresta)</p>
+        <p class="book-desc">专为《暗影黑暗》设计的无GM补充规则，核心目的是替代裁判角色使玩家能够无GM进行游戏。呈现了一个介于高奇幻与黑暗奇幻之间的世界观，涵盖等级系统、时间流逝、抽象与网格战斗、怪物生成等完整体系，兼容外部素材《口袋之地》。</p>
+        <div class="book-tags">
+          <span class="book-tag">Shadowdark</span>
+          <span class="book-tag">无GM</span>
+          <span class="book-tag">补充规则</span>
+        </div>
+        <div class="book-actions">
+          <a class="btn btn-html" href="enhance-htmlbook/失落之境编年史_enhanced.html" target="_blank">
+            <span class="btn-icon">◎</span> 在线阅读
+          </a>
+          <a class="btn btn-pdf" href="enhance-htmlbook/失落之境编年史_enhanced.pdf" target="_blank">
+            <span class="btn-icon">⬇</span> PDF 下载
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 11. 对抗黑风 -->
+    <article class="book-card">
+      <div class="book-cover">
+        <div class="book-shell">
+          <div class="book-cover-inner">
+            <img src="enhance-htmlbook/assets/covers/对抗黑风_封面.jpg" alt="对抗黑风" loading="lazy">
+          </div>
+          <div class="book-pages"></div>
+        </div>
+      </div>
+      <div class="book-info">
+        <h2 class="book-title">对抗黑风</h2>
+        <p class="book-author">詹妮弗·布罗泽克 (Jennifer Brozek)</p>
+        <p class="book-desc">《诡镇奇谈》系列中篇小说，设定在1920年代阿卡姆的克苏鲁神话故事。精神科医生卡洛琳·费恩接诊了一位奇怪的病人约瑟芬·拉格尔斯——她的背上每晚都会出现神秘的流血文字，而这一切似乎与已故病人玛拉基有着诡异的联系。医生被迫卷入一场超越理智的调查，直面那些不该存在的恐怖真相。</p>
+        <div class="book-tags">
+          <span class="book-tag">克苏鲁</span>
+          <span class="book-tag">诡镇奇谈</span>
+          <span class="book-tag">小说</span>
+        </div>
+        <div class="book-actions">
+          <a class="btn btn-html" href="enhance-htmlbook/对抗黑风_enhanced.html" target="_blank">
+            <span class="btn-icon">◎</span> 在线阅读
+          </a>
+          <a class="btn btn-pdf" href="enhance-htmlbook/对抗黑风_enhanced.pdf" target="_blank">
+            <span class="btn-icon">⬇</span> PDF 下载
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-ornament">✦ ✦ ✦</div>
+  <p>TRPG 电子书库 · 共 11 本藏书</p>
+</footer>
+
+<script>
+  function toggleTheme() {
+    const html = document.documentElement;
+    const current = html.getAttribute('data-theme');
+    const next = current === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  }
+
+  // Restore saved theme
+  (function() {
+    const saved = localStorage.getItem('theme');
+    if (saved) {
+      document.documentElement.setAttribute('data-theme', saved);
+    }
+  })();
+</script>
+
+</body>
+</html>

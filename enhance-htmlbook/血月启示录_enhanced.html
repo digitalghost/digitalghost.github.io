@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>血月启示录</title>
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<div id="progress-bar"></div>
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<button id="menu-toggle" aria-label="打开目录">☰</button>
+<div id="sidebar-overlay"></div>
+<div id="sidebar">
+  <div id="sidebar-header"></div>
+  <ul id="toc"></ul>
+</div>
+<div id="main"><div id="content">
+    <!-- 由 MD→HTML 工具生成，基于文件: 血月启示录_文本.md -->
+    <h1 id="血月启示录（blood-moon-apocalypse）">血月启示录（Blood Moon Apocalypse）</h1>
+<p><strong>版权信息</strong><br>作者：Alex T.<br>文本版权 © 2023 Blackoath Entertainment<br>封面插画：Awanpena<br>插画：Shole 333、Awapena<br>排版：Alex T.<br>本作品创作得益于赞助者支持，万分感谢！<br>官网：<a href="http://www.patreon.com/blackoathgames">www.patreon.com/blackoathgames</a><br>知识共享署名4.0国际许可协议：只要注明出处，可自由分享与改编本内容<br>游戏表格下载：<a href="http://www.blackoathgames.com">www.blackoathgames.com</a><br>邮箱：<a href="mailto:blackoathentertainment@gmail.com">blackoathentertainment@gmail.com</a></p>
+<h2 id="目录">目录</h2>
+<p>欢迎来到启示录！（WELCOME TO THE APOCALYPSE!）……………………7<br>你的幸存者（YOUR SURVIVOR）……………………………………………9<br>游戏玩法（PLAYING THE GAME）………………………………………11<br>你的基地（Your Home Base）………………………………………13<br>探索启示录世界（Exploring the Apocalypse）……………………17<br>装备（Gear）………………………………………………………22</p>
+<hr>
+<h1 id="欢迎来到启示录！（welcome-to-the-apocalypse）">欢迎来到启示录！（WELCOME TO THE APOCALYPSE!）</h1>
+<p>“我要在天上地下显示神迹：有血、有火、有烟柱。日头要变为黑暗，月亮要变为血，这都在耶和华大而可畏的日子未到以前。”<br>——《约珥书》2:30-31</p>
+<p>《血月启示录（Blood Moon Apocalypse）》是一款生存探索游戏，背景设定在被超自然生物席卷的世界。玩家需在末世环境中搜集资源、建造行动基地以求生存。</p>
+<p>末世之初，<strong>血月（Blood Moon）</strong> 突然降临——天文学家本应是普通满月，因此人们视其为末日征兆。黑夜无限延长，世界陷入永恒的赤色暮光，血月如赤色巨眼悬于天际，审判人类罪孽。全球暴力袭击、被附身者目击报告激增。人们很快意识到，血月不只是预兆，更是邪恶降临的信使。</p>
+<p>袭击迅速升级，恶魔力量占据大量人类躯体，将其变为嗜血无情的杀手。被附身者拥有非人力量、速度与韧性，几乎无法阻挡。政府与军方试图遏制，但无力应对超自然威胁。恐慌与混乱蔓延，人们为求生开始劫掠与暴力。传言称血月打开了地狱之门，释放恶魔大军。它们占据最脆弱人类的躯体，作为执行意志的容器。数周后，幸存者抱团求生，在危险新世界寻找生路。</p>
+<p>在游戏中，你将扮演一名幸存者，在恶魔降临的末世中挣扎求生。探索世界时，你必须面对成群被附身者——毫无理智、只为杀戮的野蛮野兽。更糟的是，被附身者虽是主要威胁，却并非唯一……每种生物都有独特能力与优势，你必须调整策略与战术应对。</p>
+<p>为了生存，你必须搜集<strong>食物、水源、武器</strong>等资源。游戏包含<strong>制作系统（crafting system）</strong>，可用搜集资源制作物品。制作等级越高，可造武器与物品越强。</p>
+<p>所有行动都围绕<strong>基地（Home Base）<strong>展开，你必须用防御建筑与陷阱加固基地——恶魔无论你是否准备好都会来袭。基地可逐步升级，解锁</strong>制作台、医疗中心</strong>等设施。你将从基地出发，探索周边区域，搜集对抗感染者潮所需的一切资源。</p>
+<p>被附身者毫无理智，只受暴力驱使，无法沟通。传言存在更强大的被附身者，但你尚未遇见——切勿放松警惕。它们虽无脑，却极度残暴，且数量以十亿计。背起背包、拿起武器，为生命而战吧——这是启示录，没人会来救你。</p>
+<hr>
+<h1 id="你的幸存者（your-survivor）">你的幸存者（YOUR SURVIVOR）</h1>
+<p>在《血月启示录》中，你操控一名末日幸存者。角色可设定为任意年龄、性别、种族，外观可自由想象，不影响游戏数值。本章将介绍角色能力与成长方式。</p>
+<h2 id="属性（attributes）">属性（Attributes）</h2>
+<p>幸存者由**属性（Attributes）**定义，通过属性与世界互动、应对末世挑战。属性越高，生存几率越大。</p>
+<ul>
+<li><strong>体质（Constitution, CON）</strong>：承受物理压力与伤害的能力，直接决定可承受创伤数——等于体质值。初始3点。</li>
+<li><strong>敏捷（Dexterity, DEX）</strong>：灵巧与手部操作能力，也控制枪械远程攻击。初始2点。</li>
+<li><strong>毅力（Grit, GRI）</strong>：勇气与决心，往往决定生死。毅力为特殊货币：可重掷任意失败判定。掷出全6获得1点毅力；掷出全1立刻失去1点毅力。初始3点。</li>
+<li><strong>智力（Intelligence, INT）</strong>：心智任务与快速思考的能力，主导<strong>搜集（scavenging）<strong>与</strong>制作（crafting）</strong>。初始2点。</li>
+<li><strong>力量（Strength, STR）</strong>：角色力量值，决定举重、破坏等体力表现，影响负重，最关键的是决定近战武器使用能力。初始2点。</li>
+</ul>
+<h2 id="特长（perks）">特长（Perks）</h2>
+<p>**特长（Perks）<strong>是独特能力与天赋，让幸存者在特定场景获得优势。通过</strong>经验值（XP）<strong>购买，建造</strong>图书馆（Library）**后解锁。每个特长花费10 XP。</p>
+<ul>
+<li><strong>精准（Accurate）</strong>：弹药消耗-1，最低为1。</li>
+<li><strong>敏捷（Agile）</strong>：+1敏捷，可重复选取，但每次花费翻倍。</li>
+<li><strong>强壮（Brawny）</strong>：+1力量，可重复选取，但每次花费翻倍。</li>
+<li><strong>聪慧（Bright）</strong>：+1智力，可重复选取，但每次花费翻倍。</li>
+<li><strong>铜墙铁壁（Built Like a Brick Wall）</strong>：+1体质，可重复选取，但每次花费翻倍。</li>
+<li><strong>冲锋（Charge）</strong>：战斗中难度值+1，但每次判定可忽略1个掷出的1。</li>
+<li><strong>巧手（Handyman）</strong>：制作判定时可重掷1颗骰子。</li>
+<li><strong>勇敢（Plucky）</strong>：最大毅力+1。</li>
+<li><strong>拾荒者（Scrounger）</strong>：搜集判定时可重掷1颗骰子。</li>
+<li><strong>（原文残缺）</strong>：载具旅行时燃料消耗-1。</li>
+</ul>
+<h2 id="初始装备（starting-gear）">初始装备（Starting Gear）</h2>
+<p>角色开局在基地拥有以下物品：</p>
+<ul>
+<li>6份口粮（Rations）</li>
+<li>1把格斗刀（Combat knife）</li>
+<li>1把手枪（Pistol）</li>
+<li>3发弹药（Ammo）</li>
+<li>3份医疗物资（Medical Supplies）</li>
+<li>10份制作材料（Crafting Supplies）</li>
+</ul>
+<h2 id="物品与资源携带（carrying-items-and-resources）">物品与资源携带（Carrying Items and Resources）</h2>
+<p>负重上限由<strong>力量</strong>决定：可携带物品数=力量×10。<strong>已装备武器不占空间</strong>。</p>
+<h2 id="经验值获取（earning-experience-points-xp）">经验值获取（Earning Experience Points, XP）</h2>
+<p>提升角色需积累经验值，通过<strong>探索</strong>获取：</p>
+<ol>
+<li>成功探索1个地点（击败感染者 或 获取任意资源）→ 1 XP</li>
+<li>随机事件触发战斗并存活 → 1 XP</li>
+</ol>
+<hr>
+<h1 id="游戏玩法（playing-the-game）">游戏玩法（PLAYING THE GAME）</h1>
+<p>“羔羊揭开第六印的时候，我又看见地大震动，日头变黑像毛布，满月变红像血。”<br>——《启示录》6:12</p>
+<p>你的目标很简单：<strong>尽可能活下去</strong>。为此你需要探索周边，搜集建造完善基地的材料，同时击退感染者潮。本章将介绍成为优秀幸存者的所有规则。</p>
+<h2 id="核心机制（the-core-mechanic）">核心机制（The Core Mechanic）</h2>
+<p>所有行动都需要<strong>技能判定（skill check）</strong>：</p>
+<ol>
+<li>从属性对应的骰子池选择若干**六面骰（D6）**掷出</li>
+<li>计算总数，达到或超过**难度值（Threshold Number, TN，通常为5）**则判定成功</li>
+<li>若总数低于难度值则判定失败，战斗中会受伤，或承受其他负面效果</li>
+<li><strong>关键规则</strong>：掷出任意1则<strong>直接判定失败</strong>，无视总点数</li>
+<li>可选择“冒险”追加骰子，但会提升掷出1的概率</li>
+</ol>
+<p>常见技能判定：</p>
+<ul>
+<li>制作：智力</li>
+<li>抵抗伤害：体质</li>
+<li>远程战斗：敏捷</li>
+<li>近战战斗：力量</li>
+<li>搜集：智力</li>
+</ul>
+<p><strong>示例</strong>：理查德探索基地附近商场，遭遇普通感染者，难度值5。他手持斧头，用敏捷（3点）攻击。他先掷1颗骰子得4，差一点成功；追加1颗，不幸掷出1，判定失败，被咬伤受伤。</p>
+<h2 id="战斗（combat）">战斗（Combat）</h2>
+<p>战斗遵循普通技能判定规则：用对应属性对抗难度值（默认5）。无论判定是否成功，对手都会被击败；<strong>失败则你受到1点创伤</strong>。</p>
+<p>幸存者可承受创伤数=<strong>体质值</strong>。</p>
+<p>远程武器（枪械）相比近战有优势：战斗判定掷出6可抵消1个1。这是多数幸存者偏爱枪械的原因，即便需要持续补充弹药。<strong>枪械唯一缺点是噪音</strong>：每次使用枪械战斗，<strong>围攻潜力（Siege Potential）+1</strong>，会吸引感染者追踪至基地。</p>
+<h2 id="治疗（healing）">治疗（Healing）</h2>
+<ul>
+<li><strong>基地治疗</strong>：在基地休息一整天 + 1份医疗物资 → 治愈1点创伤，治疗期间无法进行其他活动</li>
+<li><strong>野外急救</strong>：花费3份医疗物资 + 智力判定（难度值6）→ 治愈1点创伤，每次探索只能用1次</li>
+</ul>
+<h2 id="游戏回合（the-game-turn）">游戏回合（The Game Turn）</h2>
+<p>游戏以<strong>回合</strong>为单位，1回合=1整天，每天只能执行<strong>1项行动</strong>：</p>
+<ol>
+<li><strong>探索（Explore）</strong>：前往新地点，寻找有价值物品</li>
+<li><strong>制作（Craft）</strong>：花费一整天制作实用物品</li>
+<li><strong>建造（Build）</strong>：搭建新设施</li>
+<li><strong>基地劳作（Work Base）</strong>：产生1点<strong>劳动力（Labor）</strong></li>
+</ol>
+<p><strong>强制规则</strong>：幸存者每天必须消耗<strong>1份口粮</strong>，否则会陷入饥饿惩罚。</p>
+<hr>
+<h1 id="你的基地（your-home-base）">你的基地（Your Home Base）</h1>
+<p>金窝银窝不如自己的狗窝。你的基地可能是几间安全公寓、计划加固的农场，或是有潜力的加油站。无论曾经是什么，它都是你末世生存的唯一希望。</p>
+<p>基地初始可存储<strong>100件物品</strong>（制作材料、弹药、口粮、装备等），可通过建造**储藏棚（Storage Shed）**升级扩容。</p>
+<h2 id="基地每日事件（daily-home-base-events）">基地每日事件（Daily Home Base Events）</h2>
+<p>若当天留在基地，回合开始时掷骰判定<strong>基地每日事件</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>掷骰</th>
+<th>事件效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1-5</td>
+<td>一只流浪感染者靠近基地，最好处理掉它（难度值5）</td>
+</tr>
+<tr>
+<td>6-8</td>
+<td>一群幸存者前来寻求交易，愿意用最多3弹药、2医疗物资交换2口粮</td>
+</tr>
+<tr>
+<td>9</td>
+<td>过去的苦难与事件侵袭心智，失去1毅力</td>
+</tr>
+<tr>
+<td>10</td>
+<td>一群掠夺者试图潜入基地，必须阻止他们（难度值5，2场战斗）</td>
+</tr>
+<tr>
+<td>11</td>
+<td>有人投掷燃烧瓶引发火灾，损失D6制作材料</td>
+</tr>
+<tr>
+<td>12</td>
+<td>损失3制作材料、2医疗物资</td>
+</tr>
+<tr>
+<td>13</td>
+<td>某设施被破坏（随机决定），需花费1劳动力、2制作材料修复，修复前无法使用</td>
+</tr>
+<tr>
+<td>14</td>
+<td>睡觉时遭偷窃，损失2医疗物资、2口粮、2弹药</td>
+</tr>
+<tr>
+<td>15</td>
+<td>一名濒死幸存者倒在基地前。选择救助需花费2医疗物资，掷D6：5+可获得其隐藏物资（3医疗物资、2制作材料、2燃料）</td>
+</tr>
+<tr>
+<td>16</td>
+<td>鼠患爆发，损失D10口粮</td>
+</tr>
+<tr>
+<td>17</td>
+<td>（原文残缺）</td>
+</tr>
+<tr>
+<td>18</td>
+<td>意外触发自身陷阱，受到1点创伤；无陷阱则忽略此事件</td>
+</tr>
+<tr>
+<td>19</td>
+<td>（原文残缺）</td>
+</tr>
+<tr>
+<td>20+</td>
+<td>感染者大群突袭，基地面临围攻，围攻潜力重置为0</td>
+</tr>
+</tbody></table>
+<h2 id="设施（facilities）">设施（Facilities）</h2>
+<p>设施是末世成功的关键，必须花费<strong>资源（电子元件/制作材料）<strong>与</strong>劳动力</strong>建造。</p>
+<h3 id="设施列表">设施列表</h3>
+<ul>
+<li><strong>自动炮塔（Automatic Turret）</strong>：劳动力3 / 资源10电子元件+20制作材料；基地被围攻时立即击杀D4感染者，消耗2弹药</li>
+<li><strong>车库（Garage）</strong>：劳动力5 / 资源10电子元件+30制作材料；解锁载具，探索旅行时间减半（最低1天），每天旅行消耗1燃料，围攻潜力+1/天，额外携带20件物品</li>
+<li><strong>花园（Garden）</strong>：劳动力10 / 资源30制作材料；每3天被动产出1份口粮</li>
+<li><strong>发电机（Generator）</strong>：劳动力5 / 资源30电子元件+50制作材料；1燃料兑换1劳动力，使用每天围攻潜力+1</li>
+<li><strong>图书馆（Library）</strong>：劳动力5 / 资源10电子元件+30制作材料；解锁特长学习</li>
+<li><strong>医疗诊所（Medical Clinic）</strong>：劳动力10 / 资源30电子元件+50制作材料；花费3医疗物资即可立即治愈1点创伤，无需休息一整天</li>
+<li><strong>储藏棚（Storage Shed）</strong>：劳动力1 / 资源20制作材料；基地存储量+100</li>
+<li><strong>陷阱（Trap）</strong>：劳动力1 / 资源10制作材料；基地被围攻时立即击杀D6感染者，围攻后需重建</li>
+<li><strong>瞭望塔（Watchtower）</strong>：劳动力5 / 资源10电子元件+30制作材料；提前发现感染者聚集，战斗行动可降低围攻潜力-1，失败则+1</li>
+<li><strong>工坊（Workshop）</strong>：劳动力2 / 资源10电子元件+20制作材料；可制作装备栏所有物品，花费2制作材料造1弹药；制作需智力判定（难度值5），失败仅浪费一天</li>
+</ul>
+<h2 id="围攻（siege）">围攻（Siege）</h2>
+<p>感染者会被基地活动吸引，用**围攻潜力（Siege Potential）**追踪。</p>
+<h3 id="围攻潜力增加规则">围攻潜力增加规则</h3>
+<ul>
+<li>制作每天+1</li>
+<li>部分设施使用后固定增加</li>
+<li>无围攻的每天+1</li>
+<li>载具探索每天+1</li>
+<li>部分随机事件固定增加</li>
+</ul>
+<p>围攻结束后<strong>围攻潜力重置为0</strong>。</p>
+<h3 id="围攻判定">围攻判定</h3>
+<p>每周必须进行<strong>围攻判定</strong>：掷D10+围攻潜力，结果≥25则触发围攻。</p>
+<h3 id="围攻流程">围攻流程</h3>
+<ol>
+<li>感染者数量=围攻潜力÷2（向上取整）</li>
+<li>获得D6次免费攻击，失败不受伤</li>
+<li>击退所有感染者即成功</li>
+<li>存活奖励：+D6劳动力</li>
+</ol>
+<hr>
+<h1 id="探索启示录世界（exploring-the-apocalypse）">探索启示录世界（Exploring the Apocalypse）</h1>
+<p>迟早你必须离开安全基地，外出寻找物资。核心目标是搜集生存关键资源。</p>
+<h2 id="资源（resources）">资源（Resources）</h2>
+<ul>
+<li><strong>口粮（Rations）</strong>：食物与水源，维持生存。3天不进食，之后每饿1天，所有判定总点数-对应天数</li>
+<li><strong>弹药（Ammo）</strong>：枪械使用必需品，每次射击消耗1发；无弹药只能用近战</li>
+<li><strong>燃料（Fuel）</strong>：载具旅行必备，每天旅行消耗1燃料</li>
+<li><strong>电子元件（Electronics）</strong>：制作高级物品的电气组件</li>
+<li><strong>医疗物资（Medical Supplies）</strong>：治疗创伤，1份治愈1点创伤</li>
+<li><strong>制作材料（Crafting Supplies）</strong>：制作/修复工具、建筑的基础材料</li>
+</ul>
+<h2 id="探索流程（exploration）">探索流程（Exploration）</h2>
+<ol>
+<li>将基地标记在探索纸中央</li>
+<li>生成地点连接路径（无游戏影响）</li>
+<li>掷<strong>随机方向表</strong>确定下一个地点方向</li>
+<li>选择路径进入新地点</li>
+<li>掷<strong>地点表</strong>获取地点信息，成功**搜集判定（智力，难度值5）**获得资源</li>
+<li>无法携带的物品可留下，但返回时掷D6：5+则被他人拿走</li>
+</ol>
+<h3 id="区域连接数表（d6-area-links）">区域连接数表（D6 AREA LINKS）</h3>
+<table>
+<thead>
+<tr>
+<th>掷骰</th>
+<th>连接数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>一条</td>
+</tr>
+<tr>
+<td>2-4</td>
+<td>两条</td>
+</tr>
+<tr>
+<td>5-6</td>
+<td>三条</td>
+</tr>
+</tbody></table>
+<h3 id="随机方向表（random-direction-d8）">随机方向表（RANDOM DIRECTION D8）</h3>
+<table>
+<thead>
+<tr>
+<th>掷骰</th>
+<th>方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>北</td>
+</tr>
+<tr>
+<td>2</td>
+<td>东北</td>
+</tr>
+<tr>
+<td>3</td>
+<td>东</td>
+</tr>
+<tr>
+<td>4</td>
+<td>东南</td>
+</tr>
+<tr>
+<td>5</td>
+<td>南</td>
+</tr>
+<tr>
+<td>6</td>
+<td>西南</td>
+</tr>
+<tr>
+<td>7</td>
+<td>西</td>
+</tr>
+<tr>
+<td>8</td>
+<td>西北</td>
+</tr>
+</tbody></table>
+<h3 id="地点表（d20-location）">地点表（D20 LOCATION）</h3>
+<table>
+<thead>
+<tr>
+<th>掷骰</th>
+<th>地点与资源</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>废弃商场：曾繁华的购物中心，如今被感染者占据，满是潜在战利品。资源：2电子元件、3制作材料</td>
+</tr>
+<tr>
+<td>2</td>
+<td>军事基地：防御严密的军事基地，可能有武器、弹药与医疗物资。资源：2电子元件、2弹药、1随机武器</td>
+</tr>
+<tr>
+<td>3</td>
+<td>医院：堆满医疗物资，但也被感染者与危险病患占据。资源：5医疗物资</td>
+</tr>
+<tr>
+<td>4</td>
+<td>废弃游乐园：阴森危险，可能有实用物资与装备。资源：2电子元件、2制作材料、1燃料</td>
+</tr>
+<tr>
+<td>5</td>
+<td>监狱：关押危险罪犯与感染者，但可能有实用物品。资源：1电子元件、3制作材料、1弹药</td>
+</tr>
+<tr>
+<td>6</td>
+<td>大学校园：广阔校园，藏有知识、资源与潜在危险实验。资源：2电子元件、3医疗物资</td>
+</tr>
+<tr>
+<td>7</td>
+<td>废弃研究设施：曾研究尖端科技，可能有高精设备与知识，也暗藏危险与实验体。资源：4电子元件、1医疗物资</td>
+</tr>
+<tr>
+<td>8</td>
+<td>豪华酒店：昔日奢华，如今被感染者占据，可能有高端物品与资源。资源：1电子元件、1医疗物资、1弹药、2口粮</td>
+</tr>
+<tr>
+<td>9</td>
+<td>超市：储备食物与必需品，也挤满感染者。资源：4口粮、1医疗物资</td>
+</tr>
+<tr>
+<td>10</td>
+<td>办公大楼：满是办公物资、科技产品与实用资源。资源：1口粮、1医疗物资、2制作材料、1电子元件</td>
+</tr>
+<tr>
+<td>11</td>
+<td>废弃公寓楼：高层建筑群，空无一人但可能有实用物资。资源：1口粮、1医疗物资、1制作材料、1电子元件、1弹药</td>
+</tr>
+<tr>
+<td>12</td>
+<td>五金店：满是工具、装备与生存材料。资源：3制作材料、2电子元件</td>
+</tr>
+<tr>
+<td>13</td>
+<td>加油站：获取燃料、五金与食物的最佳地点。资源：2口粮、1医疗物资、2制作材料</td>
+</tr>
+<tr>
+<td>14</td>
+<td>废弃工业园区：昔日繁忙，如今废弃，可能有贵重资源与装备。资源：2口粮、1燃料、2制作材料</td>
+</tr>
+<tr>
+<td>15</td>
+<td>农场/乡村地区：可能有食物、工具与其他有用物品。资源：2口粮、1燃料、2制作材料</td>
+</tr>
+<tr>
+<td>16</td>
+<td>商业区：繁华地段，可能有实用物品，也挤满感染者。资源：1口粮、1弹药、1电子元件、2制作材料</td>
+</tr>
+<tr>
+<td>17</td>
+<td>废弃工业设施：高风险地点。资源：1电子元件、1燃料、3制作材料</td>
+</tr>
+<tr>
+<td>18</td>
+<td>国家公园：风景优美但危险，可能有资源、野生动物与潜在危险。资源：1口粮、4制作材料</td>
+</tr>
+<tr>
+<td>19</td>
+<td>博物馆：陈列历史文物与潜在资源，也可能有危险展品。资源：2口粮、3制作材料</td>
+</tr>
+<tr>
+<td>20</td>
+<td>（原文残缺）：满是物资与装备，也可能有大量感染者。资源：2口粮、1燃料、1制作材料、1弹药</td>
+</tr>
+</tbody></table>
+<h2 id="探索随机事件（random-exploration-events）">探索随机事件（Random Exploration Events）</h2>
+<p>进入新地点时掷骰触发事件。</p>
+<table>
+<thead>
+<tr>
+<th>掷骰</th>
+<th>事件效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1-10</td>
+<td>遭到感染者攻击（难度值5）</td>
+</tr>
+<tr>
+<td>11</td>
+<td>一群幸存者寻求帮助与物资，索要1医疗物资、1口粮；拒绝则开战（难度值5），击败可掷武器表</td>
+</tr>
+<tr>
+<td>12</td>
+<td>发现废弃军事前哨，获得2弹药、1电子元件</td>
+</tr>
+<tr>
+<td>13</td>
+<td>野狗群袭击，被迫战斗（难度值6）</td>
+</tr>
+<tr>
+<td>14</td>
+<td>发现食物与药品藏匿点，由敌对幸存者看守（难度值5，2场战斗），获得3医疗物资、3口粮</td>
+</tr>
+<tr>
+<td>15</td>
+<td>强风暴来袭，被迫躲避等待，损失1天</td>
+</tr>
+<tr>
+<td>16</td>
+<td>发现隐藏掩体，满是武器弹药，由退伍军人看守（难度值6，2场战斗），获得5弹药、2医疗物资、2武器</td>
+</tr>
+<tr>
+<td>17</td>
+<td>神秘浓雾降临，视野与导航困难，掷随机方向表，抵达新地点</td>
+</tr>
+<tr>
+<td>18</td>
+<td>意外触发爆破装置，平安逃脱但噪音引来麻烦，围攻潜力+2</td>
+</tr>
+<tr>
+<td>19</td>
+<td>发现地下隧道系统，可作为捷径，直接抵达2格外的地点</td>
+</tr>
+<tr>
+<td>20</td>
+<td>强大恶魔出现，非普通感染者（难度值6，2场战斗），击败获得6燃料、2口粮</td>
+</tr>
+</tbody></table>
+<h2 id="旅行（traveling）">旅行（Traveling）</h2>
+<p>往返已探索地点时，<strong>每个地点仅需半天</strong>（向上取整）。</p>
+<p><strong>示例</strong>：尤里距离基地3个地点，返程需2天（3×0.5=1.5→向上取整为2）。</p>
+<hr>
+<h1 id="装备（gear）">装备（Gear）</h1>
+<p>生存几率直接取决于装备。装备通过<strong>制作</strong>或<strong>搜集</strong>获得。</p>
+<h2 id="武器（weapons）">武器（Weapons）</h2>
+<ul>
+<li><strong>棒球棍</strong>：制作需7制作材料；攻击时可重掷1颗骰子，第二次为最终结果</li>
+<li><strong>格斗刀</strong>：制作需5制作材料；战斗中除1外任意骰子+1</li>
+<li><strong>十字弩</strong>：制作需10制作材料；拥有枪械优势但不增加围攻潜力</li>
+<li><strong>手枪</strong>：制作需10制作材料；战斗中除1外任意骰子+1</li>
+<li><strong>霰弹枪</strong>：制作需15制作材料；攻击时可重掷1颗骰子，第二次为最终结果</li>
+</ul>
+<h3 id="随机武器表（d10-random-weapon）">随机武器表（D10 RANDOM WEAPON）</h3>
+<table>
+<thead>
+<tr>
+<th>掷骰</th>
+<th>武器</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1-2</td>
+<td>棒球棍</td>
+</tr>
+<tr>
+<td>3-4</td>
+<td>格斗刀</td>
+</tr>
+<tr>
+<td>5-6</td>
+<td>十字弩</td>
+</tr>
+<tr>
+<td>7-8</td>
+<td>手枪</td>
+</tr>
+<tr>
+<td>9-10</td>
+<td>霰弹枪</td>
+</tr>
+</tbody></table>
+<h2 id="装备（equipment）">装备（Equipment）</h2>
+<ul>
+<li><strong>护甲</strong>：制作需20制作材料；受到创伤时掷D6，结果为6可无视伤害</li>
+<li><strong>背包</strong>：制作需10制作材料；负重上限+20</li>
+<li><strong>双筒望远镜</strong>：制作需5电子元件+20制作材料；可重掷探索随机事件表，第二次为最终结果</li>
+<li><strong>窃贼工具</strong>：制作需5电子元件+10制作材料；搜集判定+1颗骰子</li>
+<li><strong>撬棍</strong>：制作需20制作材料；搜集判定可重掷1颗非1骰子</li>
+<li><strong>工具箱</strong>：制作需5电子元件+20制作材料；制作判定+1颗骰子</li>
+</ul>
+<h3 id="随机装备表（random-equipment）">随机装备表（RANDOM EQUIPMENT）</h3>
+<table>
+<thead>
+<tr>
+<th>掷骰</th>
+<th>装备</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>护甲</td>
+</tr>
+<tr>
+<td>2</td>
+<td>背包</td>
+</tr>
+<tr>
+<td>3</td>
+<td>双筒望远镜</td>
+</tr>
+<tr>
+<td>4</td>
+<td>窃贼工具</td>
+</tr>
+<tr>
+<td>5</td>
+<td>撬棍</td>
+</tr>
+<tr>
+<td>6</td>
+<td>工具箱</td>
+</tr>
+</tbody></table>
+  </div></div><!-- #content #main -->
+
+<script>
+(function() {
+
+  // 5. Theme toggle - init from localStorage
+  var saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+
+  // Build sidebar header
+  var header = document.getElementById('sidebar-header');
+  header.innerHTML = '<div class="sidebar-title">血月启示录</div><button id="theme-toggle" onclick="toggleTheme()">🌙</button>';
+
+  // Update toggle icon on load
+  function updateIcon() {
+    var btn = document.getElementById('theme-toggle');
+    if (btn) btn.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
+  }
+  updateIcon();
+
+  window.toggleTheme = function() {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var next = cur === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateIcon();
+  };
+
+  // 6. Optional rule highlight
+  // Run after DOM ready
+  function highlightOptional() {
+    var els = document.querySelectorAll('#content p, #content li');
+    els.forEach(function(el) {
+      var text = el.textContent || '';
+      if (text.indexOf('（可选）') !== -1 || text.indexOf('OPTIONAL') !== -1) {
+        el.classList.add('optional-block');
+        var tag = document.createElement('span');
+        tag.className = 'optional-tag';
+        tag.textContent = '可选';
+        el.insertBefore(tag, el.firstChild);
+      }
+    });
+  }
+
+  // 1. Auto-generate TOC with collapsible h2
+  function buildTOC() {
+    var contentEl = document.getElementById('content');
+    var toc = document.getElementById('toc');
+    if (!contentEl || !toc) return;
+    var headings = contentEl.querySelectorAll('h1, h2');
+    var idx = 0;
+    var currentH1Li = null;
+
+    headings.forEach(function(h) {
+      if (!h.id) h.id = 'heading-' + (idx++);
+      var li = document.createElement('li');
+      var tag = h.tagName.toLowerCase();
+      li.className = 'toc-' + tag;
+      var a = document.createElement('a');
+      var txt = h.textContent || '';
+      a.textContent = txt.length > 22 ? txt.slice(0, 22) + '…' : txt;
+      a.setAttribute('data-target', h.id);
+      li.appendChild(a);
+      toc.appendChild(li);
+
+      if (tag === 'h1') {
+        currentH1Li = li;
+        // 点击 h1 条目切换折叠
+        a.addEventListener('click', function(e) {
+          e.preventDefault();
+          var isOpen = li.classList.contains('open');
+          // 关闭所有
+          toc.querySelectorAll('li.toc-h1').forEach(function(h1li) {
+            h1li.classList.remove('open');
+            h1li.querySelectorAll && void 0;
+          });
+          toc.querySelectorAll('li.toc-h2').forEach(function(h2li) {
+            h2li.classList.remove('visible');
+          });
+          if (!isOpen) {
+            li.classList.add('open');
+            showChildH2s(li);
+          }
+          // 滚动到目标
+          var target = document.getElementById(h.id);
+          if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
+        });
+      } else if (tag === 'h2') {
+        // h2 点击直接跳转
+        a.addEventListener('click', function(e) {
+          e.preventDefault();
+          var target = document.getElementById(h.id);
+          if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
+        });
+      }
+    });
+  }
+
+  function showChildH2s(h1li) {
+    var sib = h1li.nextElementSibling;
+    while (sib && sib.classList.contains('toc-h2')) {
+      sib.classList.add('visible');
+      sib = sib.nextElementSibling;
+    }
+  }
+
+  function getParentH1Li(h2li) {
+    var sib = h2li.previousElementSibling;
+    while (sib) {
+      if (sib.classList.contains('toc-h1')) return sib;
+      sib = sib.previousElementSibling;
+    }
+    return null;
+  }
+
+  // 2. Scroll highlight TOC + auto-expand active h1 section
+  function setupScrollHighlight() {
+    var contentEl = document.getElementById('content');
+    if (!contentEl) return;
+    var headings = contentEl.querySelectorAll('h1, h2');
+    if (!headings.length) return;
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.id;
+          document.querySelectorAll('#toc a').forEach(function(a) {
+            a.classList.remove('active');
+          });
+          var active = document.querySelector('#toc a[data-target="' + CSS.escape(id) + '"]');
+          if (active) {
+            active.classList.add('active');
+            var li = active.parentElement;
+
+            // 找到所属 h1，自动展开
+            var h1li = li.classList.contains('toc-h1') ? li : getParentH1Li(li);
+            if (h1li && !h1li.classList.contains('open')) {
+              // 关闭其他所有
+              document.querySelectorAll('#toc li.toc-h1').forEach(function(el) {
+                el.classList.remove('open');
+              });
+              document.querySelectorAll('#toc li.toc-h2').forEach(function(el) {
+                el.classList.remove('visible');
+              });
+              h1li.classList.add('open');
+              showChildH2s(h1li);
+            }
+            active.scrollIntoView({block: 'nearest'});
+          }
+        }
+      });
+    }, {rootMargin: '0px 0px -75% 0px', threshold: 0});
+
+    headings.forEach(function(h) { observer.observe(h); });
+  }
+
+  // 3. Progress bar
+  function setupProgress() {
+    var bar = document.getElementById('progress-bar');
+    if (!bar) return;
+    window.addEventListener('scroll', function() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = docHeight > 0 ? (scrollTop / docHeight * 100) : 0;
+      bar.style.width = pct + '%';
+    }, {passive: true});
+  }
+
+  // 4. Back to top
+  function setupBackTop() {
+    var btn = document.getElementById('back-top');
+    if (!btn) return;
+    window.addEventListener('scroll', function() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      btn.style.opacity = scrollTop > 300 ? '1' : '0';
+    }, {passive: true});
+  }
+
+  // 7. Mobile sidebar toggle
+  function setupMobileMenu() {
+    var toggle = document.getElementById('menu-toggle');
+    var sidebar = document.getElementById('sidebar');
+    var overlay = document.getElementById('sidebar-overlay');
+    if (!toggle || !sidebar || !overlay) return;
+
+    function openSidebar() {
+      sidebar.classList.add('open');
+      overlay.classList.add('open');
+      toggle.textContent = '✕';
+    }
+    function closeSidebar() {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('open');
+      toggle.textContent = '☰';
+    }
+
+    toggle.addEventListener('click', function() {
+      sidebar.classList.contains('open') ? closeSidebar() : openSidebar();
+    });
+    overlay.addEventListener('click', closeSidebar);
+
+    // Close sidebar when a TOC link is tapped on mobile
+    document.getElementById('toc').addEventListener('click', function(e) {
+      if (e.target.tagName === 'A' && window.innerWidth <= 900) {
+        closeSidebar();
+      }
+    });
+  }
+
+  // 8. Fix unsafe anchor navigation (file:// cross-origin issue)
+  function fixAnchorLinks() {
+    document.querySelectorAll('#toc a[data-target]').forEach(function(a) {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        var id = a.getAttribute('data-target');
+        var target = document.getElementById(id);
+        if (target) {
+          target.scrollIntoView({behavior: 'smooth', block: 'start'});
+        }
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    highlightOptional();
+    buildTOC();
+    fixAnchorLinks();
+    setupScrollHighlight();
+    setupProgress();
+    setupBackTop();
+    setupMobileMenu();
+  });
+})();
+</script>
+</body>
+</html>

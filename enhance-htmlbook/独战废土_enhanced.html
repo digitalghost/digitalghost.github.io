@@ -1,0 +1,2579 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>独战废土</title>
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<div id="progress-bar"></div>
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<button id="menu-toggle" aria-label="打开目录">☰</button>
+<div id="sidebar-overlay"></div>
+<div id="sidebar">
+  <div id="sidebar-header"></div>
+  <ul id="toc"></ul>
+</div>
+<div id="main"><div id="content">
+    <!-- 由 MD→HTML 工具生成，基于文件: 独战废土_文本.txt -->
+    <h1 id="独战废土（alone-against-the-zone）">独战废土（Alone Against the Zone）</h1>
+<h2 id="封面（cover）">封面（Cover）</h2>
+<p><strong>独战废土（Alone Against the Zone）</strong><br> haunted exclusion zone 中的单人纸笔生存游戏<br>作者：Alexey Aparin、Andrea Sfiligoi</p>
+<hr>
+<h2 id="版权与献词（copyright--dedication）">版权与献词（Copyright &amp; Dedication）</h2>
+<p><strong>独战废土（Alone Against the Zone）</strong><br> haunted exclusion zone 中的单人纸笔生存游戏<br>作者：Alexey Aparin<br>基于 Andrea Sfiligoi 作品《Alone Against Fear》改编<br>编辑：Andrea Sfiligoi<br>校对：Mark Perry<br>排版与插画：Alexey Aparin<br>特别致谢：Jeff Jessee、Rhys Turton、Lanse Tryon</p>
+<p>本游戏灵感源自东欧科幻作品，包括《路边野餐》及其他作品中的主题。<br>本游戏与 S.T.A.L.K.E.R. 系列、《地铁2033》、GSC Game World 或 Dmitry Glukhovsky 的任何作品无关联、未获授权，亦非基于其作品创作。</p>
+<p><strong>献词</strong><br>本项目致力于让废土（Zone）仅存在于虚构之中。<br>愿灾难的痕迹只存在于故事与屏幕里，而非现实窗外，也不在那些只想过平凡生活之人的记忆中。<br>愿清晨不再始于焦虑。<br>愿日子不必在等待最坏的结果中度过。<br>愿夜晚无需寻找庇护、无需仰望天空屏息聆听。<br>愿现实世界中再无废土，无论以何种名义、何种必要。</p>
+<hr>
+<h2 id="目录（contents）">目录（CONTENTS）</h2>
+<p>进入废土（Into the Zone）…………7<br>游戏介绍（About the Game）…………7<br>胜利条件（How to Win）…………7<br>游戏所需物品（What You Need to Play）…………9</p>
+<h3 id="入门（getting-started）">入门（GETTING STARTED）</h3>
+<p>游戏玩法（How to Play the Game）…………9<br>创建特工角色（CREATING YOUR OPERATIVE）…………10<br>技能表（Skills Table）…………12<br>预设特工（PRE-MADE OPERATIVES）…………15</p>
+<h3 id="核心机制（core-mechanics）">核心机制（CORE MECHANICS）</h3>
+<p>线索（Clues）…………16<br>骰子代码（Dice Codes）…………16<br>技能与豁免判定（Skill and Save Rolls）…………16<br>战斗流程（Combat Sequence）…………17<br>攻击判定（Attack Rolls）…………17<br>射速（Fire Rate, FR）…………18<br>徒手格斗（Unarmed Combat）…………18<br>爆炸骰（Exploding Dice）…………18<br>武器卡壳（Weapon Jam）…………18<br>防御判定（Defense Rolls）…………19<br>无防护（No Protection）…………19<br>潜行判定（Stealth Rolls）…………19<br>逃脱判定（Escape Rolls）…………19<br>地图网格（Map grid）…………20<br>移动（Movement）…………20<br>安全屋与避难所（Safe Houses and Refuges）…………21<br>敌人（Enemies）…………21<br>食物消耗（Food consumption）…………21<br>饥饿（Starving）…………21<br>探索表（Exploration / Table）…………22<br> surge 预警（Surge Warnings）…………23</p>
+<h3 id="废土回响（echoes-of-the-zone）">废土回响（ECHOES OF THE ZONE）</h3>
+<p>负重上限（Carry Limit）…………24<br>生命与辐射抗性（Life &amp; Rad Resistance）…………24<br>任务间隙恢复（Recovery Between Missions）…………24<br>死亡（DEATH）…………25<br>防止死亡（Preventing Death）…………25<br>死亡与废土（Death and the Zone）…………25<br>受伤表（Injuries / Table）…………26<br>废土印记表（Marks of the Zone / Table）…………27</p>
+<h3 id="装备与物品（equipment-and-items）">装备与物品（EQUIPMENT AND ITEMS）</h3>
+<p>藏匿规则（Stash Rules）…………28<br>货币（Money）…………28<br>武器（Weapons）…………29<br>弹药（Ammo）…………29<br>防护服（Protective Suits）…………29</p>
+<h3 id="经验与成长（xp-and-advancement）30">经验与成长（XP AND ADVANCEMENT）…………30</h3>
+<p>回响1：寂静实验室（Echo 1: Silent Lab）…………31<br>回响2：印记幸存者（Echo 2: The Marked Survivor）…………31<br>回响3：遗失信号（Echo 3: Lost Transmision）…………32<br>回响4：许愿室（Echo 4: Wish Chamber）…………32<br>回响5：恶魔之舞（Echo 5: The Devil&#39;s Dance）…………33<br>回响6：天际行走（Echo 6: Sky Walk）…………33</p>
+<h3 id="支线任务（side-missions）">支线任务（SIDE MISSIONS）</h3>
+<p>支线任务表（Side Missions Table）…………35<br>穿越边界（CROSSING THE PERIMETER）…………36</p>
+<h3 id="探索区域表（exploration-tables）">探索区域表（EXPLORATION TABLES）</h3>
+<p>锈蚀沼泽表（Rusty Marshes Table）…………38<br>黑暗洼地表（Dark Hollows Table）…………41<br>铁路遗迹表（Railway Remnants Table）…………44<br>工业废墟表（Industrial Ruins Table）…………49<br>破碎公路表（Broken Roads Table）…………50<br>废弃村庄表（Lost Vilages Table）…………53<br>军事设施表（Military Installations Table）…………58<br>腐化森林表（Corrupted Woods Table）…………59<br>机密设施表（Classified Facilities Table）…………62</p>
+<h3 id="地点与角色（locations--characters）">地点与角色（LOCATIONS &amp; CHARACTERS）</h3>
+<p>麦田营地（Grainfield Camp）…………66<br>医生（Medic）…………67<br>曙光营地（First Light Camp）…………68<br>商人（Trader）…………69<br>猎人小屋（Hunter&#39;s Shack）…………70<br>猎人（Hunter）…………71<br>移动科考站（Mobile Science Station）…………72<br>科学家（Scientist）…………73<br>9号线列车（Line 9 Train）…………74<br>技师（Technician）…………75<br>潜行者营地（Stalker Camp）…………76<br>向导（Guide）…………77</p>
+<h3 id="遭遇表（encounter-tables）">遭遇表（ENCOUNTER TABLES）</h3>
+<p>潜行者表（Stalkers Table）…………79<br>变异生物表（Mutated Creatures Table）…………90<br>迷失者表（Lost Ones Table）…………96<br>军方部队表（Military Forces Table）…………84<br>不法之徒表（Outlaws Table）…………87<br>异常现象表（Anomalies Table）…………100</p>
+<h3 id="物品表（item-tables）">物品表（ITEM TABLES）</h3>
+<p>神器表（Artifacts Table）…………102<br>垃圾表（Junk Table）…………104<br>补给表（Supplies Table）…………108<br>武器表（Weapons Table）…………112<br>潜行者藏匿点表（Stalker&#39;s Stash Table）…………114<br>军方物资箱表（Military Crate Table）…………116<br>科研储藏单元表（Scientific Storage Unit Table）…………118</p>
+<h3 id="事件（events）120">事件（EVENTS）…………120</h3>
+<p>索引（INDEX）…………139<br>总结（SUMMARY）…………140<br>游戏概览（Game Overview）…………140<br>核心规则总结（Core Rules Summary）…………141<br>武器总结表（Weapons Summary Table）…………142<br>防护服总结表（Protective Suits Summary Table）…………143<br>探索总结表（Exploration Summary Table）…………144<br>遭遇总结表（Encounter Summary Table）…………145<br>搜寻表（Scavenging Table）…………145<br>绘制废土地图（Mapping the Zone）…………146<br>地形符号（Topographic Symbols）…………147<br>特工角色表（Operative Sheet）…………148<br>废土地图（Zone Map）…………150</p>
+<hr>
+<h2 id="介绍（introduction）">介绍（INTRODUCTION）</h2>
+<h3 id="并非普通废土（not-any-wasteland）">并非普通废土（NOT ANY WASTELAND）</h3>
+<p>你见过无数废土。<br>灼热的公路。霓虹废墟。<br>野蛮部落。但这片废土（Zone）与众不同。<br>这片废土只有寂静。开裂的混凝土。弯曲的铁轨消失在迷雾中。没有复古未来主义。<br>世界在秘密、科学与某种无人理解的力量重压下悄然崩塌。<br>没有避难所。没有英雄。只有一个崩塌世界的残垣断壁。<br>在这里，万物会变形、会记忆。废土在做梦。而它梦见的，可能是你。</p>
+<h3 id="进入废土（into-the-zone）">进入废土（INTO THE ZONE）</h3>
+<p>没人记得一切如何开始。或许是秘密实验打破了自然法则。或许是古老力量被惊扰、心怀怨恨，扭曲了现实。可以确定的是：废土之内的一切都已改变。<br>废土会呼吸、会饥饿。变异生物在废墟中游荡。风暴撕裂大地与天空。就连现实也会弯曲、开裂，有时……彻底消失。<br>传闻废土深处有一处定居点——黑暗中闪烁的微光。又或许，那是一个耐心等待下一个猎物的陷阱。<br>你随身携带的东西很少：一把武器、一张褪色的地图、顽强的求生意志。道路破碎，车辆危险不堪使用。<br>你必须步行。必须聆听。但愿你能撑下去。</p>
+<h3 id="游戏介绍（about-the-game）">游戏介绍（ABOUT THE GAME）</h3>
+<p><strong>独战废土（Alone Against the Zone）</strong> 是一款单人生存冒险游戏，背景设定在一片破碎的隔离禁区，每一栋废墟建筑后都潜藏着危险。<br>你将扮演一名独行特工——拾荒者、探索者、幸存者——深入废土，追寻<strong>废土回响（Echoes of the Zone）</strong>：任务痕迹、秘密与被遗忘的使命。你追寻的每一段回响，都会带你走向更深的未知，塑造一段记录你旅程的宏大战役。<br>游戏核心为探索未知区域、做出战术决策、管理资源、通过骰子判定直面随机危险。<br>战斗快速且残酷。补给有限。死亡是永久的——但即便失败，也会在世界上留下痕迹。</p>
+<h3 id="胜利条件（how-to-win）">胜利条件（HOW TO WIN）</h3>
+<p>你的废土之旅由<strong>废土回响（Echoes of the Zone）<strong>引导，这些神秘路径将你引向废土核心。<br>你必须追寻三段不同的回响，解锁最终任务：抵达</strong>废土核心（Heart of the Zone）</strong>。</p>
+<hr>
+<h2 id="入门（getting-started）-1">入门（GETTING STARTED）</h2>
+<h3 id="游戏所需物品（what-you-need-to-play）">游戏所需物品（WHAT YOU NEED TO PLAY）</h3>
+<ul>
+<li>本规则书</li>
+<li>2颗标准六面骰（d6）</li>
+<li>特工角色表（第148页）</li>
+<li>铅笔与纸张，用于绘制地图与记录</li>
+</ul>
+<h3 id="游戏玩法（how-to-play-the-game）">游戏玩法（HOW TO PLAY THE GAME）</h3>
+<p>在**独战废土（Alone Against the Zone）**中，你将扮演一名独行特工，深入充满异常现象的危险废土核心。<br>你的旅程遵循循环流程：<strong>移动→探索→搜寻→继续移动</strong>。</p>
+<ol>
+<li><strong>移动（MOVE）</strong>：在区域间移动，前往相邻区域并探索其中内容。</li>
+<li><strong>探索（EXPLORE）</strong>：直面敌人、异常现象、幸存者或环境威胁。</li>
+<li><strong>搜寻（SCAVENGE）</strong>：在区域中存活后，尝试寻找有用装备。</li>
+<li><strong>继续移动（Move On）</strong>：谨慎进入下一个区域。</li>
+</ol>
+<hr>
+<h2 id="创建特工角色（creating-your-operative）">创建特工角色（CREATING YOUR OPERATIVE）</h2>
+<p>角色创建快速简便；若想直接开始游戏，可选择<strong>预设特工（PRE-MADE OPERATIVES，第15页）</strong>。</p>
+<h3 id="步骤1：概念设定（step-1-concept）">步骤1：概念设定（STEP 1: CONCEPT）</h3>
+<p>为你的特工取名，在脑海中构建清晰形象——或许是饱经风霜的拾荒者、前士兵，或是试图在废土中多活一天的叛逆技师。若无灵感，可参考你喜爱的生存游戏或后末日小说中的角色。</p>
+<h3 id="步骤2：属性（step-2-stats）">步骤2：属性（STEP 2: STATS）</h3>
+<p>你的特工初始属性：</p>
+<ul>
+<li>0经验值（XP, Experience points）</li>
+<li>8点生命（Life）、8点辐射抗性（Rad Resistance）</li>
+</ul>
+<h3 id="步骤3：技能（step-3-skills）">步骤3：技能（STEP 3: SKILLS）</h3>
+<p>从**技能表（Skills Table，第12页）**中选择2项技能，免费获得，暂时忽略经验值消耗。<br>每项技能分为基础级与专家级；初始仅获得基础级，专家级可在游戏中解锁。<br>游戏中可消耗经验值学习新技能或升级技能。</p>
+<h3 id="步骤4：装备（step-4-equipment）">步骤4：装备（STEP 4: EQUIPMENT）</h3>
+<ul>
+<li>d6份食物（Food）</li>
+<li>1件武器：投掷<strong>武器表（Weapons Table，第112页）</strong></li>
+<li>1件垃圾物品：投掷<strong>垃圾表（Junk Table，第104页）</strong></li>
+<li>1件补给物品：投掷<strong>补给表（Supplies Table，第108页）</strong></li>
+<li>货币：d6×10卢布（rub, rubles），投掷1颗d6并乘以10</li>
+</ul>
+<h3 id="步骤5：分配3项升级（step-5-add-3-upgrades）">步骤5：分配3项升级（STEP 5: ADD 3 UPGRADES）</h3>
+<p>自由分配3项升级，可任意组合：</p>
+<ul>
+<li>+1生命</li>
+<li>+1辐射抗性</li>
+<li>1项额外技能（第12页）</li>
+<li>额外投掷1次<strong>武器表</strong>（重复则重投）</li>
+<li>额外投掷1次<strong>垃圾表</strong>（重复则重投）</li>
+<li>额外投掷1次<strong>补给表</strong>（重复则重投）</li>
+</ul>
+<h3 id="步骤6：首个回响（step-6-first-echo）">步骤6：首个回响（STEP 6: FIRST ECHO）</h3>
+<p>投掷<strong>废土回响表（Echoes of the Zone Table，第31页）</strong></p>
+<hr>
+<h2 id="技能表（skills-table）">技能表（SKILLS TABLE）</h2>
+<table>
+<thead>
+<tr>
+<th>技能名称</th>
+<th>消耗XP</th>
+<th>基础效果</th>
+<th>专家效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>敏捷（Agility）</td>
+<td>8</td>
+<td>防御与敏捷判定+1</td>
+<td>奖励提升至+2</td>
+</tr>
+<tr>
+<td>营火乐师（Campfire Musician）</td>
+<td>5</td>
+<td>持有乐器时，每次进入安全屋投d6，投出1获得1线索</td>
+<td>投出1–2获得1线索</td>
+</tr>
+<tr>
+<td>魅力（Charisma）</td>
+<td>3</td>
+<td>说服时魅力判定+1</td>
+<td>奖励提升至+2</td>
+</tr>
+<tr>
+<td>危险感知（Danger Sense）</td>
+<td>4</td>
+<td>敌人突袭概率（如3/6）降低1</td>
+<td>突袭概率降低2</td>
+</tr>
+<tr>
+<td>神射手（Deadeye）</td>
+<td>8</td>
+<td>远程武器攻击判定+1</td>
+<td>远程攻击奖励提升至+2</td>
+</tr>
+<tr>
+<td>战士（Fighter）</td>
+<td>6</td>
+<td>近战武器攻击判定+1</td>
+<td>奖励提升至+2</td>
+</tr>
+<tr>
+<td>修理师（Fixer）</td>
+<td>3</td>
+<td>可自行修理武器，消耗工具移除锈蚀状态</td>
+<td>使用工具时投d6，1–2不消耗工具</td>
+</tr>
+<tr>
+<td>智力（Intelligence）</td>
+<td>5</td>
+<td>智力判定+1</td>
+<td>奖励提升至+2</td>
+</tr>
+<tr>
+<td>医生（Medic）</td>
+<td>3</td>
+<td>每次找到医疗包额外+d3点数</td>
+<td>额外+d6点数</td>
+</tr>
+<tr>
+<td>变异猎人（Mutant Hunter）</td>
+<td>4</td>
+<td>仅可从资深猎人处学习；对抗变异体攻击与防御+1</td>
+<td>奖励提升至+2</td>
+</tr>
+<tr>
+<td>净化者（Purifier）</td>
+<td>3</td>
+<td>对抗僵尸化敌人攻击+1</td>
+<td>奖励提升至+2</td>
+</tr>
+<tr>
+<td>潜行（Stealth）</td>
+<td>4</td>
+<td>潜行判定+1</td>
+<td>奖励提升至+2</td>
+</tr>
+<tr>
+<td>力量（Strength）</td>
+<td>5</td>
+<td>力量判定+1，可多携带3件物品</td>
+<td>奖励+2，多携带5件物品</td>
+</tr>
+<tr>
+<td>快速拔枪（Quick Draw）</td>
+<td>5</td>
+<td>拔出近战武器不浪费回合</td>
+<td>拔出手枪不浪费回合</td>
+</tr>
+<tr>
+<td>坚韧（Tough）</td>
+<td>8</td>
+<td>当前与最大生命、辐射抗性各+1</td>
+<td>再各+1</td>
+</tr>
+<tr>
+<td>坚韧（Resilient）</td>
+<td>5</td>
+<td>辐射与酸性豁免+1</td>
+<td>奖励提升至+2</td>
+</tr>
+<tr>
+<td>抗饥饿（Resistant to Hunger）</td>
+<td>2</td>
+<td>每移动6个区域消耗1份食物</td>
+<td>每移动7个区域消耗1份食物</td>
+</tr>
+<tr>
+<td>追踪者（Tracker）</td>
+<td>6</td>
+<td>追踪判定+1（可选择不生效）</td>
+<td>奖励提升至+2</td>
+</tr>
+<tr>
+<td>拾荒者（Scavenger）</td>
+<td>5</td>
+<td>投掷垃圾/补给表时，可选取结果上一行物品</td>
+<td>可选取结果上/下一行物品</td>
+</tr>
+<tr>
+<td>意志（Will）</td>
+<td>6</td>
+<td>灵能豁免+1</td>
+<td>奖励提升至+2</td>
+</tr>
+<tr>
+<td>滑溜（Slippery）</td>
+<td>3</td>
+<td>逃脱判定+1</td>
+<td>奖励提升至+2</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="预设特工（pre-made-operatives）">预设特工（PRE-MADE OPERATIVES）</h2>
+<h3 id="老鼠科利亚（kolya-the-rat）">老鼠科利亚（Kolya the Rat）</h3>
+<p>他在城市地下长大，藏身混凝土之下、锈蚀之中，与回响为伴。<br>废土对他而言只是更深的隧道。瘦小、敏捷、安静，科利亚从不公平战斗，且尽可能避免冲突。</p>
+<ul>
+<li>生命：9</li>
+<li>辐射抗性：8</li>
+<li>技能：潜行、拾荒者、坚韧</li>
+<li>负重上限：10</li>
+<li>轻型物品：2根蛋白棒</li>
+<li>物品：匕首、双筒望远镜、生锈PM手枪、5份食物</li>
+<li>货币：60卢布</li>
+<li>弹药：6发手枪弹</li>
+<li>回响：寂静实验室</li>
+</ul>
+<h3 id="哈利娜修女（sister-halyna）">哈利娜修女（Sister Halyna）</h3>
+<p>前战地医护兵。<br>她坚守誓言，手持战斧。她治愈伤口，必要时也会制造伤口。工作无需麻醉、毫不迟疑，从不等待感激。在废土中，她遵循自己的规则，确保他人也依此生存。</p>
+<ul>
+<li>生命：8</li>
+<li>辐射抗性：9</li>
+<li>技能：医生、意志、智力</li>
+<li>负重上限：10</li>
+<li>轻型物品：3个绷带、头灯、10点医疗包</li>
+<li>物品：匕首、手斧、8份食物</li>
+<li>货币：50卢布</li>
+<li>回响：恶魔之舞</li>
+</ul>
+<h3 id="瓦辛上校（colonel-vasin）">瓦辛上校（Colonel Vasin）</h3>
+<p>他命令军团放下武器、远离战争。随后他消失在废土之中。新兵们低声敬畏地提及他的名字。当无线电失效、引擎无故熄火时，他们低语：“瓦辛在看着。”那些盲目服从命令的人，会记得还有另一条路。</p>
+<ul>
+<li>生命：10</li>
+<li>辐射抗性：9</li>
+<li>技能：力量、修理师、坚韧</li>
+<li>负重上限：13</li>
+<li>物品：匕首、伏特加、5份食物</li>
+<li>重型物品：生锈卡拉什突击步枪、工具</li>
+<li>货币：40卢布</li>
+<li>弹药：11发步枪弹</li>
+<li>回响：遗失信号</li>
+</ul>
+<hr>
+<h2 id="核心机制（core-mechanics）-1">核心机制（CORE MECHANICS）</h2>
+<h3 id="线索（clues）">线索（CLUES）</h3>
+<p>线索是通过探索、技能或互动获得的关于废土的知识碎片、传闻或洞见，用于触发特殊遭遇或完成任务。<br>若文本标注“线索可提供帮助”，可消耗1线索使判定结果+1。</p>
+<h3 id="骰子代码（dice-codes）">骰子代码（DICE CODES）</h3>
+<p>游戏仅使用标准六面骰（d6），核心代码：</p>
+<ul>
+<li>d3：投d6，1–2=1，3–4=2，5–6=3</li>
+<li>d6：单颗六面骰</li>
+<li>2d6：两颗六面骰相加</li>
+<li>2d6+1：两颗六面骰相加后+1</li>
+<li>d66：两颗骰分别为十位与个位，结果11–66</li>
+</ul>
+<h3 id="技能与豁免判定（skill-and-save-rolls）">技能与豁免判定（SKILL AND SAVE ROLLS）</h3>
+<p>执行有失败风险的行动时，投d6并对比任务难度等级（L）：</p>
+<ul>
+<li>点数≥难度：成功</li>
+<li>投出6：必定成功（攻击可触发爆炸骰）</li>
+<li>投出1：必定失败（通常附带额外后果）<br>可叠加技能、武器、装备的修正值。<br>技能判定包括力量、豁免、潜行、魅力等，依场景而定。</li>
+</ul>
+<h3 id="战斗流程（combat-sequence）">战斗流程（COMBAT SEQUENCE）</h3>
+<ol>
+<li><strong>判定突袭</strong>：敌人有突袭概率（如1/6、2/6），投d6，落在突袭范围则敌人先行动，否则己方先行动。</li>
+<li><strong>回合行动</strong>：己方先行动（除非被突袭）；做出攻击判定；敌人存活则反击，己方进行防御判定。</li>
+<li><strong>战斗结算</strong>：敌人被击杀则战斗结束；否则继续战斗。己方回合可选择逃脱判定而非攻击。</li>
+</ol>
+<ul>
+<li>攻击投出天然6：触发<strong>爆炸骰（Exploding Dice）</strong></li>
+<li>锈蚀枪械投出天然1：触发<strong>武器卡壳（Weapon Jam）</strong></li>
+</ul>
+<h3 id="攻击判定（attack-rolls）">攻击判定（ATTACK ROLLS）</h3>
+<p>伤害计算公式：<strong>(d6+修正值)÷敌人等级（L），向下取整</strong><br>例：攻击等级3敌人，投4+武器奖励2=6，6÷3=2点伤害。</p>
+<h3 id="射速（fire-rate-fr）">射速（FIRE RATE, FR）</h3>
+<p>部分武器可一回合多次攻击，从第二次攻击开始，每次攻击修正值-1（第二次-1、第三次-2），每次攻击单独计算伤害。</p>
+<h3 id="徒手格斗（unarmed-combat）">徒手格斗（UNARMED COMBAT）</h3>
+<p>无武器攻击，攻击判定-1（可叠加其他修正）。</p>
+<h3 id="爆炸骰（exploding-dice）">爆炸骰（EXPLODING DICE）</h3>
+<p>攻击投出天然6，可再次投d6并累加，持续投出6可无限累加。</p>
+<h3 id="武器卡壳（weapon-jam）">武器卡壳（WEAPON JAM）</h3>
+<p>锈蚀枪械攻击投出天然1，攻击自动失手且武器卡壳，需消耗1个战斗行动清理，或切换武器。</p>
+<h3 id="防御判定（defense-rolls）">防御判定（DEFENSE ROLLS）</h3>
+<p>每名攻击敌人投1颗d6，点数≥敌人等级则闪避成功，否则承受对应伤害。</p>
+<h3 id="无防护（no-protection）">无防护（NO PROTECTION）</h3>
+<p>未穿戴防护服，所有防御判定-1；部分防护服提供防御奖励。</p>
+<h3 id="潜行判定（stealth-rolls）">潜行判定（STEALTH ROLLS）</h3>
+<p>遭遇触发后、战斗开始前，可尝试潜行规避：</p>
+<ul>
+<li>成功：绕过敌人，避免战斗，本区域无法搜寻</li>
+<li>失败：被敌人发现，敌人先行动，本次战斗等级+1</li>
+</ul>
+<h3 id="逃脱判定（escape-rolls）">逃脱判定（ESCAPE ROLLS）</h3>
+<p>投d6，点数≥敌人等级则成功逃脱，移动至相邻已探索区域（安全屋除外），立即触发1/6随机遭遇；<br>点数＜敌人等级则逃脱失败，立即承受敌人伤害，下一回合可再次尝试。</p>
+<hr>
+<h2 id="穿越废土（through-the-zone）">穿越废土（THROUGH THE ZONE）</h2>
+<h3 id="地图网格（map-grid）">地图网格（MAP GRID）</h3>
+<p>废土被划分为六边形网格区域，从南方进入地图，每进入新区域标记编号（从1开始），可记录地形符号。</p>
+<h3 id="移动（movement）">移动（MOVEMENT）</h3>
+<p>可移动至相邻可通行区域，每次移动约2小时行程：</p>
+<ul>
+<li>未探索区域：标记编号，进行探索</li>
+<li>已探索区域：直接进入，触发2/6随机遭遇（安全屋除外）<br>记录路径，用于计算食物消耗。</li>
+</ul>
+<h3 id="安全屋与避难所（safe-houses-and-refuges）">安全屋与避难所（SAFE HOUSES AND REFUGES）</h3>
+<ul>
+<li><strong>安全屋</strong>：无随机遭遇，可休息恢复生命与辐射抗性、储存物品、躲避废土涌动，部分有NPC提供任务。</li>
+<li><strong>避难所</strong>：基础庇护所，无服务，无法治疗、交易、储存，仅用于躲避涌动。</li>
+</ul>
+<h3 id="敌人（enemies）">敌人（ENEMIES）</h3>
+<p>重返曾逃离的敌人区域，可尝试潜行通过，失败则再次战斗。</p>
+<h3 id="食物消耗（food-consumption）">食物消耗（FOOD CONSUMPTION）</h3>
+<p>每移动5个区域或等待5回合，消耗1份食物。</p>
+<h3 id="饥饿（starving）">饥饿（STARVING）</h3>
+<p>未按时消耗食物，损失1点生命或1点辐射抗性。</p>
+<h3 id="探索表（exploration-table）2d6">探索表（EXPLORATION TABLE）(2D6)</h3>
+<table>
+<thead>
+<tr>
+<th>2d6结果</th>
+<th>对应区域表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2–3</td>
+<td>锈蚀沼泽表（Rusty Marshes Table）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>黑暗洼地表（Dark Hollows Table）</td>
+</tr>
+<tr>
+<td>5</td>
+<td>铁路遗迹表（Railway Remnants Table）</td>
+</tr>
+<tr>
+<td>6</td>
+<td>工业废墟表（Industrial Ruins Table）</td>
+</tr>
+<tr>
+<td>7</td>
+<td>破碎公路表（Broken Roads Table）</td>
+</tr>
+<tr>
+<td>8</td>
+<td>废弃村庄表（Lost Villages Table）</td>
+</tr>
+<tr>
+<td>9</td>
+<td>军事设施表（Military Installations Table）</td>
+</tr>
+<tr>
+<td>10</td>
+<td>腐化森林表（Corrupted Woods Table）</td>
+</tr>
+<tr>
+<td>11</td>
+<td>机密设施表（Classified Facilities Table）</td>
+</tr>
+<tr>
+<td>12+</td>
+<td>废土涌动即将来临！参见事件6（第122页）</td>
+</tr>
+</tbody></table>
+<h3 id="搜寻表（scavenging-table）d6">搜寻表（SCAVENGING TABLE）(D6)</h3>
+<table>
+<thead>
+<tr>
+<th>d6结果</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>一无所获；进行等级4辐射豁免，失败则损失1点辐射抗性</td>
+</tr>
+<tr>
+<td>2</td>
+<td>一无所获</td>
+</tr>
+<tr>
+<td>3</td>
+<td>投掷遭遇表（第78页）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>投掷垃圾表（第104页）</td>
+</tr>
+<tr>
+<td>5</td>
+<td>投掷补给表（第108页）</td>
+</tr>
+<tr>
+<td>6</td>
+<td>获得1线索</td>
+</tr>
+</tbody></table>
+<p>修正：</p>
+<ul>
+<li>追踪者技能+1，专家级+2</li>
+<li>本区域每搜寻过1次，判定-1<br>无法搜寻情况：安全屋、有未解决威胁、曾逃离本区域遭遇。</li>
+</ul>
+<h3 id="涌动预警（surge-warnings）">涌动预警（SURGE WARNINGS）</h3>
+<p>事件会给予涌动预警，累计12点及以上，触发废土涌动（事件6，第122页）。</p>
+<hr>
+<h2 id="生命与死亡（life--death）">生命与死亡（LIFE &amp; DEATH）</h2>
+<h3 id="生命与辐射抗性（life--rad-resistance）">生命与辐射抗性（LIFE &amp; RAD RESISTANCE）</h3>
+<p>生命与辐射抗性归0即死亡；生命因战斗、受伤、异常损失，辐射抗性因毒区、异常累积。</p>
+<h3 id="任务间隙恢复（recovery-between-missions）">任务间隙恢复（RECOVERY BETWEEN MISSIONS）</h3>
+<p>完成一段回响并返回安全屋，或在安全屋结束游戏，生命与辐射抗性完全恢复至最大值。</p>
+<h3 id="防止死亡（preventing-death）">防止死亡（PREVENTING DEATH）</h3>
+<p>角色濒临死亡时，可通过承受**受伤（Injuries）<strong>或</strong>废土印记（Marks of the Zone）**避免致命伤害。</p>
+<h3 id="死亡与废土（death-and-the-zone）">死亡与废土（DEATH AND THE ZONE）</h3>
+<p>生命/辐射抗性归0，角色死亡，标记死亡区域；安全屋内物品丢失，死亡区域可取回1件物品，隐藏藏匿点有概率保留物品。</p>
+<h3 id="受伤表（injuries-table）d6">受伤表（INJURIES TABLE）(D6)</h3>
+<table>
+<thead>
+<tr>
+<th>d6结果</th>
+<th>受伤效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>面部疤痕：魅力判定永久-1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>手臂受损：近战攻击判定永久-1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>眼部损伤：远程攻击判定永久-1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>跛行：所有逃脱判定永久-1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>认知创伤：意志与灵能豁免永久-1</td>
+</tr>
+<tr>
+<td>6</td>
+<td>腿部粉碎：食物消耗提前1个区域，所有敏捷判定-1</td>
+</tr>
+</tbody></table>
+<p>每名角色最多承受3种受伤，重复则重投，满3种后无法再以此避免死亡。</p>
+<h3 id="废土印记表（marks-of-the-zone-table）d6">废土印记表（MARKS OF THE ZONE TABLE）(D6)</h3>
+<table>
+<thead>
+<tr>
+<th>d6结果</th>
+<th>印记效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>偏执漂移：安全屋每次访问仅可休息恢复1次</td>
+</tr>
+<tr>
+<td>2</td>
+<td>饥饿激增：食物消耗提前1个区域</td>
+</tr>
+<tr>
+<td>3</td>
+<td>定向障碍：使用非武器物品时投d6，1则物品无法使用（安全屋则遗落，无则丢失）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>石肤：辐射豁免+1，休息/恢复物品时辐射抗性少恢复1点</td>
+</tr>
+<tr>
+<td>5</td>
+<td>求死意愿：仅生命/辐射抗性≤2时可尝试逃脱</td>
+</tr>
+<tr>
+<td>6</td>
+<td>辐射灼伤：最大辐射抗性永久-1</td>
+</tr>
+</tbody></table>
+<p>每名角色最多承受3种印记，重复则重投，满3种后无法再以此避免辐射伤害。</p>
+<hr>
+<h2 id="装备与物品（equipment-and-items）-1">装备与物品（EQUIPMENT AND ITEMS）</h2>
+<h3 id="负重上限（carry-limit）">负重上限（CARRY LIMIT）</h3>
+<p>默认可携带10件物品，重型物品计2件，轻型物品、货币、弹药不计；背包可+10负重；战斗切换物品需消耗1回合。</p>
+<h3 id="藏匿规则（stash-rules）">藏匿规则（STASH RULES）</h3>
+<p>可在安全屋储存物品；可使用背包创建<strong>隐藏藏匿点（Hidden Cache）</strong>；角色死亡后，藏匿点有概率保留物品。</p>
+<h3 id="货币（money）">货币（MONEY）</h3>
+<p>废土通用货币为<strong>卢布（rub）</strong>，可通过探索、搜刮、任务、交易获得，用于购买食物、装备、弹药、修理、情报。</p>
+<h3 id="武器（weapons）">武器（WEAPONS）</h3>
+<p>分为近战与远程，每次仅可使用1件，战斗切换需消耗1回合；大部分枪械为<strong>锈蚀（Rusted）</strong>，投1会卡壳。</p>
+<h3 id="弹药（ammo）">弹药（AMMO）</h3>
+<p>分手枪弹、步枪弹、霰弹，穿甲弹（AP）对装甲敌人有效；弹药耗尽需切换武器或徒手战斗。</p>
+<h3 id="防护服（protective-suits）">防护服（PROTECTIVE SUITS）</h3>
+<p>提供辐射、异常、环境奖励，部分有神器插槽，每次仅可穿戴1件，仅安全状态可更换。</p>
+<hr>
+<h2 id="经验与成长（xp-and-advancement）">经验与成长（XP AND ADVANCEMENT）</h2>
+<p>击败敌人、完成目标获得经验值：普通战斗1XP，强力敌人2XP，完成回响额外获得XP；潜行规避战斗无XP。<br>非战斗状态可消耗XP学习新技能或升级至专家级，消耗相同。</p>
+<hr>
+<h2 id="废土回响（echoes-of-the-zone）-1">废土回响（ECHOES OF THE ZONE）</h2>
+<p>角色创建时投d6获得首个回响，每次仅可激活1段主线回响+1段支线回响；完成3段回响可开启最终任务：抵达废土核心。</p>
+<h3 id="废土回响表（echoes-of-the-zone-table）d6">废土回响表（ECHOES OF THE ZONE TABLE）(D6)</h3>
+<table>
+<thead>
+<tr>
+<th>d6结果</th>
+<th>回响名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>寂静实验室（Silent Lab）</td>
+</tr>
+<tr>
+<td>2</td>
+<td>印记幸存者（The Marked Survivor）</td>
+</tr>
+<tr>
+<td>3</td>
+<td>遗失信号（Lost Transmission）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>许愿室（Wish Chamber）</td>
+</tr>
+<tr>
+<td>5</td>
+<td>恶魔之舞（The Devil&#39;s Dance）</td>
+</tr>
+<tr>
+<td>6</td>
+<td>天际行走（Sky Walk）</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="支线任务（side-missions）-1">支线任务（Side Missions）</h2>
+<p>并非所有通往禁区的道路都指向核心。有些道路蜿蜒伸向阴影、秘密，或是绝望之境。这些就是<strong>支线任务（Side Missions）</strong>。与**废土回响（Echoes）**不同，它们不会塑造你的命运，但能决定你的生死存亡。</p>
+<h3 id="开启支线任务的方法：">开启支线任务的方法：</h3>
+<ol>
+<li>前往拥有<strong>商人（Trader）</strong>、<strong>科学家（Scientist）</strong>、<strong>猎人（Hunter）<strong>或</strong>医生（Medic）<strong>的</strong>安全屋（Safe House）</strong>。</li>
+<li>在**支线任务表（Side Missions Table，第35页）**投掷1颗d6，或根据NPC提供的内容接取专属任务。</li>
+<li>遵循列出的目标行动，完成后领取奖励。</li>
+</ol>
+<h3 id="规则说明">规则说明</h3>
+<p>你一次仅能执行<strong>一项支线任务</strong>，任务由安全屋内的角色发布。每项任务包含目标、方向与奖励，奖励包括经验值（XP）、卢布（rub）或稀有装备。<br>支线任务为<strong>可选内容</strong>，你可以无视、放弃，或通过重新投掷替换当前任务，但<strong>每次访问安全屋仅可重投一次</strong>。</p>
+<hr>
+<h2 id="支线任务表（side-missions-table）（d6）">支线任务表（Side Missions Table）（D6）</h2>
+<table>
+<thead>
+<tr>
+<th>骰子结果</th>
+<th>任务名称（英文）</th>
+<th>任务目标</th>
+<th>奖励</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>禁区馈赠（Zone Gift）</td>
+<td>从异常现象中获取一件躁动、脉动且诡异但价值不菲的神器，交付任意神器</td>
+<td>投掷<strong>潜行者藏匿点表（Stalker’s Stash Table，第114页）</strong>，获得1点XP</td>
+</tr>
+<tr>
+<td>2</td>
+<td>黑色档案（The Black Folder）</td>
+<td>无姓名、无解释，有人迫切想要此物。你找到的下一份秘密文件即为黑色档案，回收并交还</td>
+<td>投掷<strong>军方物资箱表（Military Crate Table，第116页）</strong>，获得1点XP</td>
+</tr>
+<tr>
+<td>3</td>
+<td>区域清扫（Sector Sweep）</td>
+<td>枪手已在附近盘踞，有人要清除他们。前往正南方向1个区域，抵达后投掷2次<strong>不法之徒表（Outlaws Table，第87页）</strong>，无需探索判定，消灭所有威胁</td>
+<td>夜视仪（NVG，事件69，第138页）或100卢布，获得1点XP</td>
+</tr>
+<tr>
+<td>4</td>
+<td>许愿护送协议（Wish Escort Protocol）</td>
+<td>传闻他知道如何阻止腐化，前提是他能活着回来。护送科学家前往东北方向最近的未探索区域并返回</td>
+<td>投掷<strong>科研储藏单元表（Scientific Storage Unit，第118页）</strong>，获得1点XP</td>
+</tr>
+<tr>
+<td>5</td>
+<td>吸血鬼狩猎（The Vampire Hunt）</td>
+<td>它在夜间觅食，你充当诱饵，带回它的头颅。消耗3点线索，在任意未探索区域触发**吸血鬼（Vampire，第95页）**遭遇，无需探索判定。黑暗环境：若无光源，最终伤害-1</td>
+<td>猎刀（Hunting Knife，事件65，第138页）或100卢布，获得2点XP</td>
+</tr>
+<tr>
+<td>6</td>
+<td>人质踪迹（Hostage Trail）</td>
+<td>有人被掳走，或许还有时间营救。营救位于西北方向d6+1个区域处的人质，使用**不法之徒表（Outlaws Table，第87页）**第4项结果</td>
+<td>异常背包（Anomalous Backpack，事件66，第138页）或100卢布，获得1点XP</td>
+</tr>
+</tbody></table>
+<h3 id="游戏速查">游戏速查</h3>
+<p>游戏过程中快速查阅请见<strong>游戏概览（Game Overview，第140页）</strong></p>
+<hr>
+<h2 id="穿越边界（crossing-the-perimeter）">穿越边界（Crossing the Perimeter）</h2>
+<p>你已打包装备、牢记规则，也听够了警告。是时候进入禁区了。<br>首先完成<strong>特工角色（Operative）<strong>创建，投掷</strong>废土回响（Echo）</strong>，随后选择方向，踏入第一个六边形格子，跳转至<strong>探索表（Exploration Tables）</strong>。禁区会接管接下来的一切。</p>
+<hr>
+<h2 id="探索表（exploration-table）（2d6）">探索表（Exploration Table）（2D6）</h2>
+<table>
+<thead>
+<tr>
+<th>2D6结果</th>
+<th>对应子表（英文）</th>
+<th>对应中文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2–3</td>
+<td>Rusty Marshes Table</td>
+<td>锈蚀沼泽表</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Dark Hollows Table</td>
+<td>黑暗洼地表</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Railway Remnants Table</td>
+<td>铁路遗迹表</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Industrial Ruins Table</td>
+<td>工业废墟表</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Broken Roads Table</td>
+<td>破碎公路表</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Lost Villages Table</td>
+<td>废弃村庄表</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Military Installations Table</td>
+<td>军事设施表</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Corrupted Woods Table</td>
+<td>腐化森林表</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Classified Facilities Table</td>
+<td>机密设施表</td>
+</tr>
+<tr>
+<td>12+</td>
+<td>A Zone Surge is approaching!</td>
+<td>禁区涌动即将来临！前往事件6（第122页）</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="锈蚀沼泽表（rusty-marshes-table）（d6）">锈蚀沼泽表（Rusty Marshes Table）（D6）</h2>
+<table>
+<thead>
+<tr>
+<th>骰子结果</th>
+<th>场景名称（英文）</th>
+<th>场景内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Lakeside Cabin</td>
+<td>湖畔小屋：一栋歪斜的棚屋临水而立，门廊散落着破布与骸骨。你正要转身，湖中浮出苍白鼓胀的双眼。遭遇d6+3只鱼人（L3变异体，1点生命，1点伤害；使用霰弹枪攻击视为L2）。每轮防御判定后，有3/6概率新增1只变异体加入战斗。战利品：d3个变异体战利品，投掷2次<strong>垃圾表（Junk Table，第104页）</strong>，获得1点XP</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Safe House</td>
+<td>安全屋：若<strong>曙光营地（First Light Camp，第68页）<strong>未在地图标记，你刚发现它；若已发现，则抵达</strong>潜行者营地（Stalker Camp，第76页）</strong>。将其添加至地图并标注页码</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Stillborn Pool</td>
+<td>死胎池：漆黑寂静的水面上方空气闪烁，扭曲的树木与石块标记出中心。无需探测器即可看见一件神器，你只需穿过两处膨胀冒泡的异常浅滩。穿越需进行2次L4酸性豁免，线索可提供帮助。失败1次：损失1点生命+1点辐射抗性；成功：投掷<strong>神器表（Artifacts Table，第102页）</strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Crashed Military Plane</td>
+<td>坠毁军用机：撕裂的机身半埋在泥浆中，此前从未被触碰。机组人员所剩无几，但橙色塑料信封仍密封，获得<strong>秘密文件（Secret Documents，事件62，第137页）</strong>。沉没的后货舱绑带仍有遗留物，调查需进行L5辐射豁免，失败损失2点辐射抗性；随后投掷<strong>军方物资箱表（第116页）</strong>，获得1个医疗包（第110页）</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Reed Maze</td>
+<td>芦苇迷宫：茂密芦苇从四面合围，脚下湿滑不稳，世界只剩潮湿的声响与阴影。你不断听到声响，时而在前，时而在后，有东西知道你在这里。选择：转向灌木丛→前往事件64（第137页）；静止聆听→前往事件68（第138页）</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Ruined Hermitage</td>
+<td>荒废隐修院：老旧木质修道院沉入沼泽，褪色圣像依附在腐朽墙壁上，空气中弥漫着湿灰与古老祈祷的气息。进行L5意志判定，线索可提供帮助。成功：先手攻击，攻击+2；投掷**变异生物表（Mutated Creatures Table，第90页）**确定攻击者</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="黑暗洼地表（dark-hollows-table）（d6）">黑暗洼地表（Dark Hollows Table）（D6）</h2>
+<table>
+<thead>
+<tr>
+<th>骰子结果</th>
+<th>场景名称（英文）</th>
+<th>场景内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Sealed Door</td>
+<td>密封门（避难所，标记地图）：倾斜混凝土墙上的锈钢舱门，已上锁。可射击/用手榴弹炸开（锁视为L4，4点生命）。内部：黑暗拱形走廊，投掷<strong>异常现象表（Anomalies Table，第100页）</strong>。侧室：应急照明、货架，含5份食物、1把“卡拉什”突击步枪（价值30卢布）、15发步枪弹药</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Burrow Pit</td>
+<td>地穴坑（避难所，标记地图）：巨大天坑深入地下，黑暗中传来微弱的求救声。选择营救或无视。营救则投掷<strong>变异生物表（第90页）</strong>。黑暗环境：若无光源，最终伤害-1。战斗结算后前往事件61（第137页）</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Anomalous Caves</td>
+<td>异常洞穴：山坡裂缝露出隧道口，附近空气扭曲。探索则持续投掷d6直至离开：1→空气爆裂，投掷异常现象表；2→有生物栖息，黑暗惩罚同上，投掷变异生物表；3→根茎包裹的遗骸，投掷垃圾表+1个医疗包；4→投掷补给表（Supplies Table，第108页）；5–6→找到出口</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Collapsed Underpass</td>
+<td>坍塌地下通道：破损道路通向混凝土巨口，被泥土半掩埋。等待观察无动静，前行触发：黑暗惩罚同上，投掷<strong>迷失者表（Lost Ones Table，第96页）</strong>。战斗后找到隐蔽角落（避难所，标记地图），可休息1次：消耗1份食物，恢复2点生命；拥有睡袋额外+1点生命</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Unstable Floor</td>
+<td>不稳定地面：在掩埋的屋顶行走许久，脚下传来空洞回响。刚想减速，地面塌陷。进行L5敏捷判定：成功→混凝土坠落时及时跳回；失败→重重摔落，损失1点生命，尘土窒息，随后尸体开始移动。黑暗惩罚同上，投掷迷失者表</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Underground Garage</td>
+<td>地下车库（避难所，标记地图）：斜坡通向宽阔混凝土空间，空气中弥漫着机油与旧橡胶味。走过汽车残骸，发现其中一辆正在“呼吸”。遭遇巨人（L4变异体，6点生命，2点伤害）；拥有火箭筒可进行L4攻击判定直接摧毁。碾压攻击：每轮防御后进行L4敏捷判定，失败额外损失1点生命。战利品：拥有匕首可获得3个变异体战利品，获得2点XP</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="铁路遗迹表（railway-remnants-table）（d6）">铁路遗迹表（Railway Remnants Table）（D6）</h2>
+<table>
+<thead>
+<tr>
+<th>骰子结果</th>
+<th>场景名称（英文）</th>
+<th>场景内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Collapsed Depot</td>
+<td>坍塌仓库：无顶建筑，周围缠绕铁轨与锈蚀残骸。沿墙小心移动，感觉被注视。投掷<strong>遭遇表（Encounter Table，第78页）</strong>。战后成功进行L4追踪判定可找到<strong>工具（Tools，第111页）</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Safe House</td>
+<td>安全屋：若**9号线列车（Line 9 Train，第74页）**未在地图标记，你刚发现它；若已发现，则抵达潜行者营地。添加至地图并标注页码</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Freight Cars</td>
+<td>货运车厢：锈迹斑斑的车厢停在铁轨上，车门半开，内部可能有遗留物。发现干枯遗骸（变异体/丧尸化，早已死亡）。进行L4灵能豁免，线索可提供帮助：失败→醒来时身处车厢，无进入记忆，周围是坍塌尸体，时间流逝，饥饿加剧，损失d6份食物；成功→发现潜行者遗骸，投掷潜行者藏匿点表</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Rail Anomaly</td>
+<td>铁路异常：扭曲的铁轨自我缠绕，地面如融化玻璃般发光，金属装备被吸引向中心。进行L5力量判定，每丢弃1件武器+2。失败→被吸入，可丢弃2件武器逃脱，或等待异常减弱（入夜）。黑暗惩罚同上，投掷变异生物表；成功→挣脱继续前进，涌动预警+1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Broken Bridge</td>
+<td>断桥：损毁铁路桥横跨干涸河床，铁轨悬空断裂、尖锐扭曲。穿过杂草丛生的沟壑时，突然被包围。投掷迷失者表，敌人先手攻击</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Abandoned Station</td>
+<td>废弃车站（避难所，标记地图）：开裂站台与破损时钟，时刻表随风飘动。二楼窗户完好，可能未被洗劫。内部：房间完好，但门口有异常。想检查柜子需先投掷异常现象表，再投掷2次补给表+1个医疗包。离开车站时有人等候，投掷<strong>军方部队表（Military Forces Table，第84页）</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="工业废墟表（industrial-ruins-table）（d6）">工业废墟表（Industrial Ruins Table）（D6）</h2>
+<table>
+<thead>
+<tr>
+<th>骰子结果</th>
+<th>场景名称（英文）</th>
+<th>场景内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Silent Power Station</td>
+<td>寂静发电站：死寂的涡轮如雕像矗立，磨损电线在风中抽搐。被无形实体追踪。遭遇L4吵闹鬼（2点生命，1点伤害），无法逃脱，敌人先手。胜利后投掷1次补给表，获得1点XP+1点线索</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Echoing Workshop</td>
+<td>回响车间（避难所，标记地图）：空旷生产线延伸至阴影，废墟深处传来规律回响。进行L4潜行判定，线索可提供帮助：成功→偷听敌对拾荒者对话并规避，随后成功L4追踪判定找到工具；失败→被拾荒者发现，投掷不法之徒表</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Flooded Loading Bay</td>
+<td>淹没装卸区：被怪物追击躲入废墟，积水至腰部，托盘在淹没楼梯与下垂走道间漂浮。选择：入口迎战（遭遇防御+1），投掷变异生物表；或漂浮残骸中躲藏（需L4辐射豁免，失败损失1点辐射抗性）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Shattered Factory Hall</td>
+<td>破碎工厂大厅：开裂地面与巨大孔洞，头顶扭曲钢梁，摇摇欲坠的天花板勉强支撑。闪烁的电力异常沿旧起重机轨道如蜘蛛般爬行。先进行L4智力判定（线索可帮助），再进行L4敏捷判定，识别规律即可无伤通过；任一/全部失败损失1点生命。拥有火箭筒可摧毁起重机轨道通行</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Derelict Warehouse</td>
+<td>废弃仓库：进入昏暗空旷空间，脚步声回荡，空气中弥漫着腐朽气息，辐射强烈。进行L5辐射豁免，失败损失1点辐射抗性；留下搜刮需再次豁免，线索可帮助。成功则投掷1次潜行者藏匿点表</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Control Tower</td>
+<td>控制塔：锈蚀塔楼俯瞰废墟，楼梯呻吟，破碎窗户朝向灰天。搜刮残骸（1次，线索可帮助）：投掷d6，5+获得秘密文件。破布巢穴：消耗1份食物休息恢复1点生命，拥有睡袋额外+1，可多次休息，每次休息涌动预警+1</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="破碎公路表（broken-roads-table）（d6）">破碎公路表（Broken Roads Table）（D6）</h2>
+<table>
+<thead>
+<tr>
+<th>骰子结果</th>
+<th>场景名称（英文）</th>
+<th>场景内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Roadside Wreckage</td>
+<td>路边残骸：烧毁的车队横贯公路，金属扭曲焦黑，残骸中有动静。投掷遭遇表，获得1个医疗包，涌动预警+1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Blocked Gate Road</td>
+<td>闸门封堵公路：扭曲闸门封堵前路，右侧是坍塌检查站，门口被闪烁异常封锁。选择：钻过锈蚀闸门（L3辐射豁免，失败损失1点辐射抗性）；或穿过异常搜刮岗亭（投掷异常现象表+垃圾表+1个医疗包）；拥有火箭筒可摧毁闸门通行</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Military Patrol</td>
+<td>军方巡逻：前路死寂，突然发现树林中光学扫描的金属反光。选择撤退规避，或悄悄跟随。跟随需进行L4潜行判定：成功→尾随偷听情报，获得1点线索；失败→被发现，投掷军方部队表</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Anomalous Rift</td>
+<td>异常裂隙：沥青破裂，地面被锯齿状裂痕吞噬，路面碎块悬空缓慢旋转。尝试穿越：投掷异常现象表（等级+2）并按结果执行；成功则投掷神器表，可选择相邻结果；失败标记此区域不可通行（任务目标除外），返回原区域，涌动预警+1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Roadside Shelter</td>
+<td>路边庇护所：公路旁隐藏小型营地，防水布随风飘动，篝火微弱，有人注视你靠近。详情见潜行者营地（第76页），涌动预警+1</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Dead Fuel Station</td>
+<td>废弃加油站：骨架般的加油站瘫在路边，招牌弯曲，窗户破碎。碎石下有生物猛扑守护巢穴——油犬！无毛驼背、皮肤沾满油污，以裂缝油箱渗出的旧燃料为食。遭遇L5油犬（3点生命，1点伤害），死亡后爆裂：L5敏捷判定，失败损失1点生命。战利品：足够制作1个燃烧瓶，获得2点XP，涌动预警+1</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="废弃村庄表（lost-villages-table）（d6）">废弃村庄表（Lost Villages Table）（D6）</h2>
+<table>
+<thead>
+<tr>
+<th>骰子结果</th>
+<th>场景名称（英文）</th>
+<th>场景内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Burned-Out Houses</td>
+<td>烧毁房屋：烧焦的房屋骨架沿公路排列，屋顶塌陷，墙壁被烧至裸石，空气中弥漫湿灰味。可调查或离开。搜索废墟需进行L4敏捷判定：成功→投掷2次垃圾表，找到残骸下的物品；失败→地面/墙壁塌陷，损失1点生命</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Abandoned Pig Farm</td>
+<td>废弃养猪场：坍塌围栏、破损饲料管道、腐烂谷仓。看似稻草与残骸的物体开始抽搐，苍白孩童大小的手臂从地下撑起，关节扭曲如昆虫，非死非生，仅存饥饿。遭遇2d6只骨床怪（L4变异体，1点生命，1点伤害），3回合未击败则遁地（无战利品）；胜利→投掷神器表，获得1点XP</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Deserted Garages</td>
+<td>废弃车库：一排凹陷车门与空框架，水泥地散落骸骨与干枯脚印，有生物在此栖息。投掷变异生物表，战后投掷1次补给表</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Sunken Elevator Tower</td>
+<td>沉没电梯塔：谷物筒仓倾斜，半被泥土与杂草吞噬，锈迹如干涸血迹。空心竖井内有东西移动。进行L4智力判定：失败→黑暗中有人射击（2次L4攻击，每次1点伤害），随后投掷不法之徒表</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Power Lines</td>
+<td>电力线：扭曲铁塔矗立，电线如蛛网悬挂，空气中充满无形电流。持续进行L4电力豁免，失败损失1点生命，直至成功。首次成功获得1点线索（有人在此留下痕迹）</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Safe House</td>
+<td>安全屋：若**麦田营地（Grainfield Camp，第66页）**未在地图标记，你刚发现它；若已发现，则抵达潜行者营地。添加至地图并标注页码</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="军事设施表（military-installations-table）（d6）">军事设施表（Military Installations Table）（D6）</h2>
+<table>
+<thead>
+<tr>
+<th>骰子结果</th>
+<th>场景名称（英文）</th>
+<th>场景内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Helipad Ruins</td>
+<td>直升机坪废墟：开裂的起降区散落残骸，螺旋桨与电缆被无形力量扭曲悬浮，灵能场令人落泪，但直升机中有珍贵装备。最多可尝试6次搜索残骸，每次需进行L4灵能豁免（线索可帮助）：失败→损失1点生命；成功→投掷d6，1–4无收获，5→投掷补给表，6→投掷军方物资箱表</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Active Military Base</td>
+<td>现役军事基地：有人驻守的营房与瞭望塔，巡逻队在沙袋防线与破损墙壁间移动。需在被发现前撤离。标记此区域及所有相邻区域为<strong>军事区（Military Zone）</strong>。进入军事区有3/6概率遭遇军方部队（投掷军方部队表），结算后按常规探索、进入安全屋等操作</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Minefield</td>
+<td>雷区：烧焦的土地间散落扭曲警示牌，残骸、骸骨与靴子遍布地面，低坡上有一个看似完好的卡其色箱子。接近需依次进行L5智力判定（线索可帮助）+L4敏捷判定，失败1次损失2点生命；全部失败则箱子被炸毁。成功则投掷军方物资箱表</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Guarded Checkpoint</td>
+<td>守卫检查站：一名士兵站在铁丝网后，冷漠注视道路，在你隐藏前发现你。进行L4魅力判定（线索可帮助）：成功→可支付100卢布或任意神器贿赂通行，或先手攻击（初始攻击+2）；失败→立即战斗。遭遇军官（L5人类，2点生命，首次攻击2点伤害，后续1点；穿甲弹攻击视为L4）。战利品：TT手枪（第142页）、2d6发穿甲手枪弹、2d6卢布，获得2点XP</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Radar Station</td>
+<td>雷达站：破碎的雷达穹顶瘫在锈蚀塔下，内部冒出细烟。沿围栏不稳定地面绕行→投掷异常现象表；突袭→投掷军方部队表，你先手攻击</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Abandoned Warehouses</td>
+<td>废弃仓库：巨大储藏厅，屋顶弯曲、墙壁被风暴与洗劫者撕裂，地面散落弹壳。找到密封维护储物柜，可进行L5力量判定强行打开：成功→投掷武器表（Weapons Table，第112页），重投1–2结果，所有武器状态完好+1个医疗包。战后进行L4潜行判定，失败→有人听到动静，投掷军方部队表</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="腐化森林表（corrupted-woods-table）（d6）">腐化森林表（Corrupted Woods Table）（D6）</h2>
+<table>
+<thead>
+<tr>
+<th>骰子结果</th>
+<th>场景名称（英文）</th>
+<th>场景内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Choked Forest</td>
+<td>窒息森林：树木密集缠绕，树枝勾住装备、划伤脸部、减缓速度。发现周围布满尖刺时已太迟，如苍蝇落网般被困，精疲力竭且流血。进行L5力量判定（线索可帮助）：失败→损失1份食物+1点生命，次日重试；成功→挣脱并发现潜行者骸骨（投掷补给表）</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Safe House</td>
+<td>安全屋：若**猎人小屋（Hunter’s Shack，第70页）**未在地图标记，你刚发现它；若已发现，则抵达潜行者营地。添加至地图并标注页码</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Acid Grove</td>
+<td>酸性林地：黑色树桩遍布死寂空地，无树叶、无声音，只有烧焦土地与微弱刺痛。每次进入此区域需进行L5酸性豁免，失败损失d3点生命，标记地图，涌动预警+1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Anomalous Thicket</td>
+<td>异常灌木丛：茂密树林闪烁微光，小径扭曲消失。进行L5追踪判定（线索可帮助）：失败→投掷d6，1–3误入异常（投掷异常现象表），4–6遭遇生物（投掷变异生物表）</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Craterfall</td>
+<td>陨坑：地面被撕裂出陨石坑，边缘被倒下树干坍塌，黑烟如巨型毛虫沿内侧斜坡爬行，正中心有小型紫色光芒脉动。遭遇d6+2只精灵（L4异常，每只2点生命），无需防御判定，改为L4辐射豁免，失败损失1点辐射抗性。击败所有精灵获得1点XP，回收神器<strong>紫色球体</strong>（价值20卢布，可强制单次遭遇中2名敌人自相残杀，使用后消失）</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Fenced Compound</td>
+<td>围栏建筑群（避难所，标记地图）：半掩埋建筑被锈蚀围栏环绕，奇怪电线埋入地下。闯入需进行L5智力判定开锁（线索可帮助），内部找到秘密文件，黑暗中有东西等候。投掷迷失者表，获得1个医疗包</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="机密设施表（classified-facilities-table）（d6）">机密设施表（Classified Facilities Table）（D6）</h2>
+<table>
+<thead>
+<tr>
+<th>骰子结果</th>
+<th>场景名称（英文）</th>
+<th>场景内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Research Institute Ruins</td>
+<td>研究所废墟（避难所，标记地图）：低矮无窗建筑被苔藓与杂草覆盖，内部坍塌电梯井通向黑暗。搜索废弃实验室时，被矮壮、身穿粗糙缝合浅色斗篷的生物包围。遭遇3名地下居民（L4变异体，3点生命，1点伤害），2/6概率突袭。物理攻击附带灵能强化，受伤需进行L4灵能豁免，失败跳过下一回合。黑暗惩罚同上。存活后回收秘密文件</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Toxic Waste Site</td>
+<td>有毒废料场：泄漏桶与半埋储罐渗入土壤，空气有金属刺鼻味，警示牌融化无法辨认。无理由深入，标记此区域不可通行（任务目标除外）。依次进行L5酸性豁免（失败损失1点生命）+L5辐射豁免（失败损失1点辐射抗性），随后投掷变异生物表。遭遇后返回原区域</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Strange Apparatus</td>
+<td>奇异装置：金属框架轻声嗡鸣，表面锈迹斑斑，电线埋入地下仍有温度。可进行L5智力判定（线索可帮助），将2件神器融合为1件，继承全部效果，仅占用1个防护服插槽（第29页），此装置仅可使用1次</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Abandoned Field Camp</td>
+<td>废弃野外营地：一排坍塌帐篷与破碎数据设备散落地面，笔记本浸湿无法辨认。回收秘密文件。离开时触发空间异常：投掷2d6，向北移动对应格数，超出当前地图则新增地图页</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Safe House</td>
+<td>安全屋：若**移动科考站（Mobile Science Station，第72页）**未在地图标记，你刚发现它；若已发现，则抵达潜行者营地。添加至地图并标注页码</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Lost Cargo Convoy</td>
+<td>遗失货运车队：一系列压扁的拖车深陷沼泽，集装箱半淹，被树木与岁月扭曲。调查需进行L5敏捷判定（线索可帮助），穿越湿滑原木与不稳定地面：失败→L5辐射豁免，损失d3点辐射抗性；抵达拖车则投掷科研储藏单元表</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="地点与角色（locations--characters）-1">地点与角色（Locations &amp; Characters）</h2>
+<h3 id="麦田营地（grainfield-camp）（独特安全屋）">麦田营地（Grainfield Camp）（独特安全屋）</h3>
+<p>几栋破旧房屋仍矗立，窗户被木板封住。</p>
+<ul>
+<li><strong>无主床垫</strong>：消耗1份食物，恢复1点生命+1点辐射抗性；拥有睡袋额外+1点生命，可多次休息。</li>
+<li><strong>医生（Medic，第67页）</strong>：恢复生命/辐射抗性、出售医疗包、可发布支线任务。</li>
+<li><strong>商人（Trader，第69页）</strong>：买卖物品、可发布支线任务。</li>
+</ul>
+<h3 id="医生（medic）">医生（Medic）</h3>
+<p>双手稳健但眼神疲惫，专注地照料伤者，被无尽苦难消磨，却用黑色幽默支撑自己。</p>
+<ul>
+<li><strong>快速救治</strong>：每20卢布恢复1点生命或辐射抗性。</li>
+<li><strong>医疗包</strong>：30卢布购买1个医疗包（第110页，含5点治疗量）。</li>
+<li><strong>血清回收（支线任务）</strong>：前往锈蚀沼泽任意格子寻找同事并带回包裹，每格进行1次L5追踪判定（线索可帮助）。成功获得<strong>异常血清</strong>，可交给医生兑换100卢布，或使用治愈1处受伤（第26页）。</li>
+</ul>
+<h3 id="曙光营地（first-light-camp）（独特安全屋）">曙光营地（First Light Camp）（独特安全屋）</h3>
+<p>建在沼泽上方高脚架上的小型营地，可有效抵御禁区涌动，围绕老旧混凝土建筑搭建，木质走道踩上去嘎吱作响，头顶覆盖迷彩网，最近的异常现象很远。唯一问题：蚊子永不停止。</p>
+<ul>
+<li><strong>无主床垫</strong>：消耗1份食物，恢复1点生命+1点辐射抗性；拥有睡袋额外+1点生命，可多次休息。</li>
+<li><strong>商人（第69页）</strong>：买卖物品、可发布支线任务。</li>
+<li><strong>猎人（Hunter，第71页）</strong>：收购变异体战利品，偶尔发布特定变异体猎杀契约。</li>
+</ul>
+<h3 id="商人（trader）">商人（Trader）</h3>
+<p>不问姓名、不问过往，只谈生意。在禁区，一笔交易意味着生存。</p>
+<ul>
+<li><strong>购买</strong>：支付标价购买物品，离开再进入本区域库存刷新。<ul>
+<li>2份食物：20卢布/份</li>
+<li>1点线索：100卢布</li>
+<li>垃圾表随机2件：30卢布/件</li>
+<li>补给表随机2件：50卢布/件</li>
+<li>10发手枪弹：30卢布</li>
+<li>10发步枪弹：30卢布</li>
+<li>10发霰弹：30卢布</li>
+</ul>
+</li>
+<li><strong>出售</strong>：仅收购描述中标注卢布价值的物品。</li>
+<li><strong>砍价</strong>：进行L5魅力判定，成功价格降低d6卢布，失败价格升高d6卢布。</li>
+<li><strong>支线任务</strong>：总有活计，投掷支线任务表。一次仅可激活1项，可取消重投，每次访问本区域仅1次机会。</li>
+</ul>
+<h3 id="猎人小屋（hunters-shack）（独特安全屋）">猎人小屋（Hunter’s Shack）（独特安全屋）</h3>
+<p>隐藏在树林中的破旧小屋，烟囱冒出炊烟，由一位 grizzled 猎人看守的罕见安全之地。</p>
+<ul>
+<li><strong>炉边休息</strong>：消耗1份食物，恢复1点生命+2点辐射抗性，可多次休息。</li>
+<li><strong>猎人（第71页）</strong>：收购变异体战利品，偶尔发布特定变异体猎杀契约。</li>
+<li><strong>出售</strong>：10发霰弹30卢布；2份食物30卢布/份，重新进入本区域库存刷新。</li>
+</ul>
+<h3 id="猎人（hunter）">猎人（Hunter）</h3>
+<p>在半掩埋的篝火旁清洁步枪，沉默、警惕，装备破旧但整洁，眼神从未停止扫视树林。说话简短直接——在禁区待太久，无心闲聊。</p>
+<ul>
+<li><strong>猎杀（支线任务）</strong>：追踪特定生物，投掷变异生物表确定目标。消耗等同于目标等级的线索，可在下一区域强制触发遭遇；拥有追踪者技能线索消耗-1，专家级-2，最低消耗1点线索。奖励：二选一——投掷潜行者藏匿点表+1点XP，或学习<strong>变异猎人技能（Mutant Hunter，第12页）</strong>。</li>
+<li><strong>收购</strong>：变异体战利品10卢布/个（第107页）；吸血鬼头颅50卢布；90卢布教授变异猎人技能。</li>
+<li>可发布变异体追踪支线任务，一次仅可激活1项，可取消重投，每次访问本区域仅1次机会。</li>
+</ul>
+<h3 id="移动科考站（mobile-science-station）（独特安全屋）">移动科考站（Mobile Science Station）（独特安全屋）</h3>
+<p>沙袋与铁丝网之间的加固拖车阵列，天线轻声嗡鸣，内部沉默的工作人员同时盯着监视器与你。</p>
+<ul>
+<li><strong>访客区</strong>：消耗1份食物，恢复1点生命+3点辐射抗性，可多次休息。</li>
+<li><strong>科学家（Scientist，第73页）</strong>：收购秘密文件、可发布支线任务。</li>
+<li><strong>技师（Technician，第75页）</strong>：修理武器、为稀有装置充电。</li>
+</ul>
+<h3 id="科学家（scientist）">科学家（Scientist）</h3>
+<p>身穿宽松防化服，行动谨慎，仅携带笔记本与小型工具包，紧张且未做好应对禁区危险的准备。</p>
+<ul>
+<li><strong>委托任务</strong>：投掷支线任务表，一次仅可激活1项，可取消重投，每次访问仅1次机会。</li>
+<li><strong>情报交易</strong>：50卢布收购秘密文件，或兑换1个<strong>探测器（Detector，第109页）</strong>。</li>
+</ul>
+<h3 id="9号线列车（line-9-train）（独特安全屋）">9号线列车（Line 9 Train）（独特安全屋）</h3>
+<p>遗忘铁轨上生锈的老式电力列车，车厢用铁链连接、废料加固，内部有吊床、烹饪装备、电池、地图，武装潜行者从墙壁切口的窗户瞭望。夜晚，整列列车被打捞的泛光灯照亮，散发微弱光芒。</p>
+<ul>
+<li><strong>列车票</strong>：支付10卢布+1份食物，恢复2点生命+1点辐射抗性，可多次休息。</li>
+<li><strong>技师（第75页）</strong>：修理武器、为稀有装置充电。</li>
+<li><strong>商人（第69页）</strong>：买卖物品、可发布支线任务。</li>
+</ul>
+<h3 id="技师（technician）">技师（Technician）</h3>
+<p>身穿工作服与手套、压低帽子的油污身影，站在堆满电线与烧焦钢板的工作台前，火花四溅。几乎不抬头，仅指向锈迹斑斑的牌子：<br>“坏了——我修。<br>被诅咒——双倍价。”</p>
+<ul>
+<li><strong>修理</strong>：100卢布移除1件武器的**锈蚀（Rusted）**状态；提供伏特加（最多1瓶）减免50卢布；提供1套工具免费修理。</li>
+<li><strong>工具回收</strong>：30卢布收购工具。</li>
+<li><strong>电压充值</strong>：为充电物品恢复电量，20卢布恢复1点（不超过物品最大容量）。</li>
+</ul>
+<h3 id="潜行者营地（stalker-camp）（安全屋）">潜行者营地（Stalker Camp）（安全屋）</h3>
+<p>几名疲惫的潜行者在小火堆旁取暖的隐蔽地点——禁区恐怖中脆弱的和平角落。</p>
+<ul>
+<li>无法抵御<strong>禁区涌动（Zone Surge）</strong>。</li>
+<li><strong>临时营地</strong>：返回时有2/6概率营地被废弃，若废弃则在地图上划掉。</li>
+<li>无法在此储存物品，除非用背包创建<strong>隐藏藏匿点（Hidden Cache，见背包描述第108页）</strong>。</li>
+<li><strong>篝火休息</strong>：消耗1份食物休息恢复1点生命，拥有睡袋额外+1，可多次休息。</li>
+<li><strong>交换故事</strong>：与潜行者共享1瓶伏特加，获得1点线索。</li>
+<li><strong>向导（Guide，第77页）</strong>：带领你走更安全的路线穿越禁区。</li>
+</ul>
+<h3 id="向导（guide）">向导（Guide）</h3>
+<p>在小径边缘遇见他，平静从容，仿佛禁区为他让路，衣服打补丁但实用，脚步安静坚定。说话轻柔，字斟句酌，知晓所有捷径与隐藏路径——以及每条路的价格。</p>
+<ul>
+<li><strong>低风险通行</strong>：30卢布，可立即移动至任意已探索区域，此移动不触发随机遭遇（无需投掷遭遇表）；涌动来袭时，向导同行视为1次移动（1格）。</li>
+<li><strong>隐藏路径</strong>：70卢布，为你展示穿越高危区域的方法。选择任意1格画虚线标记，可任意方向穿越此格，无视探索、主动效果、随机遭遇与搜刮。</li>
+</ul>
+<hr>
+<h2 id="遭遇表（encounter-table）（d6）">遭遇表（Encounter Table）（D6）</h2>
+<table>
+<thead>
+<tr>
+<th>骰子结果</th>
+<th>对应子表（英文）</th>
+<th>对应中文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Stalkers Table</td>
+<td>潜行者表</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Anomalies Table</td>
+<td>异常现象表</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Military Forces Table</td>
+<td>军方部队表</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Outlaws Table</td>
+<td>不法之徒表</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Mutated Creatures Table</td>
+<td>变异生物表</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Lost Ones Table</td>
+<td>迷失者表</td>
+</tr>
+</tbody></table>
+<h3 id="潜行者表（stalkers-table）（d66）">潜行者表（Stalkers Table）（D66）</h3>
+<table>
+<thead>
+<tr>
+<th>骰子结果</th>
+<th>场景内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>11–13</td>
+<td>营火故事：遇见围坐篝火的潜行者小队，加入恢复1点生命+1点辐射抗性，涌动预警+1；拥有睡袋额外+1生命；使用伏特加可进行L4魅力判定，成功获得1点线索，若曙光营地未发现，可在任意未探索区域放置它</td>
+</tr>
+<tr>
+<td>14–16</td>
+<td>远处枪声：前方传来短促自动枪声，惊慌后归于寂静。抵达现场发现散落的装备遗骸，手中紧攥武器。战利品：投掷2次武器表+1次补给表+d6×10卢布</td>
+</tr>
+<tr>
+<td>21–23</td>
+<td>科考队：偶遇疲惫的研究人员与技术员车队，愿以双倍价格收购神器，或每件神器兑换1点线索；若移动科考站未发现，共享位置，可放置在任意未探索区域</td>
+</tr>
+<tr>
+<td>24–26</td>
+<td>流浪技工：看见破旧庇护所，工作台散落工具， grizzled 技工挥手示意。提供装备修理服务，详情见技师（第75页）</td>
+</tr>
+<tr>
+<td>31–33</td>
+<td>鬼镇探索者：小队正在清理废弃村庄，可加入并投掷2次搜寻表（第23页）；每次投掷1–3则误入隐藏异常，投掷异常现象表</td>
+</tr>
+<tr>
+<td>34–36</td>
+<td>猎人遭遇：遇见独行猎人，收购变异体战利品、提供猎杀任务、可教授变异猎人技能，详情见猎人（第71页）</td>
+</tr>
+<tr>
+<td>41–43</td>
+<td>旧篝火灰烬： stumbled  across 废弃营地，熄灭的篝火、散落食物、匆忙逃离痕迹。投掷1次垃圾表+1次补给表，再投掷d6，1–2无事发生，3–6立即触发遭遇表结果</td>
+</tr>
+<tr>
+<td>44–46</td>
+<td>流浪商人：独行者挥手拦下你，背负大量装备，腰带挂着破旧面具，眼神不停扫视周围废墟。提供补给、弹药与隐秘路径，详情见商人（第69页）</td>
+</tr>
+<tr>
+<td>51–53</td>
+<td>受伤强盗：发现靠墙瘫坐的受伤强盗，伤口流血，武器就在够不到的地方。选择：击杀→获得2d6卢布+1次垃圾表；审问→L4魅力判定，成功获得1点线索并留活口，失败→反击（L3防御判定，失败承受1点伤害）后死亡，战利品同上；救助→消耗3点医疗包或1个绷带，欠下人情，可跳过下一次不法之徒遭遇；离开→无风险无奖励，涌动预警+1</td>
+</tr>
+<tr>
+<td>54–56</td>
+<td>独行逃兵：从部队逃离的衣衫褴褛、偏执士兵，武装且绝望。L3人类，2点生命，1点伤害，穿甲弹攻击视为L2。和平接近（L4魅力判定成功）→冷静并交易，持有垃圾表1件、补给表1件，30卢布出售1点线索，不收购任何物品；攻击或判定失败→拼死战斗。战利品：1次垃圾表+1次补给表</td>
+</tr>
+<tr>
+<td>61–63</td>
+<td>资深向导： grizzled 潜行者提供捷径，30卢布立即移动至任意已探索区域，不触发随机遭遇，涌动预警+d3；拥有追踪者技能免费向导</td>
+</tr>
+<tr>
+<td>64–66</td>
+<td>射乌鸦比赛：无聊的潜行者挥手邀请，提议打赌：10发子弹比谁射落乌鸦更多，失败者支付赌注。禁区乌鸦：L4变异体，1点生命。选择赌注（最高70卢布），可使用任意枪械与弹药，必须装填并射击10发，爆炸骰无效。对手结果：投掷d6+4为命中数</td>
+</tr>
+</tbody></table>
+<h1 id="军方部队表（military-forces-table）（d6）">军方部队表（Military Forces Table）（D6）</h1>
+<ol>
+<li><p><strong>d6+1名巡逻士兵</strong><br>疲惫的义务兵正在清扫区域内的威胁，通常会先开火再问话。<br>等级3人类，1点生命，伤害1点，2/6概率突袭。战斗前可进行等级4魅力判定交涉脱身。提供伏特加可使判定+1。成功则规避战斗，失败则敌人先手。战利品：投掷武器表（第112页）d6次，2d6卢布。</p>
+</li>
+<li><p><strong>武装直升机飞越</strong><br>轰鸣的武装直升机从头顶掠过，对区域进行扫射。<br>可立即尝试等级4逃脱判定。失败或选择留下，直升机开火。<br>持有火箭筒可进行等级4攻击判定。成功则摧毁直升机，获得一箱弹药（100发步枪弹），2点经验值。失败或无火箭筒，进行等级4防御判定。失败损失d3点生命。随后重复流程：每次失败后先进行等级4逃脱判定，再进行等级4防御判定。<br>直升机将在该区域盘旋直至被摧毁。</p>
+</li>
+<li><p><strong>d3+1支K-9部队</strong><br>遭遇携带有追踪与扑杀用军犬的 handlers。<br>等级4人类，1点生命，伤害1点。无法逃脱。战斗开始时，进行等级3意志判定（军犬咆哮），失败则第一回合攻击判定-1。战利品：投掷补给表（第108页）。</p>
+</li>
+<li><p><strong>d3+1名伞兵</strong><br>历经无数任务的老兵，武装精良、配合高度默契。<br>等级5人类，1点生命，伤害2点，对霰弹枪抗性（攻击判定-1）。面对穿甲弹攻击视为等级4。防御判定投出天然2，会因爆炸弹丸自动承受1点伤害。战利品：投掷武器表（第112页）2次，2d6+2发穿甲步枪弹，1枚手榴弹。</p>
+</li>
+<li><p><strong>狙击手伏击</strong><br>隐蔽的神射手从高处覆盖该区域。<br>进行等级5智力判定（线索可提供帮助）。失败立即损失2点生命。你会大致知晓狙击手藏匿位置。可选择尝试逃脱或冲刺穿越开阔地带——需在抵达前承受4次攻击（等级4，失败伤害2点）。<br>狙击手：等级4人类，2点生命，伤害1点。战利品：SVV狙击步枪（第142页）。击败可获得2点经验值。</p>
+</li>
+<li><p><strong>2名静默清扫特工</strong><br>你注意到尘土中的新鲜脚印。随后，突然的枪声打破寂静。他们已就位。<br>等级5人类，1点生命，伤害2点，3/6概率突袭。<br>第一回合：压制火力——进行等级4敏捷判定，失败则跳过下一回合行动。防御判定投出天然1，承受+1点爆发伤害。战利品：2d6+10卢布，投掷武器表（第112页）与补给表（第108页）各1次。获得1点经验值+1线索。</p>
+</li>
+</ol>
+<hr>
+<h1 id="不法之徒表（outlaws-table）（d6）">不法之徒表（Outlaws Table）（D6）</h1>
+<ol>
+<li><p><strong>d6+1名醉酒强盗</strong><br>浑身酒气、攻击性十足，蹒跚穿行在废墟中寻衅滋事。<br>给予伏特加，可自动成功等级4魅力判定脱身。失败则发动攻击。<br>等级3人类，1点生命，伤害1点，2/6概率突袭。<br>流血效果：防御判定失败后，后续每投出1次天然1，战斗剩余阶段额外损失1点生命。<br>战利品：2d6×10卢布。获得1点经验值。</p>
+</li>
+<li><p><strong>d3+1名残忍帮派强盗</strong><br>残暴无情，坚信暴力解决一切。武器粗糙、布满锈蚀与木刺——自制弹药撕裂血肉而非干净穿透。<br>等级3人类，1点生命，伤害1点，4/6概率突袭，逃脱判定-1。<br>流血效果：防御判定失败后，后续每投出1次天然1，战斗剩余阶段额外损失1点生命。<br>战利品：投掷垃圾表（第104页）1次，d6×10卢布。获得1点经验值。</p>
+</li>
+<li><p><strong>d3名职业杀手</strong><br>从他们在废土中精准追踪你的方式判断，有人想要你死。<br>等级4人类，1点生命，伤害2点，4/6概率突袭。对霰弹枪抗性（攻击判定-1）。<br>流血效果：防御判定失败后，后续每投出1次天然1，战斗剩余阶段额外损失1点生命。<br>战利品：投掷武器表（第112页）2次，d6+2发穿甲步枪弹。获得1点经验值+1线索。</p>
+</li>
+<li><p><strong>1名帮派头目与d3名保镖</strong><br>当地匪首与亲信护卫，武装精良且敢于开火。<br>必须同时与保镖和头目战斗，但保镖全部被击败前无法锁定头目。<br>1名帮派头目：等级4人类，2点生命，伤害2点。<br>d3+1名保镖：等级3人类，1点生命，伤害1点。<br>战利品：投掷武器表（第112页）2次，补给表（第108页）1次，d6×10卢布。获得2点经验值。</p>
+</li>
+<li><p><strong>d6名挟持人质的强盗</strong><br>强盗包围着刚抓获的受害者，拔出武器决定下一步行动。<br>等级2人类，1点生命，伤害1点，2/6概率突袭。<br>流血效果：防御判定失败后，后续每投出1次天然1，战斗剩余阶段额外损失1点生命。<br>战利品：投掷垃圾表（第104页）1次，3d6卢布。获得1点经验值+1线索。</p>
+</li>
+<li><p><strong>d6+2名劫匪</strong><br>快速、绝望的伏击。试图抢劫后立刻逃窜。<br>等级2人类，1点生命，伤害1点，4/6概率突袭。劫匪先手时，进行等级4力量判定。失败则被一拥而上洗劫——每逃脱1名劫匪损失d6卢布。击败3名及以上劫匪，投掷补给表（第108页）1次，获得1点经验值。</p>
+</li>
+</ol>
+<hr>
+<h1 id="变异生物表（mutated-creatures-table）（d6）">变异生物表（Mutated Creatures Table）（D6）</h1>
+<ol>
+<li><p><strong>d6+2只废土流浪犬群</strong><br>被遗忘家园的幸存者，这些变异犬只懂得饥饿与恐惧。它们破碎的嚎叫在死寂区域回荡，宣告着野蛮死亡的降临。<br>等级3变异体，1点生命，伤害1点，2/6概率突袭。逃脱判定-1。面对霰弹枪攻击视为等级2。<br>犬群召唤：每回合敌人行动结束时，1/6概率新增1只流浪犬加入战斗。若剩余犬只≤3只，4/6概率在其回合自行逃窜。<br>战利品：持有匕首可获取1个变异体战利品（第107页）。</p>
+</li>
+<li><p><strong>d3只枯萎野猪</strong><br>被辐射与疾病扭曲，这些巨型野猪的血肉中带着废土的腐烂，血液中充斥着狂怒。<br>等级4变异体，1点生命，伤害2点，逃脱判定-1。每回合战斗开始时，进行等级3辐射豁免，失败损失1点辐射抗性。获得1点经验值。<br>冲锋：第一回合伤害为3点。<br>战利品：持有匕首可获取1个变异体战利品（第107页）。</p>
+</li>
+<li><p><strong>d6只荆棘蠕虫</strong><br>行动迟缓、臃肿庞大的变异蠕虫，覆盖着辐射硬化的尖锐尖刺。它们在污染土壤中钻行，在毒水中繁衍，以腐坏之物为食。<br>等级3变异体，1点生命，伤害1点。迟缓：逃脱判定+1。<br>流血效果：防御判定失败后，后续每投出1次天然1，战斗剩余阶段额外损失1点生命。<br>战利品：投掷垃圾表（第104页）1次。持有匕首可额外获取1个变异体战利品（第107页）。获得1点经验值。</p>
+</li>
+<li><p><strong>蝎尾狮</strong><br>由肌肉与骨骼堆砌的庞然大物，以野蛮力量从上方突袭。等级4变异体，6点生命，伤害2点。战斗开始时进行等级4意志判定，失败则变异体先手。<br>尾刺攻击：攻击或防御判定投出天然2，尾刺命中并损失1点生命。<br>战利品：持有匕首可获取d3个变异体战利品（第107页）。获得2点经验值。</p>
+</li>
+<li><p><strong>碎心者</strong><br>人形的扭曲灵能异常，仅凭存在就能扭曲现实、撕裂心智。<br>涌动预警+1。<br>等级5变异体，5点生命，伤害1点，3/6概率突袭。<br>战斗开始时，进行等级3灵能豁免，失败则战斗剩余阶段防御判定-1。防御判定失败时掉落武器，需消耗1回合捡起。<br>战利品：获得1线索，投掷补给表（第108页）1次。获得2点经验值。</p>
+</li>
+<li><p><strong>吸血鬼</strong><br>高大、瘦削、眼窝空洞的赤裸身影，从阴影中突袭汲取生命。<br>等级5变异体，6点生命，伤害2点，先手攻击。<br>战斗开始时，若持有枪械，需成功进行等级4意志判定，否则立即消耗d6+2发弹药。<br>吸血鬼剩余1点生命时，3/6概率在其回合逃窜。<br>击杀吸血鬼获得2点经验值；其逃窜则获得1点经验值。<br>战利品：持有匕首可取其头颅作为战利品。</p>
+</li>
+</ol>
+<hr>
+<h1 id="迷失者表（lost-ones-table）（d6）">迷失者表（Lost Ones Table）（D6）</h1>
+<ol>
+<li><p><strong>d6+2名邪教徒</strong><br>被疯狂与对废土未知力量的虔诚扭曲，一边念诵祷言一边推进开火。<br>等级4丧尸化敌人，1点生命，伤害1点。2/6概率突袭。面对穿甲弹攻击视为等级3。<br>狂怒：一回合击杀2名及以上邪教徒，剩余敌人战斗剩余阶段等级+1。<br>战利品：投掷武器表（第112页）2次。获得1点经验值。</p>
+</li>
+<li><p><strong>d3+2名丧尸化士兵</strong><br>破碎的头盔、锈蚀的武器——这些士兵不再服从命令，只追随废土的低语。<br>等级5丧尸化敌人，1点生命，伤害2点。对霰弹枪抗性（攻击判定-1）。面对穿甲弹攻击视为等级4。<br>子弹海绵：每次攻击额外消耗1发弹药。<br>战利品：投掷武器表（第112页）1次、垃圾表（第104页）1次。获得1点经验值。</p>
+</li>
+<li><p><strong>d3+1名精英邪教徒</strong><br>曾是精英士兵与资深潜行者，如今是被心智扭曲的狂热分子，武装精准、手段残暴。纪律尚存，忠诚却归于废土。<br>等级5丧尸化敌人，1点生命，伤害2点。3/6概率突袭。面对穿甲弹攻击视为等级4。<br>手榴弹爆炸：攻击判定投出天然1后，进行等级4敏捷判定，失败损失d3点生命。<br>流血效果：防御判定失败后，后续每投出1次天然1，战斗剩余阶段额外损失1点生命。<br>战利品：投掷武器表（第112页）2次，神器表（第102页）1次。获得2点经验值。</p>
+</li>
+<li><p><strong>3d6名活死人</strong><br>人类的蹒跚残躯，行动笨拙，却能用数量压垮大意者。<br>等级2丧尸化敌人，1点生命，伤害1点。迟缓：逃脱判定+1。<br>每回合敌人行动开始时，1具倒下的活死人重新站起。全部击杀则无视此规则。<br>战利品：投掷垃圾表（第104页）1次。</p>
+</li>
+<li><p><strong>d6名丧尸化潜行者</strong><br>阵亡士兵的尸体，被恶意意志驱动，紧握武器与满载装备。<br>等级3丧尸化敌人，1点生命，伤害1点，3/6概率突袭。面对穿甲弹攻击视为等级2。<br>尸群战术：场上丧尸化潜行者≥4名，防御判定-1。<br>战利品：投掷武器表（第112页）1次、垃圾表（第104页）1次，3d6卢布。额外找到定位标签：若移动科考站（第72页）未在地图标记，可使用标签将其放置在任意未探索区域。获胜获得1点经验值。</p>
+</li>
+<li><p><strong>1名碎心者与d6名丧尸护卫</strong><br>扭曲的碎心者率领一小群心智破碎的丧尸，其存在令现实扭曲。<br>涌动预警+1。<br>必须同时与丧尸护卫和碎心者战斗，但丧尸护卫全部被击败前无法锁定碎心者。<br>1名碎心者：等级4变异体，5点生命，伤害1点。战斗开始时进行等级3灵能豁免，失败则战斗剩余阶段防御判定-1。防御判定失败时掉落武器，需消耗1回合捡起。<br>d6名丧尸护卫：等级2丧尸化敌人，1点生命，伤害1点。<br>战利品：投掷补给表（第108页）1次。获得2点经验值+1线索。</p>
+</li>
+</ol>
+<hr>
+<h1 id="异常现象表（anomalies-table）（d6）">异常现象表（Anomalies Table）（D6）</h1>
+<ol>
+<li><p><strong>重力陷阱</strong><br>现实扭曲。<br>进行等级4力量判定，失败损失2点生命+1点辐射抗性。获得1点经验值。<br>涌动预警+3。</p>
+</li>
+<li><p><strong>焚化场</strong><br>无形火焰灼烧空气。<br>进行等级4火焰豁免，失败损失3点生命+1点辐射抗性。获得1点经验值。<br>涌动预警+3。</p>
+</li>
+<li><p><strong>灵能力场</strong><br>心智在无形压力下扭曲。<br>进行等级4灵能豁免，失败损失2点生命+1点辐射抗性。获得1点经验值。<br>涌动预警+3。</p>
+</li>
+<li><p><strong>百万伏特</strong><br>放电现象在废墟中跳跃。<br>进行等级4电力豁免，失败损失2点生命。获得1点经验值。<br>涌动预警+3。</p>
+</li>
+<li><p><strong>女巫之酿</strong><br>毒雾从地面喷涌冒泡。<br>进行等级3酸性豁免，失败损失1点生命，并丢失2件随身携带物品。获得1点经验值。<br>涌动预警+3。</p>
+</li>
+<li><p><strong>恶魔荨麻</strong><br>异常植物用带毒尖刺与藤蔓疯狂抽打。<br>进行等级3酸性豁免，失败损失2点生命。获得1点经验值。<br>涌动预警+3。</p>
+</li>
+</ol>
+<hr>
+<h1 id="神器表（artifacts-table）（2d6）">神器表（Artifacts Table）（2D6）</h1>
+<table>
+<thead>
+<tr>
+<th>2D6结果</th>
+<th>神器名称</th>
+<th>效果与价值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2–3</td>
+<td>黑钻（Black Diamond）</td>
+<td>极致黑暗的碎片，触感温暖。重型。食用食物时恢复1点生命。价值：50卢布</td>
+</tr>
+<tr>
+<td>4–5</td>
+<td>团子（Dumpling）</td>
+<td>微弱脉动，让思绪更沉静、沉重。意志判定与灵能豁免+1。价值：30卢布</td>
+</tr>
+<tr>
+<td>6</td>
+<td>海星（Starfish）</td>
+<td>盖革计数器读数下柔和发光。辐射豁免+1。价值：20卢布</td>
+</tr>
+<tr>
+<td>7</td>
+<td>微光虫（Glimmerbug）</td>
+<td>危险临近时闪烁，随后熄灭。轻型。防御判定+1（仅单次战斗，生效后失效）。价值：10卢布（耗尽后无价值）</td>
+</tr>
+<tr>
+<td>8–9</td>
+<td>背刺鱼（Quillback）</td>
+<td>微小尖刺随无形静电振动。你的一件装置与神器共振，接收信号：“这里是布罗马莱特。715-844-109……”。重型。防御判定+1。价值：20卢布</td>
+</tr>
+<tr>
+<td>10–11</td>
+<td>青铜圆盘（Bronze Disc）</td>
+<td>异常致密，刻有磨损符文。力量判定+1。价值：30卢布</td>
+</tr>
+<tr>
+<td>12</td>
+<td>岩浆方块（Magma Cube）</td>
+<td>内部如冷却熔岩般发光。丢弃可抵消一次攻击的所有伤害。价值：50卢布</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="垃圾表（junk-table）（d66）">垃圾表（Junk Table）（D66）</h1>
+<table>
+<thead>
+<tr>
+<th>D66结果</th>
+<th>物品名称</th>
+<th>效果与价值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>11–12</td>
+<td>绷带（d3）</td>
+<td>轻型。免费行动使用1个可停止流血。每个价值：5卢布</td>
+</tr>
+<tr>
+<td>13–15</td>
+<td>双筒望远镜</td>
+<td>探索表判定+1，不可选择减益。价值：5卢布</td>
+</tr>
+<tr>
+<td>16–21</td>
+<td>螺栓（d6）</td>
+<td>轻型。每枚可重投一次异常生存判定中的天然1，每次重投消耗1枚</td>
+</tr>
+<tr>
+<td>22–24</td>
+<td>损坏收音机</td>
+<td>破损、嘶嘶作响。曾接收到信号：“这里是布罗马莱特。988-016551……”，微弱重复后静音。价值：5卢布</td>
+</tr>
+<tr>
+<td>25–26</td>
+<td>香烟（d6）</td>
+<td>轻型。吸食1支恢复1点辐射抗性。价值：5卢布</td>
+</tr>
+<tr>
+<td>31–33</td>
+<td>口琴</td>
+<td>小型易携带，永远无法彻底清洁。轻型。老旧乐器。价值：5卢布</td>
+</tr>
+<tr>
+<td>34–35</td>
+<td>吉他</td>
+<td>磨损的乐器。价值：10卢布</td>
+</tr>
+<tr>
+<td>36–42</td>
+<td>食物（d6）</td>
+<td>每份价值：5卢布</td>
+</tr>
+<tr>
+<td>43–44</td>
+<td>日记</td>
+<td>帮助专注反思。持有则每积累5点经验值，额外+1经验值</td>
+</tr>
+<tr>
+<td>45–51</td>
+<td>匕首</td>
+<td>伤痕累累、略显迟钝，但可靠。无攻击加成，不卡壳、不耗弹。废土尊重寂静。价值：5卢布</td>
+</tr>
+<tr>
+<td>52–53</td>
+<td>皮夹克</td>
+<td>轻型（穿戴时）。提供基础防护，抵消标准防御-1惩罚。价值：5卢布</td>
+</tr>
+<tr>
+<td>54–55</td>
+<td>燃烧瓶</td>
+<td>一次性投掷武器。自动击杀d3名丧尸化敌人，或对其他敌人攻击判定+2。使用时抵消黑暗效果</td>
+</tr>
+<tr>
+<td>56–61</td>
+<td>密码纸条</td>
+<td>轻型。2/6概率解锁锁定物品，成功后消耗。可多张依次尝试</td>
+</tr>
+<tr>
+<td>62–63</td>
+<td>变异体战利品</td>
+<td>从阵亡变异体身上取下的牙齿、耳朵、兽皮等可怖证明。可售给猎人，每个10卢布；或充当货币，每个计5卢布</td>
+</tr>
+<tr>
+<td>64–66</td>
+<td>伏特加</td>
+<td>使用可使魅力判定（允许时）+1、意志判定与灵能豁免+1，或恢复1点辐射抗性。价值：5卢布</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="补给表（supplies-table）（d66）">补给表（Supplies Table）（D66）</h1>
+<table>
+<thead>
+<tr>
+<th>D66结果</th>
+<th>物品名称</th>
+<th>效果与价值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>11–12</td>
+<td>9×18穿甲手枪弹</td>
+<td>10发穿甲手枪弹，对装甲敌人更有效。价值：10卢布</td>
+</tr>
+<tr>
+<td>13–15</td>
+<td>5.45×39穿甲步枪弹</td>
+<td>10发穿甲步枪弹，对装甲敌人更有效。价值：10卢布</td>
+</tr>
+<tr>
+<td>16–21</td>
+<td>门禁卡</td>
+<td>轻型。3/6概率解锁锁定物品，成功后消耗。可多张依次尝试</td>
+</tr>
+<tr>
+<td>22–24</td>
+<td>背包</td>
+<td>轻型（穿戴时）。负重上限+10件物品。可在地图标记位置创建隐藏藏匿点，每个藏匿点可存10件物品+任意数量轻型物品。价值：10卢布</td>
+</tr>
+<tr>
+<td>25–26</td>
+<td>探测器</td>
+<td>多次使用。成功通过异常判定后，可立即投掷神器表（第102页）1次。价值：20卢布</td>
+</tr>
+<tr>
+<td>31–33</td>
+<td>能量饮料（d3）</td>
+<td>轻型。每份计1份食物，食用时需与普通食物交替。每份价值：5卢布</td>
+</tr>
+<tr>
+<td>34–35</td>
+<td>头灯</td>
+<td>轻型（穿戴时）。3/6概率抵消黑暗效果，失败则耗尽电量，需充电恢复。价值：10卢布</td>
+</tr>
+<tr>
+<td>36–41</td>
+<td>头盔</td>
+<td>轻型（穿戴时）。对等级3及以下攻击防御+1，可与防护服、防毒面具兼容。价值：10卢布</td>
+</tr>
+<tr>
+<td>42–44</td>
+<td>防毒面具</td>
+<td>轻型（穿戴时）。辐射与酸性豁免+1。豁免判定投1则面具失效。价值：10卢布</td>
+</tr>
+<tr>
+<td>45–51</td>
+<td>凯夫拉背心</td>
+<td>防护服，轻型（穿戴时）。对等级4及以下攻击防御+1。防御判定投天然1则+1奖励失效，可修复（同锈蚀武器）。价值：20卢布</td>
+</tr>
+<tr>
+<td>52–53</td>
+<td>医疗包</td>
+<td>含d6+2点治疗量，每点可恢复1点生命或1点辐射抗性。每点价值：3卢布</td>
+</tr>
+<tr>
+<td>54–56</td>
+<td>蛋白棒（d3）</td>
+<td>轻型。每份计1份食物。每份价值：5卢布</td>
+</tr>
+<tr>
+<td>61–62</td>
+<td>睡袋</td>
+<td>提升休息与安全屋的生命恢复效果。价值：10卢布</td>
+</tr>
+<tr>
+<td>63–66</td>
+<td>工具</td>
+<td>重型。技师用于修复锈蚀武器。价值：10卢布</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="武器表（weapons-table）（d6）">武器表（Weapons Table）（D6）</h1>
+<table>
+<thead>
+<tr>
+<th>D6结果</th>
+<th>武器名称</th>
+<th>效果与价值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>手斧</td>
+<td>重型，有缺口但仍锋利。力量专家时攻击判定+2。价值：5卢布</td>
+</tr>
+<tr>
+<td>2</td>
+<td>钢筋棍</td>
+<td>粗糙、暴力，近距离有效。力量专家时攻击判定+1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1枚手榴弹 / 2d6发步枪弹</td>
+<td>老旧、凹陷，保险完好。一次性使用，自动造成4点伤害。价值：10卢布</td>
+</tr>
+<tr>
+<td>4</td>
+<td>锈蚀PM手枪 + 2d6发手枪弹</td>
+<td>攻击+1，射速1，使用手枪弹。修复后价值：10卢布</td>
+</tr>
+<tr>
+<td>5</td>
+<td>锈蚀截短双管霰弹枪 + 2d6发霰弹</td>
+<td>攻击+2，射速2，使用霰弹，第二次攻击无惩罚。每2次攻击需跳过1回合装填。修复后价值：20卢布</td>
+</tr>
+<tr>
+<td>6</td>
+<td>锈蚀卡拉什突击步枪 + 2d6发步枪弹</td>
+<td>重型，攻击+2，射速3，使用步枪弹。修复后价值：30卢布</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="潜行者藏匿点表（stalkers-stash-table）（d6）">潜行者藏匿点表（Stalker’s Stash Table）（D6）</h1>
+<table>
+<thead>
+<tr>
+<th>D6结果</th>
+<th>物品名称</th>
+<th>效果与价值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>异常地图</td>
+<td>标注不稳定区域的图表，带有符号与警告。可使用1次，重投或取消异常表（第100页）结果</td>
+</tr>
+<tr>
+<td>2</td>
+<td>神器罗盘</td>
+<td>怪异装置，永远指向某处。1次充能，3/6概率立即移动至任意已探索区域，失败则耗尽电量需充电。涌动预警+d3。价值：50卢布</td>
+</tr>
+<tr>
+<td>3</td>
+<td>灰织斗篷</td>
+<td>浅灰色罩袍，在尘土废墟中模糊轮廓。防护服，轻型（穿戴时）。潜行判定+1，负重上限+4件物品</td>
+</tr>
+<tr>
+<td>4</td>
+<td>流血裹布</td>
+<td>沾染血迹的反异常衣物，缝有护符。防护服，轻型（穿戴时）。异常内所有技能判定+1，此类判定投1则衣物损毁。负重+8件，1个神器插槽</td>
+</tr>
+<tr>
+<td>5</td>
+<td>野外背包</td>
+<td>废墟下发现的完好背包。获得：d6×10卢布，补给表（第108页）1次，1个医疗包，1个绷带</td>
+</tr>
+<tr>
+<td>6</td>
+<td>锈蚀S-12霰弹枪 + 2d6发霰弹</td>
+<td>重型，攻击+2，射速2，使用霰弹。价值：50卢布</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="军方物资箱表（military-crate-table）（d6）">军方物资箱表（Military Crate Table）（D6）</h1>
+<table>
+<thead>
+<tr>
+<th>D6结果</th>
+<th>物品名称</th>
+<th>效果与价值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>穿甲弹药箱</td>
+<td>标准配置，含20发穿甲步枪弹、10发穿甲手枪弹、2枚手榴弹</td>
+</tr>
+<tr>
+<td>2</td>
+<td>“瓦尼克”防弹衣</td>
+<td>旧式作战护甲，防护有限。防护服，轻型（穿戴时）。对等级4及以下攻击防御+1，负重+8件。价值：50卢布</td>
+</tr>
+<tr>
+<td>3</td>
+<td>“同温层”护甲</td>
+<td>高空服改造用于废土暴露。防护服，重型（穿戴时轻型）。对等级4及以下攻击防御+1，辐射豁免+1，负重+10件，1个神器插槽，不可与防毒面具兼容。价值：50卢布</td>
+</tr>
+<tr>
+<td>4</td>
+<td>火箭筒</td>
+<td>一次性高破坏力发射器。重型，一次性使用，自动造成4点伤害，可清理阻塞道路或载具。价值：50卢布</td>
+</tr>
+<tr>
+<td>5</td>
+<td>TT手枪</td>
+<td>老式军用手枪，响亮有效。攻击+2，射速1，使用手枪弹。价值：30卢布</td>
+</tr>
+<tr>
+<td>6</td>
+<td>SVV狙击步枪</td>
+<td>资深潜行者青睐的瞄准半自动步枪。重型，攻击+2，射速1，仅使用穿甲步枪弹。先手攻击时，战斗前可免费开1枪。战斗前后切换武器免费。必中单一目标，即使面对群体。价值：50卢布</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="科研储藏单元表（scientific-storage-unit-table）（d6）">科研储藏单元表（Scientific Storage Unit Table）（D6）</h1>
+<table>
+<thead>
+<tr>
+<th>D6结果</th>
+<th>物品名称</th>
+<th>效果与价值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>神经牢笼服</td>
+<td>为阻挡不稳定区域灵能影响打造。防护服，重型（穿戴时轻型）。对等级3及以下攻击防御+1，灵能豁免+1，3个神器插槽，抵消黑暗效果，负重+6件。价值：50卢布</td>
+</tr>
+<tr>
+<td>2</td>
+<td>神经记录器</td>
+<td>用于监测不稳定场域意识的实验头戴设备。轻型，1次充能，重投任意1次技能或攻击判定，使用需1回合行动，可与防护服、头盔、防毒面具兼容。价值：50卢布</td>
+</tr>
+<tr>
+<td>3</td>
+<td>外骨骼框架服</td>
+<td>为搬运与生存打造的动力骨架。防护服，重型（穿戴时轻型）。对等级5及以下攻击防御+1，力量判定+2，潜行判定-1，2个神器插槽，抵消黑暗效果，负重+16件。价值：50卢布</td>
+</tr>
+<tr>
+<td>4</td>
+<td>高级医疗包</td>
+<td>高端医疗包，含2剂。使用1剂恢复2点生命+1点辐射抗性；医生技能恢复3点生命+2点辐射抗性（专家级完全恢复）。免费行动使用。每剂价值：20卢布</td>
+</tr>
+<tr>
+<td>5</td>
+<td>抗辐射注射器</td>
+<td>轻型，一次性使用，立即恢复4点辐射抗性。免费行动使用。价值：40卢布</td>
+</tr>
+<tr>
+<td>6</td>
+<td>原型步枪</td>
+<td>不稳定核心的实验武器。重型，攻击+1，射速1，5–6触发爆炸骰，未命中也造成1点伤害，最大8发充能，初始满能。价值：50卢布</td>
+</tr>
+</tbody></table>
+<p>AAAA</p>
+<h1 id="科研储藏单元表（scientific-storage-unit-table）（d6）-1">科研储藏单元表（Scientific Storage Unit Table）（D6）</h1>
+<table>
+<thead>
+<tr>
+<th>骰子结果</th>
+<th>物品名称</th>
+<th>效果与价值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>神经牢笼服（NERV‑Cage Suit）</td>
+<td>防护服，重型（穿戴时为轻型）。对等级3及以下攻击防御+1，灵能豁免+1，3个神器插槽，抵消黑暗效果，负重上限+6件物品。价值：50卢布</td>
+</tr>
+<tr>
+<td>2</td>
+<td>神经记录器（Neural Recorder）</td>
+<td>轻型，1次充能。可重投任意1次技能或攻击判定，使用需消耗1回合行动，可与防护服、头盔、防毒面具兼容。价值：50卢布</td>
+</tr>
+<tr>
+<td>3</td>
+<td>外骨骼框架服（Exo‑Frame Suit）</td>
+<td>防护服，重型（穿戴时为轻型）。对等级5及以下攻击防御+1，力量判定+2，潜行判定-1，2个神器插槽，抵消黑暗效果，负重上限+16件物品。价值：50卢布</td>
+</tr>
+<tr>
+<td>4</td>
+<td>高级医疗包（Advanced Medkit）</td>
+<td>高端医疗包，含2剂。使用1剂恢复2点生命+1点辐射抗性；拥有医生技能则恢复3点生命+2点辐射抗性（专家级完全恢复）。免费行动使用。每剂价值：20卢布</td>
+</tr>
+<tr>
+<td>5</td>
+<td>抗辐射注射器（Anti‑Rad Injector）</td>
+<td>轻型，一次性使用。立即恢复4点辐射抗性，免费行动使用。价值：40卢布</td>
+</tr>
+<tr>
+<td>6</td>
+<td>原型步枪（Prototype Rifle）</td>
+<td>重型，攻击+1，射速1。投出5–6触发爆炸骰，未命中也造成1点伤害，最大8发充能，初始满能。价值：50卢布</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="事件（events）">事件（Events）</h1>
+<h2 id="事件1顺从（compliance）">事件1——顺从（Compliance）</h2>
+<p>你交出武器。大门开启，你步入其中——跳转至事件45（第133页）。</p>
+<h2 id="事件2地堡（the-bunker）">事件2——地堡（The Bunker）</h2>
+<p>你抵达一座地堡——矮胖、圆柱形，如同巨大的埋地鼓形物。地堡被扭曲空气形成的波动力场环绕，宛如碎裂的玻璃。需进行等级5辐射豁免方可穿过，失败则损失d3点辐射抗性。<br>地堡内部，虚影工作人员神色匆忙地行动，准备新一轮广播。你踏入的瞬间，他们停下动作，转头看来，空洞的双眼锁定你，蜂拥而上、伸出双臂，声音越来越高，齐声恳求：<strong>“把我的生命还给我！”</strong><br>遭遇d6+2只幽魂：1点生命。无法规避或逃脱。每只幽魂接触你时，你需进行等级4敏捷判定或等级5灵能豁免，失败则被触碰，损失1点生命或2点辐射抗性，被触碰的幽魂随即消失。获得1点经验值，跳转至事件17（第126页）。</p>
+<h2 id="事件3临界阈限（the-threshold）">事件3——临界阈限（The Threshold）</h2>
+<p>你穿阈而过，无痛无感、无移无动，唯有死寂与坠入虚空的失重感。你的内心有什么东西被打开了。</p>
+<ul>
+<li>持有3个回响碎片：跳转至事件13（第125页）</li>
+<li>持有4–5个回响碎片：跳转至事件35（第130页）</li>
+<li>持有全部6个回响碎片：跳转至事件50（第134页）</li>
+</ul>
+<h2 id="事件4外围边界（the-outer-perimeter）">事件4——外围边界（The Outer Perimeter）</h2>
+<p>你靠近一座巨型建筑——或许是发电厂，或是老旧工业综合体。混凝土围墙环绕着大片死寂区域，无守卫、无动静，唯有寂静与破裂管道滴落的微弱水声。<br>一座带厚重扶壁的加固附属建筑格外显眼，或许是入口。你朝它走去，内部是铺着金属面板的宽敞房间，密封门表明这里可能是消毒锁，控制面板上有一枚按钮柔和闪烁，你按下按钮。<br>身后的门密封关闭，前方的门静待开启。阴影中，有东西开始蠕动。一座与两三名早已死亡守卫残骸融合的炮塔缓缓前行，扭曲的嘴部发出统一的声音：<strong>“855-10HJ-005-0005？”</strong><br>尝试理解它的请求：</p>
+<ul>
+<li>等级5智力判定成功：跳转至事件29（第129页）</li>
+<li>使用解码笔记本：跳转至事件34（第130页）</li>
+<li>发动攻击：跳转至事件42（第133页）</li>
+</ul>
+<h2 id="事件5地下层（sublevel）">事件5——地下层（Sublevel）</h2>
+<p>你进入昏暗房间，空气中弥漫着金属与尘土的厚重气息。烧焦防火储物柜内，蜷缩着一具科学家尸体——形容枯槁，死于饥饿而非暴力。他的头骨上戴着一枚粗制金属环，连接着烧焦的组件。<br>你获得：灵能力场抑制器（轻型）——可抵御3次灵能豁免失败，之后损毁。<br>房间尽头，有东西开始蠕动。跳转至事件52（第135页）。</p>
+<h2 id="事件6废土涌动即将来临（a-zone-surge-approaches）">事件6——废土涌动即将来临（A Zone Surge Approaches）</h2>
+<p>当涌动预警累计至12点，或探索表投出12时触发。<br>在废土中，涌动从无毫无征兆降临。最初会出现征兆：飞鸟凭空消失、昆虫无声坠落、所有设备泛起静电，无电源处灯光闪烁，天空从灰转紫，再变为病态深红，空气开始嗡鸣——干燥、尖锐、充满电流。<br>投掷1颗d6——这是涌动降临前你可移动的格数。<br>想要存活，必须抵达安全屋（潜行者营地除外）、避难所或回响区域。好好利用时间。<br>涌动发出无意义的尖啸，警笛般的音调凭空出现，交织着机械杂音。随后浪潮袭来：压力与强光弯折钢铁、煮沸空气，树木焦黑、混凝土脉动，无遮蔽之物都会被重塑或摧毁，被困室外者极少能全身而退。<br>若涌动降临时你身处安全屋、避难所或回响区域，可安然度过；否则损失d6+1点生命与d6+1点辐射抗性。<br>涌动过后，所有潜行者营地消失——篝火熄灭，废土重归寂静。划掉地图上所有潜行者营地，涌动预警重置为0。</p>
+<h2 id="事件7螺栓与寂静（bolts-and-silence）">事件7——螺栓与寂静（Bolts and Silence）</h2>
+<p>螺栓没入球体，毫无反应。这个动作平复了你的神经。<br>下次豁免判定+1。<br>返回事件39（第131页）。</p>
+<h2 id="事件8废弃营地（ruined-encampment）">事件8——废弃营地（Ruined Encampment）</h2>
+<p>帐篷被烧毁，设备被熔化。营地中央：一枚密封数据核心，仍在嗡鸣。脚印向外延伸，随即消失。<br>等级4追踪判定：</p>
+<ul>
+<li>成功：你找到一具科学家遗骸，笔记本上记录着<strong>印记幸存者</strong>布道的碎片，记录关键词：印记3（SIGN 3），获得+1经验值</li>
+<li>失败：与d3+2名丧尸化科学家（等级3，1点生命，伤害1点）战斗，无法逃脱，获得1点经验值+1线索<br>无论判定结果如何：将此区域标记为回响2，跳转至事件36（第131页）。</li>
+</ul>
+<h2 id="事件9若你留它性命（if-you-let-it-live）">事件9——若你留它性命（If You Let It Live）</h2>
+<p>集群体对你说话，随后等待——耐心、满怀期待——你用解码笔记本破译它的信号。<strong>“研究完成。找到科学家，交付回收的秘密文件。”</strong><br>完成任务获得奖励：50卢布，投掷1次科研储藏单元表（第118页）。</p>
+<h2 id="事件10牵引（the-pull）">事件10——牵引（The Pull）</h2>
+<p>球体爆发涌动，你如洪水浮木般被吸入。光影飞速掠过：骸骨、双眼、废墟、星辰。<br>你需用以下不同方式成功完成3次判定（每种仅可使用1次），失败则损失1点生命或1点辐射抗性：</p>
+<ul>
+<li>等级5酸性豁免</li>
+<li>等级5辐射豁免</li>
+<li>等级5魅力判定</li>
+<li>等级5敏捷判定</li>
+<li>等级5智力判定</li>
+<li>等级5防御判定</li>
+<li>等级5逃脱判定</li>
+<li>等级5追踪者判定<br>存活则跳转至事件3（第120页）。</li>
+</ul>
+<h2 id="事件11印记符号（symbols-of-the-marked）">事件11——印记符号（Symbols of the Marked）</h2>
+<p>你认出其中一条路径上方的三个符号，毫不犹豫地选择它。<br>跳转至事件39（第131页）。</p>
+<h2 id="事件12抉择（the-choice）">事件12——抉择（The Choice）</h2>
+<p>身影与你对视，他们身后：现实裂隙，发光脉动，如同第二颗心跳。<br>“你可以得到你追寻的东西，”身影说，“但必须有东西取代你的位置。”<br>你明白：一旦踏入，你将无法归来——至少，不再是原来的你。<br>选择：</p>
+<ul>
+<li>踏入裂隙：跳转至事件63（第137页）</li>
+<li>拒绝：跳转至事件67（第138页）</li>
+</ul>
+<h2 id="事件13被遗忘的自我（the-forgotten-self）">事件13——被遗忘的自我（The Forgotten Self）</h2>
+<p>你发现自己躺在那里，死去了。无痛无感、无惊无怖，只有早已了然的死寂。你很久以前就死了，在你以为自己成功逃离的那一刻。但那从未是终点，只是另一段开始的起点。<br>废土是盲目而绝望的意识——浩瀚、孤独、无法遗忘。它感知死亡，伸手触碰，并非为了抹去，而是为了留存。它无法倒转时间，于是用碎片、用回响、用破碎土壤里残留的鲜血重塑一切。<br>于是你得以存在。你呼吸、流血、恐惧——和篝火旁的潜行者、森林里的变异体、面具后的商人一样真实。但你们无人能离开，因为在废土之外……你从未存在过。是废土重新赋予你形态，让你多活一天、多说一句话、多做一次选择——即便只能在它的边界之内。<br>如今你看得清晰：每一步、每一次遭遇、每一次死亡，都是真实的。但外界早已将你遗忘，你也不再属于那里。<br>现在你必须选择——留下……或是永远消散。<br>跳转至事件60（第137页）。</p>
+<h2 id="事件14最终任务（final-mission）">事件14——最终任务（Final Mission）</h2>
+<p>黎明缓慢降临，灰暗、潮湿、寂静。雨水从天空洒落，仿佛有人隔着铁丝网筛落灰烬。空气中弥漫着铁锈、潮湿泥土的气息……还有一丝隐约熟悉的味道。<br>你从容醒来，没有疑问，只知道——是时候了。知道该去往何方，知道废土核心已不再沉睡。<br>你习惯性检查装备，手指机械地动作，仿佛已做过百次千次。只是这一次，一切都显得平静，沉重，却并非糟糕的沉重，仿佛整个世界都在屏息等待。<br>离开途中，你遇见熟悉的面孔，无人多言，点头示意，有人久久注视你，并非怜悯，也并非希望，只是仿佛知道再也不会见到你——却不知这是好是坏。<br>你抬手，无言，转身走向未知，继续前行。<br>投掷d6+4，向标记为回响的最北端区域正北方向移动对应格数，抵达后触发事件4（第121页）。</p>
+<h2 id="事件15生命阈限（vital-threshold）">事件15——生命阈限（Vital Threshold）</h2>
+<p>若你的最大生命≥12，或拥有<strong>辐射灼伤</strong>印记：跳转至事件3（第120页）；<br>否则：跳转至事件49（第134页）。</p>
+<h2 id="事件16转轮（the-wheel）">事件16——转轮（The Wheel）</h2>
+<p>城镇中央矗立着一座摩天轮，发出嘎吱刺耳的声响，却仍在转动。它由锁链束缚的囚徒驱动，憔悴的身影如骡子般扳动巨大杠杆。囚徒之中……是德米特里。一名魁梧的变异看守用锈蚀电缆鞭打他们，小型邪教变异体将其他囚徒赶入座舱。<br>座舱抵达顶端时，异常爆发，将内部一切碾成尘埃，变异体们为每次献祭欢呼雀跃。你尚未反应，便被发现，遭遇攻击。<br>遭遇2d6只邪教变异体：等级4变异体，1点生命，伤害1点。<br>跳转至事件32（第129页）。</p>
+<h2 id="事件17控制室（the-control-room）">事件17——控制室（The Control Room）</h2>
+<p>你找到核心终端，看见老旧标识与闪烁读数。这里是抑制装置——本应平息废土，却正在扼杀它。<br>你尝试关闭系统，进行等级5智力判定，失败则<strong>恶魔之舞</strong>（第33页）快速连续触发三次。<br>跳转至事件18（第126页）。</p>
+<h2 id="事件18神器（the-artifact）">事件18——神器（The Artifact）</h2>
+<p>警报尖啸，系统过载尖叫，地下传来沉闷爆炸声，空气中充斥着燃烧金属的恶臭。机器停止运转，寂静向外蔓延。坑洼地面升起一团冷银色光球，一件神器诞生。从此，<strong>恶魔之舞</strong>再未降临。<br>你获得神器：<strong>“月神”（Luna）</strong>——本身无效果，可吸收最多3件其他神器，融合继承全部属性。<br>获得：+3经验值+2线索。<br>记录回响碎片6：归来（RETURN）。</p>
+<h2 id="事件19破碎倒影（scattered-reflections）">事件19——破碎倒影（Scattered Reflections）</h2>
+<p>你的倒影在迷宫般的镜面中独立行动，你每走一步，它们同步回响，却步调错乱。<br>进行等级5敏捷判定：</p>
+<ul>
+<li>成功：收拢半数自我（恢复半数生命与辐射抗性，向下取整）</li>
+<li>失败：仅恢复四分之一<br>跳转至事件39（第131页）。</li>
+</ul>
+<h2 id="事件20破解锁具（break-the-lock）">事件20——破解锁具（Break the Lock）</h2>
+<p>尝试撬锁——投掷等级5智力判定，失败计为1次尝试，成功：跳转至事件44（第133页）。<br>你可更改行动，跳转至事件32（第129页）。<br>若尝试3次仍未成功：跳转至事件40（第132页）。</p>
+<h2 id="事件21朝圣者遗骸（the-pilgrims-remains）">事件21——朝圣者遗骸（The Pilgrim’s Remains）</h2>
+<p>房间内，一具尸体跪在空无一物之处，无祭坛、无纪念碑，只有一片烧焦的空地，天空近得压抑。尸体的护甲完好，铅镀层厚重，接缝处熔化。一只戴手套的手紧握着一捆破布，里面是一张儿童画，边缘烧焦。一个声音——或许是你自己的——在脑海中回响：<strong>“我已准备好付出一切，我以为这就足够。”</strong><br>进行等级4洞察豁免，失败则损失1点生命。<br>获得1线索，跳转至事件38（第131页）。</p>
+<h2 id="事件22信号核心（heart-of-the-signal）">事件22——信号核心（Heart of the Signal）</h2>
+<p>你顺着电缆集群抵达密封房间，黑暗中，一团血肉与机械交织的物体正在脉动。扭曲的声音从扬声器中爆发，吐出数字与破碎的语句。<br>选择：</p>
+<ul>
+<li>关闭系统（摧毁电缆）：跳转至事件54（第135页）</li>
+<li>避开，搜索另一侧办公室：跳转至事件41（第132页）</li>
+</ul>
+<h2 id="事件23遗言（last-word）">事件23——遗言（Last Word）</h2>
+<p>怪物拖行着靠向墙壁，胸口剧烈起伏，下巴颤抖，竭力说话。最终，它低声吐出一个词——<strong>“……孤独……”</strong>，随后归于寂静。<br>获得：+3经验值+2线索。<br>记录回响碎片4：孤独（ALONE）。</p>
+<h2 id="事件24高塔（the-tower）">事件24——高塔（The Tower）</h2>
+<p>远处，你看见高塔——埋地地堡屋顶升起的细长钢架顶端，一颗光滑黑色球体。但整个区域都在扭曲脉动，风暴即将爆发。连续承受3次随机异常（投掷异常现象表（第100页））。<br>跳转至事件2（第120页）。</p>
+<h2 id="事件25破碎点（shatterpoint）">事件25——破碎点（Shatterpoint）</h2>
+<p>你撞击墙壁，这并非普通玻璃，裂痕几乎瞬间愈合，但你感知到它的弱点。<br>等级5镜面墙——需在3次攻击内造成6点伤害方可击碎。成功：跳转至事件19（第127页）；失败：损失1点生命，跳转至事件43（第133页）。</p>
+<h2 id="事件26前厅（the-antechamber）">事件26——前厅（The Antechamber）</h2>
+<p>熔融金属、扭曲圣像、破碎祭品。一件熟悉的物品被遗弃——玩具、小饰品、照片——你却不记得留在这里。可它明明属于你。从背包中选择6件物品，编号1–6，投掷d6，对应编号物品遗失。<br>更深处，传来轻柔的脚步声。<br>跳转至事件48（第133页）。</p>
+<h2 id="事件27摇晃座舱（rock-the-cabin）">事件27——摇晃座舱（Rock the Cabin）</h2>
+<p>你尝试用力摇晃座舱，使整个结构坍塌。<br>投掷等级5力量判定，失败计为1次尝试，成功：跳转至事件53（第135页）。<br>你可更改行动，跳转至事件32（第129页）。<br>若尝试3次仍未成功：跳转至事件40（第132页）。</p>
+<h2 id="事件28冰冷寂静（cold-silence）">事件28——冰冷寂静（Cold Silence）</h2>
+<p>你抵达实验室楼层，玻璃门后闪烁昏暗灯光（已上锁）。附近，半亮终端脉冲闪烁。<br>进行等级5智力判定入侵终端，成功则门滑开——跳转至事件56（第136页）；<br>失败则警报尖啸，灯光闪烁红光，d3+2名丧尸化科学家（等级4，1点生命）立即发起攻击，无法逃脱。敌人每回合结束时，为每具尸体投掷d6，1–3则重新站起。战利品：投掷1次补给表（第108页）。跳转至事件51（第134页）。</p>
+<h2 id="事件29理解（understood）">事件29——理解（Understood）</h2>
+<p>你破译信息，得知混合哨兵要求解除武装。<br>将所有武器放在地上（从背包中移除）——跳转至事件1（第120页）；<br>拒绝并攻击——跳转至事件42（第133页）。</p>
+<h2 id="事件30-descent（the-descent）">事件30—— descent（The Descent）</h2>
+<p>你靠近实验室，建筑空无一人，只剩地下室可探索。电梯已坏，只剩狭窄竖井——锈蚀梯阶沾满湿气与腐烂物。<br>进行等级4力量判定安全攀爬：</p>
+<ul>
+<li>成功：跳转至事件28（第128页）</li>
+<li>失败：梯阶断裂，你坠入黑暗，被钢筋刮擦，损失1点生命，跳转至事件51（第134页）</li>
+</ul>
+<h2 id="事件31被遗忘的证词（forgotten-testimony）">事件31——被遗忘的证词（Forgotten Testimony）</h2>
+<p>你进入站点，内部：紧绷的寂静、无菌灯光、昏暗玻璃后传来的按键敲击声。你获取一份机密报告：一名男子数日前闯入，浑身布满未知符号，话语破碎呢喃。据说他未触发警报便离开，无人知晓方式。<br>从科考站出发，探索最近的未探索区域，直至在探索表触发7、8或9的结果，替代常规子表，阅读事件37（第131页）。</p>
+<h2 id="事件32被俘（captured）">事件32——被俘（Captured）</h2>
+<p>你奋力战斗，却被淹没。他们将你拖入座舱，重重关上门。座舱抵达顶端——遭遇异常死亡——前，你有3次尝试机会。选择行动：</p>
+<ul>
+<li>射击机械装置：跳转至事件46（第133页）</li>
+<li>撬锁跳跃：跳转至事件20（第127页）</li>
+<li>摇晃座舱摧毁结构：跳转至事件27（第128页）<br>若3次尝试均失败：跳转至事件40（第132页）。</li>
+</ul>
+<h2 id="事件33残影（afterimage）">事件33——残影（Afterimage）</h2>
+<p>你恍惚地走出实验室，记忆破碎。你躺了许久，试图恢复。从背包中任选2件物品遗失。<br>获得：+1经验值。<br>记录回响碎片4：孤独（ALONE）。</p>
+<h2 id="事件34误认权威（mistaken-authority）">事件34——误认权威（Mistaken Authority）</h2>
+<p>你破译信息，哨兵将你误认作他人——<strong>“将军同志”</strong>——同时依照规程要求解除武装。<br>你用清晰沉稳的口令回应：**“放下戒备，打开大门。”**机器服从，你无需解除武装进入——跳转至事件45（第133页）。</p>
+<h2 id="事件35收容边界（the-containment-horizon）">事件35——收容边界（The Containment Horizon）</h2>
+<p>你抵达终点，地堡深入地下，铅衬混凝土走廊回荡着你的脚步声。大部分屏幕已失效，唯有一块亮起：<br><strong>收容状态：反应堆核心聚变光环不稳定，超出阈值，Override未激活</strong><br><strong>未检测到外部网络</strong><br>侧室中躺着尸体——真空舱内的科学家与工程师，早已死亡，系统失效前一直被保存。干涩的合成声音开始播放：<br><strong>“废土本不应扩散，光环扩张预计稳定在12公里，当前半径：180公里。外部Override失效，零号事件后失去上行连接。”</strong><br>异常并非故障，而是收容反馈。力场崩塌，核心将引爆，半个大陆随之毁灭。你此刻明白：废土是仍在运作的失效机制，怪异、变异——是更恐怖事物被阻挡的征兆。<br>最终信息：<br><strong>力场Override需手动操作，操作员死亡或撤离后72分钟，收容开始崩塌</strong><br>如今，核心就是你。留下，力场维持，无人知晓，却能活下去。离开，倒计时启动，你归来——末日也随之降临。被遗忘，或是以终结一切被铭记。跳转至事件60（第137页）。</p>
+<h2 id="事件36印记者（the-marked）">事件36——印记者（The Marked）</h2>
+<p>一道孤独身影站在坍塌地堡顶端，静静注视你。他苍白的皮肤裂开，缝隙散发微光，声音遥远，如同穿过破碎收音机的回响。<br>你可尝试等级5意志判定，每拥有1个关键词（印记1、2、3）判定+1。</p>
+<ul>
+<li>成功：他微笑，拥抱你，如薄雾般消散，你仍能感知他的存在——与你同在。最大生命与最大辐射抗性+4</li>
+<li>失败：他爆发强光，无影无踪<br>无论判定结果如何：获得+3经验值+2线索，记录回响碎片1：追寻者（SEEKER）。</li>
+</ul>
+<h2 id="事件37涂鸦者（the-scribbler）">事件37——涂鸦者（The Scribbler）</h2>
+<p>你找到一处由防水布、电线与碎纸搭建的庇护所，数百页纸张散落四周，全都重复着一句话：<strong>“它看见了他，印记了他，如今它注视着我们所有人。”</strong> 庇护所中央，一名憔悴男子盯着墙壁，低声呢喃。<br>进行等级3魅力判定：</p>
+<ul>
+<li>成功：他注意到你，缓缓抬手，掌心烙有符号，记录关键词：印记1（SIGN 1），获得+1经验值</li>
+<li>失败：他开始尖叫，空气扭曲，附近有东西异动，投掷1次异常现象表（第100页）<br>无论判定结果如何：你检查散落笔记，发现隐秘提示。从当前区域出发，探索最近的未探索区域，直至在探索表触发7、8或9的结果，替代常规子表，阅读事件55（第136页）。</li>
+</ul>
+<h2 id="事件38大门（the-gate）">事件38——大门（The Gate）</h2>
+<p>前方等待着一扇锈蚀防爆门，半埋地下。你靠近时，空气变得厚重，如同隔着布料呼吸。随后——并非出声，而是在你脑海深处——一个问题：<strong>“你追寻什么？”</strong><br>大声说出答案。<br>进行等级5意志判定：</p>
+<ul>
+<li>成功：大门震颤打开，获得1线索+1经验值</li>
+<li>失败：声音扭曲你的答案，变得残酷，损失1线索，需进行等级4灵能豁免，失败则损失1点生命<br>无论判定结果如何：跳转至事件26（第128页）。</li>
+</ul>
+<h2 id="事件39密室（the-chamber）">事件39——密室（The Chamber）</h2>
+<p>你面前，一间房间没有后墙——只有广阔、敞开的虚空。虚空中央，悬浮着一颗脉动的血红色球体，三层楼高，轻柔嗡鸣，如同一颗被剥离体外的心脏。你靠近，附近某台终端亮起，屏幕闪烁褪色图表与指令：<strong>“仅在血清作用下可安全过渡，注射前确认生命体征。”</strong></p>
+<ul>
+<li>注射血清：跳转至事件15（第126页）</li>
+<li>未注射进入球体：跳转至事件10（第124页）</li>
+<li>投入几枚螺栓以防万一：跳转至事件7（第124页）</li>
+</ul>
+<h2 id="事件40顶端（the-top）">事件40——顶端（The Top）</h2>
+<p>座舱嘎吱作响抵达顶点，上方，异常绽放。它无声、繁复、污秽，并未直接摧毁你，而是如工匠般雕琢你，无视痛苦。结束后，它放你离开。你在摩天轮底部醒来，皮肤灼伤，思绪回响。你曾经的一切——被夺走，被替换。<br>获得**辐射灼伤（Zone‑Burned）**废土印记：此后所有魅力判定自动失败，可重投任意1次异常相关判定——但重投后，该异常不会生成神器。<br>获得：+3经验值+1线索。<br>记录回响碎片3：行走（WALK）。</p>
+<h2 id="事件41扎伊采夫的笔记（zaitsevs-notes）">事件41——扎伊采夫的笔记（Zaitsev’s Notes）</h2>
+<p>门半开着，锈铰链歪斜，微弱光线从中溢出。<br>一块焦黑铭牌仍钉在木门上：<strong>“研究主管——A·科布泽夫博士”</strong><br>内部，寂静如油，纸张在地板上腐烂，书桌被笔记与磁带掩埋。这些笔记并非科布泽夫所写，而是初级研究员扎伊采夫的。灾难发生时他并不在这里——连续三夜未眠后，他在补给仓库昏倒。爆炸将其余一切熔入核心：机器、意识、器官。扎伊采夫归来时，电线里传来尖叫，肺部呼吸着风扇冷却的空气，闪烁灯光以脉冲交流。扎伊采夫留下了，并非出于职责，而是愧疚。他学会喂养它、倾听它、与它交谈，最终……理解它。<br>战利品：获取解码笔记本（轻型）、秘密文件（事件62，第137页）。<br>获得：+3经验值。<br>记录回响碎片2：必须（MUST）。若隔壁房间的集群体仍存活：跳转至事件9（第124页）。</p>
+<h2 id="事件42守门人（the-gatekeeper）">事件42——守门人（The Gatekeeper）</h2>
+<p>等级6守门人，伤害2点。无法逃脱，它不损失生命，仅损失等级。<br>击败守门人后，你回收一张门禁卡，打开大门。战利品：10发步枪弹，获得2点经验值。跳转至事件45（第133页）。</p>
+<h2 id="事件43破碎自我（fragmented-self）">事件43——破碎自我（Fragmented Self）</h2>
+<p>你穿过大门，却只有部分自我跟随。倒影四散——各自走向不同的镜面走廊，带走你的一部分。跳转至事件19（第127页）。</p>
+<h2 id="事件44信仰之跃（leap-of-faith）">事件44——信仰之跃（Leap of Faith）</h2>
+<p>你纵身跳跃，一棵干枯骨架般的树接住了你（下次技能判定+2），得以平安着陆。座舱撞击支撑梁，卡住不动。跳转至事件53（第135页）。</p>
+<h2 id="事件45镜面长廊（the-mirrored-halls）">事件45——镜面长廊（The Mirrored Halls）</h2>
+<p>你穿过空房间，向上攀爬一层，最终抵达一条明亮长廊，数十扇门排列两侧。你瞥向标签——房间号、头衔、姓名……随后是符号，越来越多的符号。世界开始波动，图案重复，墙壁反射，现实折叠。选择：</p>
+<ul>
+<li>任选一扇门进入：跳转至事件43（第133页）</li>
+<li>拥有3个印记关键词（1、2、3）：跳转至事件11（第124页）</li>
+<li>尝试击碎镜面墙：跳转至事件25（第128页）</li>
+</ul>
+<h2 id="事件46射击机械装置（shoot-the-mechanism）">事件46——射击机械装置（Shoot the Mechanism）</h2>
+<p>你瞄准主驱动装置：齿轮、活塞、电缆。可使用远程武器或手榴弹，每次攻击计为1次尝试。<br>目标：等级5弱点，8点生命。<br>你可随时更改行动，跳转至事件32（第129页）。<br>摧毁机械装置：跳转至事件53（第135页）；<br>3次尝试均失败：跳转至事件40（第132页）。</p>
+<h2 id="事件47迟来的发现（delayed-discovery）">事件47——迟来的发现（Delayed Discovery）</h2>
+<p>数小时过去，你迷失方向。进行等级3辐射豁免，失败则损失2点辐射抗性。夜幕降临，一条明亮走廊带你前往事件22（第127页）。</p>
+<h2 id="事件48镜面（the-mirror）">事件48——镜面（The Mirror）</h2>
+<p>前方身影转身，你僵住。那是你认识的人，你失去的人。细节略有偏差——太过光滑、太过干净——但面容无疑是他们。他们张开双臂：<strong>“你做到了。”</strong><br>选择：</p>
+<ul>
+<li>拥抱他们：跳转至事件58（第137页）</li>
+<li>拒绝：跳转至事件59（第137页）</li>
+</ul>
+<h2 id="事件49幽魂试炼（trial-by-ghosts）">事件49——幽魂试炼（Trial by Ghosts）</h2>
+<p>若你拥有<strong>辐射灼伤</strong>印记：跳转至事件3（第120页）；否则，幻觉淹没你。<br>遭遇d6+1名角医生：等级4幻觉，逃脱判定-2，1点生命。无需防御判定，改为等级4灵能豁免，每次命中损失1点辐射抗性。<br>存活则获得1点经验值，跳转至事件3（第120页）。</p>
+<h2 id="事件50裂隙（the-rift）">事件50——裂隙（The Rift）</h2>
+<p>你抵达废土核心，一切都改变了。<br>空气变得厚重，近乎流体，每一步都更轻盈，肌肉却感受到陌生的阻力。前方是颠覆认知的景象：森林自内发光、河流向上扭曲、天空布满星图从未记载的静止星辰。<br>这里不再是废土，而是从其中生长而出的事物——旧世界外壳下展开的新世界。<br>它曾被称作**“异次元接触区域”**，理论上会崩塌、不稳定，但废土核心将其稳定，秘密孕育，如同废墟下的种子。<br>如今，它为你敞开。<br>你明白：此地接纳你，你可以在这里呼吸、行走、思考、感受——比以往任何时候都更鲜活。<br>你站在阈限之上。<br>身后：造就你的垂死破碎世界。<br>前方：未知——鲜活、浩瀚、等待。<br>踏入其中，抛下过往的自己，成为全新的存在，废土隐藏世界的第一位探索者。<br>跳转至事件60（第137页）。</p>
+<h2 id="事件51黑暗撞击（dark-impact）">事件51——黑暗撞击（Dark Impact）</h2>
+<p>你坠入竖井底部冰冷污秽的水中，若携带武器，会从手中滑落、沉没消失（自选遗失一件）。你从半开的电梯门挣扎爬出，浑身湿透、瑟瑟发抖。下层实验室的玻璃后方，有东西异动，它的移动方式绝非人类。一道灵能鞭挞划过你的脑海。<br>进行等级4灵能豁免，失败则损失半数生命（向下取整）。<br>玻璃屏障碎裂，你看清了它。跳转至事件52（第135页）。</p>
+<h2 id="事件52实体（the-entity）">事件52——实体（The Entity）</h2>
+<p>它曾是人类，如今是肿胀的肉块，裹着浸透鲜血的绷带，管道如进食根须般从血肉中延伸。一只苍白无眼睑的眼睛，从肿胀溃疡的头颅中央凝视着你。<br>实体：等级5变异体，3点生命，伤害1点，逃脱判定-1。每当攻击判定失败，需进行等级4灵能豁免，失败则误射自己（损失1点生命）。<br>击败变异体：获得1点经验值，跳转至事件23（第128页）；<br>战斗中逃脱：跳转至事件33（第130页）。</p>
+<h2 id="事件53坍塌（collapse）">事件53——坍塌（Collapse）</h2>
+<p>摩天轮发出呻吟，随即崩塌，钢铁尖叫，结构向内塌陷。进行等级5敏捷判定，失败则因撞击损失2点生命。<br>领头变异体被坠落横梁压死，其余四散奔逃。你帮助德米特里与其他几名囚徒恢复意识。<br>获得：+3经验值+2线索。<br>记录回响碎片3：行走（WALK）。</p>
+<h2 id="事件54切断电源（cut-the-power）">事件54——切断电源（Cut the Power）</h2>
+<p>墙壁呼吸，电缆脉动发热。集群体悬在黑暗中，半是机械，半是神经。它看见了你。<br>7根电力电缆（等级4，每根1点生命）。<br>每次攻击后，系统反击——并非物理攻击，而是穿透你的思绪。进行等级4灵能豁免，失败则损失1点生命。<br>第七根电缆被切断时，团块剧烈抽搐，一切停止。随后——锈蚀扬声器上方——一个声音试图说话。<br>它并非人类，甚至不是录音，听起来像机器竭力模仿记忆：<strong>“布罗马莱特……这里是……布罗马莱特……五……零……一……二……滋——”</strong> 话语在音节中断裂，随后归于寂静。跳转至事件41（第132页）。</p>
+<h2 id="事件55血肉印记（flesh-mark）">事件55——血肉印记（Flesh Mark）</h2>
+<p>坍塌管道附近，地面隆起，仿佛有生命蠕动。没有青草，只有皮肤，上面烙着脉动灼烧的符号。进行等级4意志判定：</p>
+<ul>
+<li>成功：你触碰皮肤，它回应你的触碰，符号在你掌心绽放，你领悟某事，记录关键词：印记2（SIGN 2），获得+1经验值</li>
+<li>失败：你退缩，符号 fading，投掷1次废土印记表（第27页）<br>无论判定结果如何：你内心有东西指引方向，微妙地指向追寻之路。从当前区域出发，探索最近的未探索区域，直至在探索表触发7、8或9的结果，替代常规子表，阅读事件8（第124页）。</li>
+</ul>
+<h2 id="事件56灵能收容（psi-containment）">事件56——灵能收容（Psi Containment）</h2>
+<p>舱壁后是宽敞房间，墙面铺着烧焦铅板。角落，一名技术人员坐在椅子上，早已死亡，仍与控制台融合。你意识到，他曾试图手动关闭系统。屏幕的信息流仍在运行，日志显示：<br><strong>“灵能饱和度超出临界值，抑制循环崩塌，实体突破收容，进入9号走廊。无更多数据。我留下关闭系统，上帝保佑我们。我们做了什么？”</strong><br>你沿标记走廊前行，跳转至事件5（第121页）。</p>
+<h2 id="事件57信号源头（signal-source）">事件57——信号源头（Signal Source）</h2>
+<p>一座矮小混凝土建筑坐落在生锈天线下方，天线缠绕常春藤。建筑发出低沉嗡鸣，你靠近时，有东西从屋顶跃下。它形似人类，脊柱过长，四肢过快。<br>战斗：等级4变异体，3点生命，伤害2点，2/6概率突袭。双方各攻击1次后，变异体逃跑（未被击杀则）。战利品：击杀则获得扎伊采夫门禁卡，获得1点经验值。<br>建筑内部：破碎设备与闪烁灯光，老旧机器仍在运转，电缆如根须爬过地板。<br>进行等级4追踪判定：</p>
+<ul>
+<li>成功：跳转至事件22（第127页）</li>
+<li>失败：跳转至事件47（第133页）</li>
+</ul>
+<h2 id="事件58">事件58</h2>
+<p>你感受到温暖、平静、归属感。生命与辐射抗性完全恢复，但损失所有线索与储存的经验值。随后离开密室，标记此回响完成。<br>记录回响碎片5：无（WITHOUT）。</p>
+<h2 id="事件59">事件59</h2>
+<p>你后退一步，幻象震颤。跳转至事件12（第125页）。</p>
+<h2 id="事件60">事件60</h2>
+<p>你成功了。<br>你在废土的故事迎来终点，你走得足够远，将名字刻入尘埃与废墟。<br>感谢你的游玩，真心希望这段旅程给你留下印记，正如你在废土上留下痕迹。<br>但废土永不沉睡。若你再次感受到召唤，创建新特工，重新跨越边界。<br>作为最后的礼物，你的新探索者将继承本次旅程中发现的所有回响碎片。前方还有更多秘密，更多掩埋在老旧实验室与空荡村庄的低语。另外两个结局，藏在剩余的回响之中。<br>当你准备好，废土将再次欢迎你归来。</p>
+<h2 id="事件61">事件61</h2>
+<p>“幸存者”被啃食大半，奄奄一息，低声告知正南方向1格处有藏匿点。抵达后投掷科研储藏单元表（第118页）。</p>
+<h2 id="事件62秘密文件（secret-documents）">事件62——秘密文件（Secret Documents）</h2>
+<p>你找到一捆机密文件，布满涂改、图表与难以置信的声明。有人费尽心思隐藏其中的秘密。<br>轻型物品。<br>可在探索中发现，部分支线任务需要，对科学家有价值。</p>
+<h2 id="事件63踏入裂隙（step-through）">事件63——踏入裂隙（Step through）</h2>
+<p>你的角色被愿望吞噬，躯体留存，寂静无声。<br>创建新角色，额外获得7点属性点，继承你的装备与已完成的回响（包括本次）。<br>记录回响碎片5：无（WITHOUT）。</p>
+<h2 id="事件64">事件64</h2>
+<p>你穿过灌木丛，希望找到坚实地面，空气却突然扭曲，压力变化，你清晰感知到前方异常的牵引。<br>进行等级4意志判定，成功则无事发生，失败则投掷异常现象表（第100页）。</p>
+<h2 id="事件65猎刀（hunting-knife）">事件65——猎刀（Hunting Knife）</h2>
+<p>潜行者青睐的坚固刀具，功能同普通匕首（第106页）。用于对抗变异生物时，额外获得d3个变异体战利品（第107页），即便生物条目未标注战利品也可生效。<br>价值：30卢布。</p>
+<h2 id="事件66异常背包（anomalous-backpack）">事件66——异常背包（Anomalous Backpack）</h2>
+<p>功能同标准背包（第108页），用于携带与储存物品。使用创建隐藏藏匿点时，此异常藏匿点的物品可从你控制的任意其他隐藏藏匿点存取，跨废土链接装备。<br>角色死亡时，此异常藏匿点的物品必定保留，但回收后藏匿点消失。<br>价值：70卢布。</p>
+<h2 id="事件67拒绝（refuse）">事件67——拒绝（Refuse）</h2>
+<p>光芒消散，身影注视着密室崩塌，身形闪烁，随即化为尘埃。你独自离开。<br>获得：+2经验值+1线索。损失：1件背包物品（自选——遗失）。<br>记录回响碎片5：无（WITHOUT）。</p>
+<h2 id="事件68">事件68</h2>
+<p>你僵住，竭力感知周遭。阴影移动，低语擦过耳畔。突然，有东西从芦苇中出现——无法规避的存在。进行等级4潜行判定，失败则投掷遭遇表（第78页）。</p>
+<h2 id="事件69夜视仪（night-vision-goggles-nvg）">事件69——夜视仪（Night Vision Goggles, NVG）</h2>
+<p>轻型物品（穿戴时）。抵消黑暗效果，最大4次充能，每次遭遇消耗1次充能。可与防护服、头盔、防毒面具兼容。<br>价值：30卢布。</p>
+<hr>
+<h1 id="索引（index）">索引（INDEX）</h1>
+<p>门禁卡（Access Card）——第108页<br>弹药（Ammo）——第29页<br>异常现象（Anomalies）——第100页<br>穿甲弹（Armor‑Piercing (AP) Ammo）——第29页<br>神器（Artifact）——第29页、第102页<br>攻击判定（Attack Roll）——第17页<br>背包（Backpack）——第28页、第108页<br>绷带（Bandages）——第104页<br>流血（Bleeding）——第87页<br>线索（Clues）——第16页<br>六面骰（D6）——第16页<br>伤害（Damage）——第17页、第19页<br>防御判定（Defense Roll）——第19页<br>探测器（Detector）——第109页<br>回响（Echo）——第30页<br>逃脱判定（Escape Roll）——第19页<br>爆炸骰（Exploding Dice）——第18页<br> fading轨迹（Fading Trails）——第21页<br>最终任务（Final Mission）——第30页、第125页<br>射速（Fire Rate, FR）——第18页<br>食物（Food）——第21页、第28页<br>废土核心（Heart of the Zone）——第30页<br>重型物品（Heavy Items）——第28页<br>隐藏藏匿点（Hidden Cache）——第28页<br>猎人（Hunter）——第71页<br>受伤（Injuries）——第26页<br>武器卡壳（Jam (Weapon Jam)）——第18页<br>生命（Life）——第24页<br>轻型物品（Light Items）——第28页<br>锁定（Locked）——第107页、第108页<br>月神废土（Lunar Wasteland）——第33页<br>废土印记（Marks of the Zone）——第27页<br>医疗包（Medkit）——第110页<br>防护服（Protective Suits）——第29页、第143页<br>辐射抗性（Rad Resistance）——第24页<br>随机遭遇（Random Encounter）——第20页<br>避难所（Refuge）——第21页<br>卢布（Rubles (rub)）——第28页<br>锈蚀（Rusted）——第18页、第29页<br>安全屋（Safe House）——第21页<br>豁免判定（Save Roll）——第16页<br>搜寻（Scavenging）——第23页<br>区域（Sectors）——第20页<br>技能判定（Skill Roll）——第16页<br>潜行判定（Stealth Roll）——第19页<br>涌动预警（Surge Warning）——第23页<br>突袭（Surprise）——第17页<br>技师（Technician）——第75页<br>商人（Trader）——第69页<br>变异体战利品（Mutant Trophy）——第107页<br>经验值（XP (Experience Points)）——第30页<br>废土涌动（Zone Surge）——第23页、第122页</p>
+<hr>
+<h1 id="总结（summary）">总结（SUMMARY）</h1>
+<h2 id="游戏概览（game-overview）">游戏概览（Game Overview）</h2>
+<p>创建角色：选择2项技能，初始携带1件武器、1件垃圾表物品、1件补给表物品、d6份食物、2d6×10卢布。初始8点生命、8点辐射抗性，分配3项升级，每项升级可选择：+1生命、+1辐射抗性、1项新技能、额外投掷1次物品表。<br>投掷废土回响表（第31页）确定主线任务（回响），一次仅可激活1段回响。<br>续玩角色保留所有装备、技能与经验值，任务间隙在安全屋完全恢复。<br>通过移动至相邻六边形区域探索废土，每进入新区域投掷探索表（第20页），可能触发遭遇、异常、战利品或事件。<br>遭遇可选择战斗、潜行或逃脱，胜利后可搜寻区域战利品，用圆点标记已搜寻区域。<br>重返已探索区域，2/6概率触发随机遭遇（安全屋除外）。<br>一次仅可接取1项支线任务（第34页），为可选内容，由商人、科学家或猎人发布。<br>安全屋可恢复生命、储存物品、接取任务、躲避废土涌动。<br>完成3段不同回响后，可尝试废土核心最终任务（第125页事件14——最终任务）。</p>
+<h2 id="核心规则总结（core-rules-summary）">核心规则总结（Core Rules Summary）</h2>
+<p>骰子判定：投掷d6，投出1必定失败，投出6必定成功（表格投掷除外）。<br>爆炸骰：攻击判定投出天然6（表格投掷除外），额外投掷1颗d6累加，持续投出6可无限累加。<br>攻击判定：投掷d6，叠加技能或武器修正值，结果除以敌人等级（L）向下取整，即为造成伤害。伤害超过1可击杀多名敌人。<br>防御判定：每名攻击你的敌人投掷1颗d6，点数≥敌人等级则闪避成功，否则承受对应伤害。<br>逃脱判定：战斗中逃脱，投掷d6，点数≥敌人等级则成功逃脱至相邻已探索区域，否则承受该敌人伤害。<br>潜行判定：战斗开始前投掷d6，点数≥敌人等级则规避遭遇，无战斗但无法搜寻本区域；失败则被敌人发现，敌人先手，战斗等级+1。<br>豁免判定：投掷d6+修正值，点数≥危险等级（如辐射、酸性、灵能）则抵抗效果，否则承受全部效果。<br>食物：每移动5个区域或等待5回合消耗1份食物，未消耗则损失1点生命或1点辐射抗性。<br>生命：生命归0即死亡——可选择从受伤表（第26页）承受永久受伤避免死亡，最多承受3种受伤。<br>辐射抗性：辐射抗性归0即死亡——可选择承受废土印记（第27页）避免死亡，最多承受3种印记。<br>废土涌动：追踪涌动预警，累计至12点触发废土涌动（事件6，第122页），危险且无法规避。</p>
+<h2 id="武器总结表（weapons-summary-table）">武器总结表（Weapons Summary Table）</h2>
+<p>TT手枪：攻击+2，射速1，使用手枪弹。价值：30卢布<br>手斧：力量专家时攻击+2<br>手榴弹：一次性使用，自动造成4点伤害。价值：10卢布<br>PM手枪：攻击+1，射速1，使用手枪弹。价值：10卢布<br>匕首：无攻击加成，获取变异体战利品必需。价值：5卢布<br>“卡拉什”突击步枪：重型，攻击+2，射速3，使用步枪弹。价值：30卢布<br>原型步枪：重型，攻击+1，射速1。投出5–6触发爆炸骰，未命中也造成1点伤害，最大8发充能，初始满能。价值：50卢布<br>钢筋棍：力量专家时攻击+1<br>火箭筒：重型，一次性使用，自动造成4点伤害，可清理阻塞道路或载具。价值：30卢布<br>截短双管霰弹枪：攻击+2，射速2，使用霰弹，第二次攻击无惩罚，每2次攻击需跳过1回合装填。价值：20卢布<br>SVV狙击步枪：重型，攻击+2，射速1，仅使用穿甲步枪弹。先手攻击时，战斗前可免费开1枪，战斗前后切换武器免费，必中单一目标（即便面对群体）。价值：50卢布<br>S-12霰弹枪：重型，攻击+2，射速2，使用霰弹。价值：50卢布</p>
+<h2 id="防护服总结表（protective-suits-summary-table）">防护服总结表（Protective Suits Summary Table）</h2>
+<p>灰织斗篷：轻型（穿戴时），潜行判定+1，负重上限+4件物品<br>流血裹布：轻型（穿戴时），异常内所有技能判定+1，此类判定投1则衣物损毁，负重+8件，1个神器插槽<br>外骨骼框架服：重型（穿戴时为轻型），对等级5及以下攻击防御+1，力量判定+2，潜行判定-1，2个神器插槽，抵消黑暗效果，负重上限+16件物品。价值：50卢布<br>凯夫拉背心：轻型（穿戴时），对等级4及以下攻击防御+1，防御判定投天然1则+1奖励失效，可修复（同锈蚀武器）。价值：20卢布<br>皮夹克：轻型（穿戴时）。价值：5卢布<br>“瓦尼克”防弹衣：轻型（穿戴时），对等级4及以下攻击防御+1，负重+8件。价值：50卢布<br>神经牢笼服：重型（穿戴时为轻型），对等级3及以下攻击防御+1，灵能豁免+1，3个神器插槽，抵消黑暗效果，负重+6件。价值：50卢布<br>同温层护甲：重型（穿戴时为轻型），对等级4及以下攻击防御+1，辐射豁免+1，负重+10件，1个神器插槽，不可与防毒面具兼容。价值：50卢布</p>
+<h2 id="探索总结表（exploration-summary-table）（2d6）">探索总结表（Exploration Summary Table）（2D6）</h2>
+<table>
+<thead>
+<tr>
+<th>骰子结果</th>
+<th>对应子表</th>
+<th>页码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2–3</td>
+<td>锈蚀沼泽表</td>
+<td>38</td>
+</tr>
+<tr>
+<td>4</td>
+<td>黑暗洼地表</td>
+<td>41</td>
+</tr>
+<tr>
+<td>5</td>
+<td>铁路遗迹表</td>
+<td>44</td>
+</tr>
+<tr>
+<td>6</td>
+<td>工业废墟表</td>
+<td>47</td>
+</tr>
+<tr>
+<td>7</td>
+<td>破碎公路表</td>
+<td>50</td>
+</tr>
+<tr>
+<td>8</td>
+<td>废弃村庄表</td>
+<td>53</td>
+</tr>
+<tr>
+<td>9</td>
+<td>军事设施表</td>
+<td>56</td>
+</tr>
+<tr>
+<td>10</td>
+<td>腐化森林表</td>
+<td>59</td>
+</tr>
+<tr>
+<td>11</td>
+<td>机密设施表</td>
+<td>62</td>
+</tr>
+<tr>
+<td>12+</td>
+<td>废土涌动即将来临！</td>
+<td>122</td>
+</tr>
+</tbody></table>
+<h2 id="遭遇总结表（encounter-summary-table）">遭遇总结表（Encounter Summary Table）</h2>
+<h3 id="潜行者表（d66）">潜行者表（D66）</h3>
+<table>
+<thead>
+<tr>
+<th>骰子结果</th>
+<th>场景内容</th>
+<th>页码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>11–13</td>
+<td>营火故事</td>
+<td>79</td>
+</tr>
+<tr>
+<td>14–16</td>
+<td>远处枪声</td>
+<td>79</td>
+</tr>
+<tr>
+<td>21–23</td>
+<td>科考队</td>
+<td>80</td>
+</tr>
+<tr>
+<td>24–26</td>
+<td>流浪技工</td>
+<td>80</td>
+</tr>
+<tr>
+<td>31–33</td>
+<td>鬼镇探索者</td>
+<td>81</td>
+</tr>
+<tr>
+<td>34–36</td>
+<td>猎人遭遇</td>
+<td>81</td>
+</tr>
+<tr>
+<td>41–43</td>
+<td>旧篝火灰烬</td>
+<td>81</td>
+</tr>
+<tr>
+<td>44–46</td>
+<td>流浪商人</td>
+<td>81</td>
+</tr>
+<tr>
+<td>51–53</td>
+<td>受伤强盗</td>
+<td>82</td>
+</tr>
+<tr>
+<td>54–56</td>
+<td>独行逃兵</td>
+<td>83</td>
+</tr>
+<tr>
+<td>61–63</td>
+<td>资深向导</td>
+<td>83</td>
+</tr>
+<tr>
+<td>64–66</td>
+<td>射乌鸦比赛</td>
+<td>83</td>
+</tr>
+</tbody></table>
+<h3 id="异常现象军方部队不法之徒表（d6）">异常现象/军方部队/不法之徒表（D6）</h3>
+<table>
+<thead>
+<tr>
+<th>骰子结果</th>
+<th>异常现象表</th>
+<th>页码</th>
+<th>军方部队表</th>
+<th>页码</th>
+<th>不法之徒表</th>
+<th>页码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>重力陷阱</td>
+<td>100</td>
+<td>d6+1名巡逻士兵</td>
+<td>84</td>
+<td>d6+1名醉酒强盗</td>
+<td>87</td>
+</tr>
+<tr>
+<td>2</td>
+<td>焚化场</td>
+<td>100</td>
+<td>武装直升机飞越</td>
+<td>85</td>
+<td>d3+1名残忍帮派强盗</td>
+<td>88</td>
+</tr>
+<tr>
+<td>3</td>
+<td>灵能力场</td>
+<td>100</td>
+<td>d3+1支K-9部队</td>
+<td>85</td>
+<td>d3名职业杀手</td>
+<td>88</td>
+</tr>
+<tr>
+<td>4</td>
+<td>百万伏特</td>
+<td>101</td>
+<td>d3+1名伞兵</td>
+<td>85</td>
+<td>帮派头目与d3名保镖</td>
+<td>88</td>
+</tr>
+<tr>
+<td>5</td>
+<td>女巫之酿</td>
+<td>101</td>
+<td>狙击手伏击</td>
+<td>86</td>
+<td>d6名挟持人质的强盗</td>
+<td>89</td>
+</tr>
+<tr>
+<td>6</td>
+<td>恶魔荨麻</td>
+<td>101</td>
+<td>2名静默清扫特工</td>
+<td>86</td>
+<td>d6+2名劫匪</td>
+<td>89</td>
+</tr>
+</tbody></table>
+<h3 id="变异生物迷失者表（d6）">变异生物/迷失者表（D6）</h3>
+<table>
+<thead>
+<tr>
+<th>骰子结果</th>
+<th>变异生物表</th>
+<th>页码</th>
+<th>迷失者表</th>
+<th>页码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>d6+2只废土流浪犬群</td>
+<td>90</td>
+<td>d6+2名邪教徒</td>
+<td>96</td>
+</tr>
+<tr>
+<td>2</td>
+<td>d3只枯萎野猪</td>
+<td>91</td>
+<td>d3+2名丧尸化士兵</td>
+<td>97</td>
+</tr>
+<tr>
+<td>3</td>
+<td>d6只荆棘蠕虫</td>
+<td>92</td>
+<td>d3+1名精英邪教徒</td>
+<td>97</td>
+</tr>
+<tr>
+<td>4</td>
+<td>蝎尾狮</td>
+<td>93</td>
+<td>3d6名活死人</td>
+<td>97</td>
+</tr>
+<tr>
+<td>5</td>
+<td>碎心者</td>
+<td>94</td>
+<td>d6名丧尸化潜行者</td>
+<td>98</td>
+</tr>
+<tr>
+<td>6</td>
+<td>吸血鬼</td>
+<td>95</td>
+<td>碎心者与d6名丧尸护卫</td>
+<td>99</td>
+</tr>
+</tbody></table>
+<h2 id="搜寻表（scavenging-table）（d6）">搜寻表（Scavenging Table）（D6）</h2>
+<table>
+<thead>
+<tr>
+<th>骰子结果</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>一无所获；进行等级4辐射豁免，失败损失1点辐射抗性</td>
+</tr>
+<tr>
+<td>2</td>
+<td>一无所获</td>
+</tr>
+<tr>
+<td>3</td>
+<td>投掷遭遇表（第78页）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>投掷垃圾表（第104页）</td>
+</tr>
+<tr>
+<td>5</td>
+<td>投掷补给表（第108页）</td>
+</tr>
+<tr>
+<td>6</td>
+<td>获得1线索</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="绘制废土地图（mapping-the-zone）">绘制废土地图（Mapping the Zone）</h1>
+<p>复印或打印废土地图网格与笔记页（A4最佳）。<br>带框的地形符号影响游戏进程，务必标记；其他符号为装饰，用于提升沉浸感。你可自选记录细节与笔记数量，但标记可能重返的兴趣点，并标注页码方便查阅。<br>为更真实，合理连接相邻区域的道路、大型建筑、村庄，地形与逻辑允许时，可延伸铁路与电力线。<br>可使用彩色笔、勾线笔，无需担心擦除，游戏要求移除物品时直接划掉即可，这会为地图增添价值，留存废土的历史。<br>地图绘制是探索与生存的核心部分，让废土成为你的专属世界。</p>
+<h1 id="地形符号（topographic-symbols）">地形符号（Topographic Symbols）</h1>
+<p>区域、森林、异常、区域编号、搜寻次数、回响区域、隐藏藏匿点、隐藏路径、道路、铁路、电力线、飞机、桥梁、沼泽、湖泊、直升机、汽车、安全屋、潜行者营地、避难所、月神废土、不可通行区域、工业建筑、机密设施、军事设施、村庄、地下建筑、其他建筑、敌人、雷区、有毒区域、军方区域、 fading轨迹</p>
+<hr>
+<h1 id="特工角色表（operative-sheet）">特工角色表（Operative Sheet）</h1>
+<p>姓名<br>生命<br>辐射抗性<br>经验值 线索<br>技能 受伤<br>废土印记<br>回响 支线任务<br>关键词<br>回响碎片<br>涌动预警<br>装备<br>防护服 插槽神器<br>物品 最大 轻型物品<br>食物 卢布 货币<br>霰弹 步枪弹 穿甲手枪弹 穿甲步枪弹</p>
+<hr>
+<h1 id="废土地图（zone-map）">废土地图（Zone Map）</h1>
+<h1 id="官方扩展内容（official-add-ons）">官方扩展内容（Official add-ons）</h1>
+<p>适用于《四战黑》（Four Against Darkness）</p>
+<h2 id="b扩展">B扩展</h2>
+<p>体验全新流畅玩法！告别骰子投掷，改用卡牌玩法游玩《黑暗四人行》，大幅加快游戏节奏。<br>信息全部印在卡牌上，翻牌即玩。</p>
+<h3 id="特殊搜索（search-search-special）">特殊搜索（SEARCH: SEARCH SPECIAL）</h3>
+<h3 id="特殊攻击（special-attacks）">特殊攻击（SPECIAL ATTACKS）</h3>
+<h3 id="陷阱（trap）">陷阱（TRAP）</h3>
+<h3 id="聚落陷阱（settlement-trap）">聚落陷阱（SETTLEMENT TRAP）</h3>
+<h3 id="战斗（combat）">战斗（COMBAT）</h3>
+<ul>
+<li>战斗1：3米</li>
+<li>战斗2：2d6</li>
+<li>防御（Defend）</li>
+</ul>
+<h3 id="宝藏（treasure）">宝藏（TREASURE）</h3>
+<ul>
+<li>基础宝藏：16</li>
+</ul>
+<h3 id="进阶宝藏（advanced-treasure）">进阶宝藏（ADVANCED TREASURE）</h3>
+<h2 id="邪元素树桩（stump-of-elemental-evil）">邪元素树桩（STUMP OF ELEMENTAL EVIL）</h2>
+<p>适用于任意等级<br>独立主题地下城，自带专属任务、独特怪物与魔法物品。<br>完全兼容《黑暗四人行》基础规则，游玩仍需核心规则书支持。</p>
+<h2 id="黑暗四人行卡牌包（four-against-dungen-deck）">黑暗四人行卡牌包（FOUR AGAINST DUNGEN DECK）</h2>
+<p>免费下载，亲自体验！<br>官网：WWW.POCKETLANDS.COM</p>
+<hr>
+<h1 id="52卡牌系列（deck-52）">52卡牌系列（DECK 52）</h1>
+<p>单人游玩｜时长＜30分钟｜适合12岁以上玩家<br>紧凑铁盒包装，易学易上手，开局快速，紧张刺激、难度拉满。<br>可游玩独立任务，也可串联成难度递增的连续战役！</p>
+<h2 id="52卡牌：太空残骸（deck-52-space-wrecked）">52卡牌：太空残骸（DECK 52 :SPACE WRECKED）</h2>
+<p>作者：Alexey Aparin<br>你的飞船遭海盗摧毁，逃生舱将你送往一艘巨型废弃巨舰。<br>穿梭于舰体走廊，直面潜藏威胁，管理稀缺装备，升级角色。<br>生存未知，活下去，抵达救援穿梭机！</p>
+<h2 id="52卡牌：终途巴士（deck-52-final-bus）">52卡牌：终途巴士（DECK 52 FINAL BUS）</h2>
+<p>作者：Alexey Aparin<br>毁灭性战争抹去文明，只留灰烬与放射性废土。<br>你抓住脆弱生机：登上修复巴士，驶向传说中的避难所——<br>一段循环无线电信号中提及的安全之地。</p>
+<hr>
+<h1 id="口袋大陆卡牌（pocket-lands-geomorph-cards）">口袋大陆卡牌（POCKET LANDS: GEOMORPH CARDS）</h1>
+<p>官网：PocketLands.com<br>平台白金级畅销卡牌</p>
+<p>你永远不知道队伍下一站去往何方。<br>无论筹备战役，还是随探索绘制冒险地图，<br>地貌卡牌都能帮你快速打造精美地图。<br>打造<strong>永无止境</strong>的游戏世界地图！<br>开放思维，发挥创意，随心创作，为你的角色与团队赋予灵魂！</p>
+<h3 id="每套卡牌包含：">每套卡牌包含：</h3>
+<ul>
+<li>高清彩色迷你地图卡</li>
+<li>标准扑克尺寸</li>
+<li>5×5网格，搭配标志性地形</li>
+<li>地图可无缝衔接组合</li>
+</ul>
+<hr>
+<h1 id="独战废土（alone-against-the-zone）-1">独战废土（ALONE AGAINST THE ZONE）</h1>
+<p>变异体游荡于崩塌废墟。<br>超自然异常扭曲现实。<br>风暴无情吞噬粗心者。<br>你所携无几：一把武器、一张褪色地图、一份顽强的求生意志。<br>你必须前行。你必须聆听。但愿，你能撑下去。</p>
+<p>《独战废土》（Alone Against the Zone）是一款<strong>单人废土生存冒险游戏</strong>，核心为探索、艰难抉择与不计代价的生存。<br>你将扮演一名独行特工，深入破碎隔离禁区。<br>战斗快速且残酷。<br>资源极度稀缺，而死亡无处不在。</p>
+  </div></div><!-- #content #main -->
+
+<script>
+(function() {
+
+  // 5. Theme toggle - init from localStorage
+  var saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+
+  // Build sidebar header
+  var header = document.getElementById('sidebar-header');
+  header.innerHTML = '<div class="sidebar-title">独战废土</div><button id="theme-toggle" onclick="toggleTheme()">🌙</button>';
+
+  // Update toggle icon on load
+  function updateIcon() {
+    var btn = document.getElementById('theme-toggle');
+    if (btn) btn.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
+  }
+  updateIcon();
+
+  window.toggleTheme = function() {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var next = cur === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateIcon();
+  };
+
+  // 6. Optional rule highlight
+  // Run after DOM ready
+  function highlightOptional() {
+    var els = document.querySelectorAll('#content p, #content li');
+    els.forEach(function(el) {
+      var text = el.textContent || '';
+      if (text.indexOf('（可选）') !== -1 || text.indexOf('OPTIONAL') !== -1) {
+        el.classList.add('optional-block');
+        var tag = document.createElement('span');
+        tag.className = 'optional-tag';
+        tag.textContent = '可选';
+        el.insertBefore(tag, el.firstChild);
+      }
+    });
+  }
+
+  // 1. Auto-generate TOC with collapsible h2
+  function buildTOC() {
+    var contentEl = document.getElementById('content');
+    var toc = document.getElementById('toc');
+    if (!contentEl || !toc) return;
+    var headings = contentEl.querySelectorAll('h1, h2');
+    var idx = 0;
+    var currentH1Li = null;
+
+    headings.forEach(function(h) {
+      if (!h.id) h.id = 'heading-' + (idx++);
+      var li = document.createElement('li');
+      var tag = h.tagName.toLowerCase();
+      li.className = 'toc-' + tag;
+      var a = document.createElement('a');
+      var txt = h.textContent || '';
+      a.textContent = txt.length > 22 ? txt.slice(0, 22) + '…' : txt;
+      a.setAttribute('data-target', h.id);
+      li.appendChild(a);
+      toc.appendChild(li);
+
+      if (tag === 'h1') {
+        currentH1Li = li;
+        // 点击 h1 条目切换折叠
+        a.addEventListener('click', function(e) {
+          e.preventDefault();
+          var isOpen = li.classList.contains('open');
+          // 关闭所有
+          toc.querySelectorAll('li.toc-h1').forEach(function(h1li) {
+            h1li.classList.remove('open');
+            h1li.querySelectorAll && void 0;
+          });
+          toc.querySelectorAll('li.toc-h2').forEach(function(h2li) {
+            h2li.classList.remove('visible');
+          });
+          if (!isOpen) {
+            li.classList.add('open');
+            showChildH2s(li);
+          }
+          // 滚动到目标
+          var target = document.getElementById(h.id);
+          if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
+        });
+      } else if (tag === 'h2') {
+        // h2 点击直接跳转
+        a.addEventListener('click', function(e) {
+          e.preventDefault();
+          var target = document.getElementById(h.id);
+          if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
+        });
+      }
+    });
+  }
+
+  function showChildH2s(h1li) {
+    var sib = h1li.nextElementSibling;
+    while (sib && sib.classList.contains('toc-h2')) {
+      sib.classList.add('visible');
+      sib = sib.nextElementSibling;
+    }
+  }
+
+  function getParentH1Li(h2li) {
+    var sib = h2li.previousElementSibling;
+    while (sib) {
+      if (sib.classList.contains('toc-h1')) return sib;
+      sib = sib.previousElementSibling;
+    }
+    return null;
+  }
+
+  // 2. Scroll highlight TOC + auto-expand active h1 section
+  function setupScrollHighlight() {
+    var contentEl = document.getElementById('content');
+    if (!contentEl) return;
+    var headings = contentEl.querySelectorAll('h1, h2');
+    if (!headings.length) return;
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.id;
+          document.querySelectorAll('#toc a').forEach(function(a) {
+            a.classList.remove('active');
+          });
+          var active = document.querySelector('#toc a[data-target="' + CSS.escape(id) + '"]');
+          if (active) {
+            active.classList.add('active');
+            var li = active.parentElement;
+
+            // 找到所属 h1，自动展开
+            var h1li = li.classList.contains('toc-h1') ? li : getParentH1Li(li);
+            if (h1li && !h1li.classList.contains('open')) {
+              // 关闭其他所有
+              document.querySelectorAll('#toc li.toc-h1').forEach(function(el) {
+                el.classList.remove('open');
+              });
+              document.querySelectorAll('#toc li.toc-h2').forEach(function(el) {
+                el.classList.remove('visible');
+              });
+              h1li.classList.add('open');
+              showChildH2s(h1li);
+            }
+            active.scrollIntoView({block: 'nearest'});
+          }
+        }
+      });
+    }, {rootMargin: '0px 0px -75% 0px', threshold: 0});
+
+    headings.forEach(function(h) { observer.observe(h); });
+  }
+
+  // 3. Progress bar
+  function setupProgress() {
+    var bar = document.getElementById('progress-bar');
+    if (!bar) return;
+    window.addEventListener('scroll', function() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = docHeight > 0 ? (scrollTop / docHeight * 100) : 0;
+      bar.style.width = pct + '%';
+    }, {passive: true});
+  }
+
+  // 4. Back to top
+  function setupBackTop() {
+    var btn = document.getElementById('back-top');
+    if (!btn) return;
+    window.addEventListener('scroll', function() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      btn.style.opacity = scrollTop > 300 ? '1' : '0';
+    }, {passive: true});
+  }
+
+  // 7. Mobile sidebar toggle
+  function setupMobileMenu() {
+    var toggle = document.getElementById('menu-toggle');
+    var sidebar = document.getElementById('sidebar');
+    var overlay = document.getElementById('sidebar-overlay');
+    if (!toggle || !sidebar || !overlay) return;
+
+    function openSidebar() {
+      sidebar.classList.add('open');
+      overlay.classList.add('open');
+      toggle.textContent = '✕';
+    }
+    function closeSidebar() {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('open');
+      toggle.textContent = '☰';
+    }
+
+    toggle.addEventListener('click', function() {
+      sidebar.classList.contains('open') ? closeSidebar() : openSidebar();
+    });
+    overlay.addEventListener('click', closeSidebar);
+
+    // Close sidebar when a TOC link is tapped on mobile
+    document.getElementById('toc').addEventListener('click', function(e) {
+      if (e.target.tagName === 'A' && window.innerWidth <= 900) {
+        closeSidebar();
+      }
+    });
+  }
+
+  // 8. Fix unsafe anchor navigation (file:// cross-origin issue)
+  function fixAnchorLinks() {
+    document.querySelectorAll('#toc a[data-target]').forEach(function(a) {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        var id = a.getAttribute('data-target');
+        var target = document.getElementById(id);
+        if (target) {
+          target.scrollIntoView({behavior: 'smooth', block: 'start'});
+        }
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    highlightOptional();
+    buildTOC();
+    fixAnchorLinks();
+    setupScrollHighlight();
+    setupProgress();
+    setupBackTop();
+    setupMobileMenu();
+  });
+})();
+</script>
+</body>
+</html>

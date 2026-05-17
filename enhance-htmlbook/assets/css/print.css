@@ -1,0 +1,176 @@
+/* ===== Print / PDF 专用样式 ===== */
+
+/* --- 强制覆盖 CSS 变量 --- */
+:root {
+  --bg-page: #ffffff !important;
+  --bg-content: #ffffff !important;
+  --text: #1a1a1a !important;
+  --text-muted: #555555 !important;
+  --border: #cccccc !important;
+  --accent: #5a3a1e !important;
+  --h1-bg: #f0ebe0 !important;
+  --optional-bg: #ffffff !important;
+  --optional-border: #999999 !important;
+  --table-header: #f0ebe0 !important;
+  --sidebar-bg: #ffffff !important;
+  --sidebar-active: #5a3a1e !important;
+  --progress-color: #5a3a1e !important;
+  --noise-opacity: 0 !important;
+}
+
+[data-theme="dark"] {
+  --bg-page: #ffffff !important;
+  --bg-content: #ffffff !important;
+  --text: #1a1a1a !important;
+  --text-muted: #555555 !important;
+  --border: #cccccc !important;
+  --accent: #5a3a1e !important;
+  --h1-bg: #f0ebe0 !important;
+  --optional-bg: #ffffff !important;
+  --optional-border: #999999 !important;
+  --table-header: #f0ebe0 !important;
+  --sidebar-bg: #ffffff !important;
+  --sidebar-active: #5a3a1e !important;
+  --progress-color: #5a3a1e !important;
+  --noise-opacity: 0 !important;
+}
+
+/* --- 隐藏浏览器 UI --- */
+#sidebar,
+#sidebar-overlay,
+#progress-bar,
+#back-top,
+#menu-toggle {
+  display: none !important;
+}
+
+/* --- 页面设置 --- */
+@page {
+  size: A4;
+  margin: 2cm 2.2cm;
+  background: white;
+  @bottom-center {
+    content: counter(page);
+    font-family: 'PingFang SC', 'Songti SC', serif;
+    font-size: 0.8em;
+    color: #888888;
+  }
+}
+
+/* --- 全局排版 --- */
+html, body {
+  display: block !important;
+  background: white !important;
+  background-image: none !important;
+  color: #1a1a1a !important;
+  font-family: 'PingFang SC', 'Songti SC', 'LXGW WenKai', serif !important;
+  font-size: 11pt;
+  line-height: 1.9;
+}
+
+* {
+  text-shadow: none !important;
+}
+
+p, li, td, th, span, div, a, strong, em, b, i, u, small, blockquote, pre, code {
+  color: #1a1a1a !important;
+  background-color: transparent !important;
+}
+
+#main {
+  margin-left: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  background: white !important;
+}
+
+#content {
+  padding: 0 !important;
+  background: white !important;
+}
+
+/* --- 书签层级 --- */
+h1 { bookmark-level: 1; }
+h2 { bookmark-level: 2; }
+h3 { bookmark-level: 3; }
+
+h2 { page-break-before: always; }
+h2:first-of-type { page-break-before: avoid; }
+
+/* --- 标题 --- */
+h1 {
+  text-align: center;
+  font-size: 1.7em;
+  margin: 2em 0 1em;
+  padding: 0.8em;
+  background-color: #f0ebe0 !important;
+  color: #3a2010 !important;
+}
+
+h2 {
+  font-size: 1.35em;
+  margin: 1.5em 0 0.8em;
+  padding-bottom: 0.3em;
+  border-bottom: 2px solid #cccccc;
+  color: #3a2010 !important;
+  background: none !important;
+}
+
+h3 {
+  font-size: 1.12em;
+  margin: 1.2em 0 0.5em;
+  color: #5a3a1e !important;
+  background: none !important;
+}
+
+h4, h5, h6 {
+  color: #3a2010 !important;
+}
+
+p { line-height: 1.9; margin: 0.5em 0; }
+
+a { color: #5a3a1e !important; text-decoration: underline; }
+
+/* --- 表格 --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.82em;
+  background: white !important;
+  page-break-inside: auto;
+}
+
+/* 宽表：等分列宽 + 强制断行，防止溢出 */
+table.wide-table {
+  table-layout: fixed;
+}
+
+table.wide-table th,
+table.wide-table td {
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+
+thead {
+  display: table-header-group;
+}
+
+th, td {
+  border: 1px solid #cccccc;
+  padding: 0.25em 0.4em;
+  text-align: left;
+}
+
+th { background-color: #f0ebe0 !important; font-weight: bold; }
+
+tr:nth-child(even) td { background-color: #fafaf8 !important; }
+
+/* --- 列表 --- */
+ul, ol { padding-left: 1.5em; margin: 0.5em 0; }
+li { margin: 0.2em 0; }
+
+hr { border: none; border-top: 1px solid #cccccc; margin: 2em 0; }
+
+p, li, td, th { orphans: 2; widows: 2; }
+h2, h3 { page-break-after: avoid; }
