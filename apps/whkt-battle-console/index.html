@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>杀戮小队对局台 · 工具工坊 · DigitalGhost</title>
+<meta name="description" content="WHKT Battle Console —— 为《杀戮小队》完整双方对局设计的 Android 战术控制台：编成与部署、四个转折点、CP/VP 与特工状态、攻防骰盘。离线可用，支持手机与平板。">
+<link rel="stylesheet" href="../../assets/css/fonts.css">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<link rel="stylesheet" href="../../assets/css/apps.css">
+<script>
+  (function () {
+    var saved = localStorage.getItem('theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  })();
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <img class="header-image header-image-light" src="../../enhance-htmlbook/assets/header-light.jpg" alt="工具工坊">
+  <img class="header-image header-image-dark" src="../../enhance-htmlbook/assets/header-dark.jpg" alt="工具工坊">
+  <div class="header-overlay">
+    <div class="candle-light"></div>
+    <div class="dust-particle"></div>
+    <div class="dust-particle"></div>
+    <div class="dust-particle"></div>
+    <div class="dust-particle"></div>
+    <div class="dust-particle"></div>
+    <div class="dust-particle"></div>
+    <div class="dust-particle"></div>
+    <div class="header-ornament">✦ ✦ ✦</div>
+    <h1 class="site-title">杀 戮 小 队 对 局 台</h1>
+    <p class="site-subtitle">WHKT Battle Console · v2.0</p>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+    <span class="icon-sun">☀</span>
+    <span class="icon-moon">☾</span>
+  </button>
+</header>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a class="nav-link" href="../../index.html">首 页</a>
+    <a class="nav-link" href="../../library/index.html">藏 书 阁</a>
+    <a class="nav-link" href="../index.html">工 具 工 坊</a>
+  </div>
+</nav>
+
+<main class="main-content">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">首页</a><span>›</span>
+    <a href="../index.html">工具工坊</a><span>›</span>杀戮小队对局台
+  </div>
+
+  <div class="app-hero">
+    <div class="app-hero-icon">
+      <img src="../../assets/img/whkt/icon.svg" alt="杀戮小队对局台图标">
+    </div>
+    <div class="app-hero-text">
+      <h1>杀戮小队对局台</h1>
+      <p class="app-subtitle">WHKT Battle Console · 版本 2.0 · Android 7.0+</p>
+      <p class="app-lead">
+        一款为《战锤 40K：杀戮小队》完整双方对局设计的 Android 战术控制台。
+        从双方编成、任务与部署开始，记录四个转折点、CP、VP 与每名特工的状态；
+        原有攻防骰盘作为对局中的武器结算工具继续使用，投掷解析规则保持不变。
+        完全离线，无需账号或网络。
+      </p>
+      <div class="tags" style="margin-top:1rem">
+        <span class="tag">杀戮小队</span>
+        <span class="tag">双方对局</span>
+        <span class="tag">攻防骰盘</span>
+        <span class="tag">小队卡库</span>
+        <span class="tag">离线</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 下载 ===== -->
+  <div class="download-panel" id="download">
+    <h2>下载安装包</h2>
+    <p>直接下载 APK，在 Android 设备上开启「允许安装未知来源应用」后安装即可。</p>
+
+    <div class="download-list">
+      <div class="download-item">
+        <div class="dl-main">
+          <div class="dl-name">WHKT-Battle-Console-v2.0.apk</div>
+          <div class="dl-meta">版本 2.0 · 约 130 MB · Android 7.0 (API 24) 及以上 · 架构无关</div>
+          <div class="sha-badge">SHA-256 · 签名证书 5d0cc2f6…c3b5c1</div>
+        </div>
+        <a class="btn btn-primary"
+           href="https://media.githubusercontent.com/media/digitalghost/digitalghost.github.io/main/downloads/WHKT-Battle-Console-v2.0.apk"
+           download>
+          <span class="btn-icon">⬇</span> 下载 APK
+        </a>
+      </div>
+    </div>
+
+    <div class="notice" style="margin-bottom:0">
+      <strong>安装步骤：</strong>
+      ① 手机 / 平板「设置 → 应用 → 特殊权限 → 安装未知应用」中允许浏览器或文件管理器安装；
+      ② 下载完成后点击 APK 文件确认安装；
+      ③ 首次启动无需登录，也不会请求网络权限。
+    </div>
+  </div>
+
+  <!-- ===== 功能 ===== -->
+  <div class="prose">
+    <h2>主要能力</h2>
+  </div>
+
+  <div class="feature-list">
+
+    <div class="feature-item">
+      <h3>成对攻防流程</h3>
+      <p>先投攻击骰并确认，再进入防御投掷，减少来回配置和误操作；防御阶段可启用掩体，并把一枚防御骰保留为普通成功。</p>
+    </div>
+
+    <div class="feature-item">
+      <h3>完整对局记录</h3>
+      <p>记录双方 CP、关键 / 击杀 / 战术 VP、主要行动加分与击杀等级，并跟踪每名特工的耐伤、命令、就绪 / 待机和残废状态。</p>
+    </div>
+
+    <div class="feature-item">
+      <h3>四个转折点</h3>
+      <p>按照认证行动 2025 流程引导双方完成战前设置、部署提示、先手权、战略阶段、交战阶段与最终结算，四个转折点全程可回溯。</p>
+    </div>
+
+    <div class="feature-item">
+      <h3>双方小队卡库</h3>
+      <p>一场对局直接选择双方已保存小队，无需先设置单一「当前小队」；角色与武器、阵营装备与计谋均可查阅。</p>
+    </div>
+
+    <div class="feature-item">
+      <h3>武器带入骰盘</h3>
+      <p>从任一方特工选择武器，直接把攻击骰、命中、伤害和关键字带入原骰盘；折叠关键字速查随时查阅「严重」「平衡／均衡」「震荡」等通用武器关键字。</p>
+    </div>
+
+    <div class="feature-item">
+      <h3>响应式双端布局</h3>
+      <p>手机一次只显示一个骰盘，以获得尽可能大的投掷空间，攻击完成后左右滑动查看攻击盘和防御盘；平板将两个骰盘并排同屏显示。</p>
+    </div>
+
+    <div class="feature-item">
+      <h3>实体感投掷体验</h3>
+      <p>骰子带有运动、碰撞、落定姿态和与动画同步的滚动碰撞音效；暗红赤铜攻击盘与深蓝冷钢防御盘采用不同轮廓与气氛，主题皮肤统一收纳在一个入口。</p>
+    </div>
+
+    <div class="feature-item">
+      <h3>本地优先</h3>
+      <p>自动保存当前对局和历史对局，保留可读时间线；投掷记录保存在设备本地，不绑定皮肤，无账号、无网络请求。</p>
+    </div>
+
+  </div>
+
+  <!-- ===== 截图 ===== -->
+  <div class="prose">
+    <h2>界面预览</h2>
+    <p>手机端竖屏操作，平板端横屏同屏对局，两端共用同一套规则数据。</p>
+  </div>
+
+  <div class="shot-grid">
+    <figure class="shot">
+      <img src="../../assets/img/whkt/hub-phone.png" alt="对局入口（手机）" loading="lazy">
+      <figcaption>对局入口 · 手机</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="../../assets/img/whkt/setup-phone.png" alt="双方战前设置（手机）" loading="lazy">
+      <figcaption>双方战前设置 · 手机</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="../../assets/img/whkt/strategy.png" alt="战略阶段（手机）" loading="lazy">
+      <figcaption>战略阶段 · 手机</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="../../assets/img/whkt/attack-dice.png" alt="攻防骰盘（手机）" loading="lazy">
+      <figcaption>攻防骰盘 · 手机</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="../../assets/img/whkt/journal.png" alt="对局日志（手机）" loading="lazy">
+      <figcaption>对局日志 · 手机</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="../../assets/img/whkt/roster.png" alt="小队编成（手机）" loading="lazy">
+      <figcaption>小队编成 · 手机</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="../../assets/img/whkt/battle-tablet.png" alt="交战阶段双方特工状态（平板）" loading="lazy">
+      <figcaption>交战阶段 · 平板双方特工遥测</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="../../assets/img/whkt/shoot-tablet.png" alt="射击结算（平板）" loading="lazy">
+      <figcaption>射击结算 · 平板</figcaption>
+    </figure>
+  </div>
+
+  <!-- ===== 操作 ===== -->
+  <div class="prose">
+    <h2>操作方式</h2>
+  </div>
+
+  <table class="op-table">
+    <thead>
+      <tr><th>操作</th><th>手机</th><th>平板</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>投掷当前骰子</td><td>在当前骰盘上滑</td><td>在当前阶段骰盘上滑</td></tr>
+      <tr><td>选择骰子</td><td>点击骰子</td><td>点击骰子</td></tr>
+      <tr><td>重投所选骰子</td><td>选中后上滑</td><td>选中后上滑</td></tr>
+      <tr><td>清空当前结果</td><td>双指下滑</td><td>双指下滑</td></tr>
+      <tr><td>查看另一骰盘</td><td>攻击确认后左右滑动</td><td>两个骰盘始终同屏</td></tr>
+      <tr><td>开始下一次对抗</td><td>点击「再次对抗」</td><td>点击「再次对抗」</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ===== 运行要求 ===== -->
+  <div class="prose">
+    <h2>运行要求</h2>
+  </div>
+
+  <ul class="require-list">
+    <li>Android 7.0（API 24）或更高版本</li>
+    <li>推荐横屏平板，或竖屏 Android 手机</li>
+    <li>无需账号、无需联网</li>
+    <li>约 130 MB 存储空间</li>
+  </ul>
+
+  <div class="notice">
+    <strong>免责声明：</strong>
+    这是一个由玩家制作的非官方辅助工具，与 Games Workshop 没有隶属、赞助或认可关系。
+    「Warhammer 40,000」「Kill Team」及相关名称和标识属于其各自权利人。
+    应用内规则数据仅用于持有来源文件时的本地检索，不替代官方产品；请始终以最新官方规则为准。
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-ornament">✦ ✦ ✦</div>
+  <p>杀戮小队对局台 · WHKT Battle Console v2.0</p>
+  <div class="footer-links">
+    <a href="../../index.html">首页</a>
+    <a href="../index.html">工具工坊</a>
+    <a href="../../library/index.html">藏书阁</a>
+  </div>
+</footer>
+
+<script src="../../assets/js/site.js"></script>
+</body>
+</html>
